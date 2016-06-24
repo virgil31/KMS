@@ -67,7 +67,35 @@ Ext.define('CL.controller.C_collection', {
                         created_by_name = collection.get("created_by_name"),
                         created_at = collection.get("created_at");
 
-                    //console.log(collection);
+
+
+                    /*
+                    //calcolo se le modifiche sono aperte o chiuse
+                    var startTime = new Date(created_at);   //qui metto la data di creazione
+                    var difference = new Date().getTime() - startTime.getTime(); // This will give difference in milliseconds
+                    var resultInMinutes = Math.round(difference / 60000);
+                    console.log("Differenza ore:"+Math.floor(resultInMinutes/60));
+                    console.log("Differenza minuti:"+resultInMinutes%60);
+                    if(Math.floor(resultInMinutes/60) < 48){
+                        console.log("Non ancora chiusa");
+                    }
+                    else{
+                        console.log("CHIUSE le modifiche!");
+                    }
+                    */
+
+                    var result = new Date(created_at);
+                    result.setDate(result.getDate() + 2);
+                    var giorno = result.getDate(),
+                        mese = result.getMonth()+1,
+                        anno =  result.getFullYear(),
+                        ore = result.getHours(),
+                        minuti = result.getMinutes();
+                    if(minuti == "0") minuti = "00";
+
+                    var data_scadenza = giorno+"-"+mese+"-"+anno+" "+ore+":"+minuti;
+
+                    Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('Data di chiusura delle modifiche: <u>'+data_scadenza+'</u>');
 
                     Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText(title);
                     Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setHtml(description);
@@ -77,6 +105,54 @@ Ext.define('CL.controller.C_collection', {
                     Ext.StoreManager.lookup("S_collection_file").load({
                         params: {
                             collection_id: collection_id
+                        },
+                        callback: function(){
+                            // se non ci sono documenti invito l'utente a caricarli
+                            // logicamento l'invito scatta solo se l'utente in questione ha permessi di scrittura
+
+                            var numero_documenti =  this.getTotalCount();
+                            if(numero_documenti == 0){
+                                CL.app.getController("C_permessi").canWriteCollection(CL.app.getController("C_collection").collection_id, false, function () {
+
+                                    Ext.create("Ext.window.Window",{
+                                        autoShow: true,
+                                        modal: true,
+                                        draggable: false,
+                                        resizable: false,
+                                        title: 'Documenti e Files',
+                                        padding: 10,
+                                        layout: {
+                                            type: 'vbox',
+                                            align: 'center'
+                                        },
+                                        items: [
+                                            {
+                                                xtype: 'image',
+                                                src: 'images/icons/icon_info.png',
+                                                alt: " ",
+                                                width: 60,
+                                                height: 60
+                                            },
+                                            {
+                                                xtype: 'label',
+                                                html: '<div style="text-align: center">Vuoi caricare dei documenti ora?<br></div>',
+                                                margin: '10 0 10 0'
+                                            }
+                                        ],
+                                        buttonAlign: 'center',
+                                        buttons: [
+                                            {
+                                                text: 'Carica!',
+                                                handler: function () {
+                                                    this.up("window").close();
+                                                    alert("todo carica")
+                                                }
+                                            }
+                                        ]
+                                    });
+
+                                });
+                            }
                         }
                     });
                 }
@@ -103,28 +179,32 @@ Ext.define('CL.controller.C_collection', {
 
     //ON DESTROY
     onDestroy: function(){
-        Ext.Msg.show({
-            title:'Attenzione!',
-            message: 'Sicuro di voler eliminare questa collection?',
-            buttons: Ext.Msg.YESNO,
-            icon: Ext.Msg.QUESTION,
-            fn: function(btn) {
-                if (btn === 'yes') {
-                    var collection_id = CL.app.getController("C_collection").collection_id,
-                        store = Ext.StoreManager.lookup("S_collection"),
-                        record_to_delete = Ext.StoreManager.lookup("S_collection").getById(collection_id);
+        CL.app.getController("C_permessi").canWriteCollection(this.collection_id, true, function () {
+            Ext.Msg.show({
+                title:'Attenzione!',
+                message: 'Sicuro di voler eliminare questa collection?',
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.Msg.QUESTION,
+                fn: function(btn) {
+                    if (btn === 'yes') {
+                        var collection_id = CL.app.getController("C_collection").collection_id,
+                            store = Ext.StoreManager.lookup("S_collection"),
+                            record_to_delete = Ext.StoreManager.lookup("S_collection").getById(collection_id);
 
-                    store.remove(record_to_delete);
-                    Ext.getBody().mask("Attendere...");
-                    store.sync({
-                        callback: function(){
-                            Ext.getBody().unmask();
-                            window.history.back();
-                        }
-                    });
+                        store.remove(record_to_delete);
+                        Ext.getBody().mask("Attendere...");
+                        store.sync({
+                            callback: function(){
+                                Ext.getBody().unmask();
+                                window.history.back();
+                            }
+                        });
+                    }
                 }
-            }
+            });
         });
+
+
     },
 
     //DO DESTROY
@@ -187,7 +267,7 @@ Ext.define('CL.controller.C_collection', {
                     listeners:{
                         click: function(){
                             if(Ext.util.Cookies.get("user_id")===null)
-                                Ext.Msg.alert("Attenzione","Per proseguire bisogna essere loggati.");
+                                Ext.Msg.alert("Attenzione","Per proseguire bisogna essere <b>loggati</b>.");
                             else{
                                 //altrimenti chiudo le window e  mostro il form per la creazione di una collection vuota
                                 /*Ext.ComponentQuery.query("window").forEach(function(win){
@@ -245,7 +325,7 @@ Ext.define('CL.controller.C_collection', {
                         closable: false,
                         draggable: false,
                         resizable: false,
-                        title: 'Fatto!',
+                        title: 'Perfetto!',
                         padding: 10,
                         layout: {
                             type: 'vbox',
@@ -261,7 +341,7 @@ Ext.define('CL.controller.C_collection', {
                             },
                             {
                                 xtype: 'label',
-                                html: '<div style="text-align: center">Collezione correttamente creata!<br>E\' ora possibile caricarci i tuoi files!</div>',
+                                html: '<div style="text-align: center">Informazioni salvate!<br>Nei prossimi passaggi sarà possibile<br>completare la creazione della Collezione!</div>',
                                 margin: '10 0 10 0'
                             }
                         ],

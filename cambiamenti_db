@@ -1,7 +1,7 @@
 
 TABELLE CREATE
 -kms_collection
-
+-kms_collection_file
 
 
 
@@ -21,10 +21,22 @@ CREATE TABLE public.kms_collection
   description text,
   created_by integer NOT NULL,
   created_at timestamp without time zone NOT NULL,
-  end_date timestamp without time zone NOT NULL,
-  active boolean NOT NULL DEFAULT true,
   CONSTRAINT kms_collection_pkey PRIMARY KEY (id),
   CONSTRAINT kms_collection_created_by_fkey FOREIGN KEY (created_by)
       REFERENCES public.sf_guard_user (id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+CREATE TABLE public.kms_collection_file
+(
+  collection_id integer NOT NULL,
+  file_id integer NOT NULL,
+  title text NOT NULL,
+  CONSTRAINT kms_collection_file_pkey PRIMARY KEY (collection_id, file_id),
+  CONSTRAINT kms_collection_file_collection_id_fkey FOREIGN KEY (collection_id)
+      REFERENCES public.kms_collection (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE,
+  CONSTRAINT kms_collection_file_file_id_fkey FOREIGN KEY (file_id)
+      REFERENCES public.st_file (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE
 )

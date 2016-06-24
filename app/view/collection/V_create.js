@@ -65,7 +65,7 @@ Ext.define('CL.view.collection.V_create', {
                     width: '100%',
                     height: 175,
                     allowBlank: false,
-		    maxLength: 270
+		            maxLength: 270
                 },
                 {
                     xtype: 'tagfield',
@@ -96,7 +96,7 @@ Ext.define('CL.view.collection.V_create', {
     ],
     buttons:[
         {
-            text: 'Salva e Conferma',
+            text: 'Conferma e Avanti >',
             action: 'do_create'
         }
     ]

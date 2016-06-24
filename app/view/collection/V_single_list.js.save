@@ -17,7 +17,8 @@ Ext.define('CL.view.collection.V_single_list', {
     items: [
         {
             xtype: 'panel',
-            //height: 175,
+            height: 200
+,
             width: '100%',
             margin: '10 0 0 0',
             bodyStyle: 'backgroundColor: #333333',
@@ -27,7 +28,6 @@ Ext.define('CL.view.collection.V_single_list', {
                 pack: 'center'
             },
             items: [
-                {html:'<br>'},
                 {
                     xtype: 'toolbar',
                     width: '100%',
@@ -56,17 +56,16 @@ Ext.define('CL.view.collection.V_single_list', {
                             }
                         },
                         '->',
-                        {
-                            xtype: 'panel',
-                            layout: 'hbox',
-                            items: [
-                                {
-                                    xtype: 'button',
-                                    tooltip: "Modifica Info",
-                                    iconCls: 'x-fa fa-pencil'
-                                }
-                            ]
-                        }
+			{
+			    xtype: 'panel',
+			    items: [
+				{
+                            	    xtype: 'button',
+                            	    tooltip: "Modifica Info",
+                            	    iconCls: 'x-fa fa-pencil'
+                        	}
+			    ]
+			}                        
                     ]
                 },
                 {
@@ -96,18 +95,7 @@ Ext.define('CL.view.collection.V_single_list', {
                         fontWeight: 'bold'
                     },
                     margin: '20 0 0 0'
-                },
-                {
-                    xtype: 'label',
-                    name: 'data_chiusura',
-                    //html: 'Data di chiusura delle modifiche: <u>24-06-2016 16:00</u>',
-                    style: {
-                        color: 'white',
-                        fontSize: 'medium'
-                    },
-                    margin: '20 0 0 0'
-                },
-                {html:'<br>'}
+                }
             ]
         },
 

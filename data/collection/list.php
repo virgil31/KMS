@@ -14,7 +14,7 @@ if(isset($_GET["collection_id"])){
     $collection_id = $_GET["collection_id"];
 
     $statement = $pdo->prepare("
-        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.end_date
+        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
         FROM kms_collection A
           LEFT JOIN sf_guard_user B ON B.id = A.created_by
         WHERE A.id = $collection_id
@@ -27,7 +27,7 @@ else if(isset($_GET["user_id"])){
     $user_id = $_GET["user_id"];
 
     $statement = $pdo->prepare("
-        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.end_date
+        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
         FROM kms_collection A
           LEFT JOIN sf_guard_user B ON B.id = A.created_by
         WHERE A.created_by = $user_id
@@ -38,7 +38,7 @@ else if(isset($_GET["user_id"])){
 //NORMAL LIST
 else{
     $statement = $pdo->prepare("
-        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.end_date
+        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
         FROM kms_collection A
           LEFT JOIN sf_guard_user B ON B.id = A.created_by
         ORDER BY title,description

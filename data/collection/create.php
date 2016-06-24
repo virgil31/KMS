@@ -11,8 +11,8 @@ $data = json_decode($_POST['data'],true);
 
 
 $s = $pdo->prepare("
-	INSERT INTO kms_collection(title, description, created_by,created_at,end_date)
-	VALUES(:title,:description,:created_by,now(),now())
+	INSERT INTO kms_collection(title, description, created_by,created_at)
+	VALUES(:title,:description,:created_by,now())
 ");
 
 $params = array(
@@ -22,7 +22,6 @@ $params = array(
 );
 
 $success = $s->execute($params);
-
 
 $last_id = $pdo->lastInsertId("kms_collection_id_seq");
 

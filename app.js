@@ -12,6 +12,8 @@ Ext.application({
     controllers: [
         'C_js_css_loader',
 
+        'C_permessi',
+
         'C_not_found',
         'C_user',
         'C_sign_up',

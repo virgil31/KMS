@@ -26,8 +26,8 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                                     var collection_id = (window.location.hash.split("/"))[1];
                                     CL.app.getController("C_uploader").showCollectionUploader(btn.getEl(),collection_id,function(){
                                         Ext.StoreManager.lookup("S_collection_file").reload();
-					console.log("ricarico lo store dei collection_files perchè probabilmente ne ho uppato dei nuovi")
-					//location.reload();
+					                    console.log("ricarico lo store dei collection_files perchè probabilmente ne ho uppato dei nuovi")
+					                    //location.reload();
                                     });
                                 }
                             }
