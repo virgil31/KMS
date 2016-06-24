@@ -1,0 +1,20 @@
+TODO LIST
+
+
+COLLECTION
+- Chiusura in 2 giorni. Aggiungere un timer per vedere quanto manca alla chiusura.
+
+- Quando apro una COLLEZIONE che non è ancora CHIUSA e non ha documenti, invito l'utente a caricarne dei nuovi.
+
+- Quando apro una COLLEZIONE che non è ancora CHIUSA e non ha collaboratori, invito l'utente ad aggiungerne dei nuovi.
+
+- Possibilità di modificare le info principali (titolo, descrizione, licenza) se non è ancora CHIUSA
+
+- Aggiungere CRUD lista COLLABORATORI. Un COLLABORATORE ha potere di scrittura sulla COLLECTION,
+  e le sue discussioni saranno contrassegnate da una precisa icona e colore (dato che tutti possono creare discussioni).
+  I permessi di scrittura su tale lista li avranno solamente:
+	.il creatore della collection
+	.gli administrator (sf_guard_group)
+	.ed il collaboratore designato come "gestore della lista collaboratori"
+  Il "gestore della lista collaboratori" sarà sempre e soltanto UNO. Il passaggio di tale potere può
+  essere effettuato solamente dai 3 elementi sopracitati.

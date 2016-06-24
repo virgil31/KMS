@@ -1,0 +1,30 @@
+
+TABELLE CREATE
+-kms_collection
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+CREATE TABLE public.kms_collection
+(
+  id serial,
+  title text NOT NULL,
+  description text,
+  created_by integer NOT NULL,
+  created_at timestamp without time zone NOT NULL,
+  end_date timestamp without time zone NOT NULL,
+  active boolean NOT NULL DEFAULT true,
+  CONSTRAINT kms_collection_pkey PRIMARY KEY (id),
+  CONSTRAINT kms_collection_created_by_fkey FOREIGN KEY (created_by)
+      REFERENCES public.sf_guard_user (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
