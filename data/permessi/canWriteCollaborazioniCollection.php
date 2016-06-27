@@ -6,8 +6,8 @@ header('Content-Type: application/json');
  *
  * 1 - Se sono un administrator (sf_guard_group) potrò SEMPRE modificare
  * 2 - Se sono il creatore e non è ancora stata chiusa potrò modificare
- * 3 - Se sono un collaboratore e non è ancora stata chiusa potrò modificare
- * {4 - Se sono un funzionario di una delle entità taggate potrà SEMPRE modificare}
+ * 3 - il collaboratore designato come "gestore della lista collaboratori" e non è ancora stata chiusa potrò modificare
+ * {4 - Se sono un funzionario di una delle entità taggate potrò SEMPRE modificare}
  *
  * */
 
@@ -75,11 +75,8 @@ foreach($result as $row){
     }
 }
 
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////
-// 3 - Se sono un collaboratore e non è ancora stata chiusa potrò modificare
+// 3 - il collaboratore designato come "gestore della lista collaboratori" e non è ancora stata chiusa potrò modificare
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 $s = $pdo->prepare("
@@ -88,6 +85,7 @@ $s = $pdo->prepare("
       LEFT JOIN kms_collection_user B ON B.collection_id = A.id
 
     WHERE id = :collection_id
+    AND B.is_coworker_manager = TRUE
 ");
 $params = array(
     'collection_id' => $collection_id
@@ -105,10 +103,12 @@ foreach($result as $row){
 
         if($differenza_ore<48){
             $can_write = true;
-            $caso = "collaboratore";
+            $caso = "gestore collaboratori";
         }
     }
 }
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////

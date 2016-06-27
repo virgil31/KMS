@@ -25,6 +25,9 @@ Ext.define('CL.controller.C_user', {
 
     //SHOW VIEW
     showView: function(param1){
+
+        var user_id = param1;
+
         if(Ext.ComponentQuery.query('user_profile').length == 0)
             Ext.ComponentQuery.query('viewport panel[name=card]')[0].add({xtype: 'user_profile'});
 
@@ -41,8 +44,8 @@ Ext.define('CL.controller.C_user', {
         });
 
         Ext.ComponentQuery.query('user_profile grid[name=collections]')[0].getStore().load({
-            extraParams: {
-                user_id: Ext.util.Cookies.get("user_id")
+            params: {
+                user_id: user_id
             }
         });
 

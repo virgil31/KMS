@@ -160,6 +160,7 @@ Ext.define('CL.controller.C_collection', {
                             }
                         }
                     });
+
                 }
             }
         })

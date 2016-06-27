@@ -26,8 +26,10 @@ Ext.application({
         'C_quick_search',
         'C_search',
         'C_uploader',
+
         'C_collection',
         'C_collection_file',
+        'C_collection_user',
 
         'C_preview'
 

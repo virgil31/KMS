@@ -28,19 +28,16 @@ x Quando apro una COLLEZIONE che non è ancora CHIUSA e che non ha documenti ed 
 - Possibilità di modificare le info principali (titolo, descrizione, licenza) se non è ancora CHIUSA
 
 
-- Quando apro una COLLEZIONE che non è ancora CHIUSA e non ha collaboratori, invito l'utente ad aggiungerne dei nuovi SE è:
-    .il creatore della collection
-    .uno degli administrator (sf_guard_group)
-    .il collaboratore designato come "gestore della lista collaboratori"
-
 
 - Aggiungere CRUD lista COLLABORATORI. Un COLLABORATORE ha potere di scrittura sulla COLLECTION,
   e le sue discussioni saranno contrassegnate da una precisa icona e colore (dato che tutti possono creare discussioni).
   I permessi di scrittura su tale lista li avranno solamente:
-	.il creatore della collection
-	.gli administrator (sf_guard_group)
-	.ed il collaboratore designato come "gestore della lista collaboratori"
+	.il creatore della collection (fino alla chiusura)
+	.gli administrator (sf_guard_group) (sempre)
+	.ed il collaboratore designato come "gestore della lista collaboratori" (fino alla chiusura)
   Il "gestore della lista collaboratori" sarà sempre e soltanto UNO. Il passaggio di tale potere può
   essere effettuato solamente dai 3 elementi sopracitati.
+
+  In fase di aggiunta si potrà scegliere se aggiungere un utente singolo o uno USER POOL
 
   -----------------------------------------------------------------------------

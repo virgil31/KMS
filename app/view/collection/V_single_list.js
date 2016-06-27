@@ -41,7 +41,8 @@ Ext.define('CL.view.collection.V_single_list', {
                                     xtype: 'button',
                                     tooltip: 'Elimina Collection',
                                     iconCls: 'x-fa fa-trash',
-                                    action: 'on_destroy'
+                                    action: 'on_destroy',
+                                    cls: 'mybutton'
                                 }
                             ]
                         },
@@ -65,7 +66,8 @@ Ext.define('CL.view.collection.V_single_list', {
                                     xtype: 'button',
                                     tooltip: "Modifica Info",
                                     iconCls: 'x-fa fa-pencil',
-                                    action: 'on_edit_info'
+                                    action: 'on_edit_info',
+                                    cls: 'mybutton'
                                 }
                             ]
                         }
@@ -150,6 +152,9 @@ Ext.define('CL.view.collection.V_single_list', {
                             items: []
                         },
                         {
+                            xtype: 'collection_user_list_by_collection'
+                        },
+                        {
                             title: 'Discussioni',
                             icon: 'images/icons/icon_msg.png',
                             bodyStyle: 'background: #484848',
@@ -162,19 +167,8 @@ Ext.define('CL.view.collection.V_single_list', {
                             items: []
                         },
                         {
-                            title: 'Collaboratori',
-                            icon: 'images/icons/icon_collaboratori.png',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
                             title: 'TAGs',
+                            icon: 'images/icons/icon_tag.png',
                             bodyStyle: 'background: #484848',
                             layout: {
                                 type: 'vbox',
