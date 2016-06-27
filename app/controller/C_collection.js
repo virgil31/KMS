@@ -36,6 +36,7 @@ Ext.define('CL.controller.C_collection', {
 
         //resetto campi
         try{
+            Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('');
             Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText("");
             Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setText("");
             Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("");
@@ -68,7 +69,6 @@ Ext.define('CL.controller.C_collection', {
                         created_at = collection.get("created_at");
 
 
-
                     /*
                     //calcolo se le modifiche sono aperte o chiuse
                     var startTime = new Date(created_at);   //qui metto la data di creazione
@@ -98,7 +98,7 @@ Ext.define('CL.controller.C_collection', {
                     Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('Data di chiusura delle modifiche: <u>'+data_scadenza+'</u>');
 
                     Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText(title);
-                    Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setHtml(description);
+                    Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setHtml("<div style='text-align: center'>"+description+"</div>");
                     Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/"+created_by+"'>"+created_by_name+"</a> il "+Ext.Date.format(created_at,'d-m-Y'));
 
                     //carico gli store del tabpanel
@@ -111,10 +111,12 @@ Ext.define('CL.controller.C_collection', {
                             // logicamento l'invito scatta solo se l'utente in questione ha permessi di scrittura
 
                             var numero_documenti =  this.getTotalCount();
+
                             if(numero_documenti == 0){
                                 CL.app.getController("C_permessi").canWriteCollection(CL.app.getController("C_collection").collection_id, false, function () {
 
                                     Ext.create("Ext.window.Window",{
+                                        animateTarget: Ext.ComponentQuery.query("tbar button[name=app_icon]")[0].getEl(),
                                         autoShow: true,
                                         modal: true,
                                         draggable: false,
@@ -145,7 +147,10 @@ Ext.define('CL.controller.C_collection', {
                                                 text: 'Carica!',
                                                 handler: function () {
                                                     this.up("window").close();
-                                                    alert("todo carica")
+
+                                                    var btn = Ext.ComponentQuery.query("collection_file_list_by_collection button[action=carica_documenti]")[0];
+
+                                                    btn.fireEvent("click",btn);
                                                 }
                                             }
                                         ]
@@ -172,15 +177,27 @@ Ext.define('CL.controller.C_collection', {
             //ON DESTROY
             "collection_single_list button[action=on_destroy]":{
                 click: this.onDestroy
+            },
+
+            // ON EDIT INFO
+            "collection_single_list button[action=on_edit_info]":{
+                click: this.onEditInfo
             }
         }, this);
     },
     /////////////////////////////////////////////////
 
+    onEditInfo: function () {
+        CL.app.getController("C_permessi").canWriteCollection(this.collection_id, true,function(){
+            alert("TODO form edit info di base")
+        });
+    },
+
     //ON DESTROY
     onDestroy: function(){
         CL.app.getController("C_permessi").canWriteCollection(this.collection_id, true, function () {
             Ext.Msg.show({
+                animateTarget: Ext.ComponentQuery.query("tbar button[name=app_icon]")[0].getEl(),
                 title:'Attenzione!',
                 message: 'Sicuro di voler eliminare questa collection?',
                 buttons: Ext.Msg.YESNO,
@@ -207,6 +224,7 @@ Ext.define('CL.controller.C_collection', {
 
     },
 
+    /*
     //DO DESTROY
     doDestroy: function(){
         var collection_id = CL.app.getController("C_collection").collection_id,
@@ -222,7 +240,7 @@ Ext.define('CL.controller.C_collection', {
 
             }
         });
-    },
+    },*/
 
     //ON CREATE
     onCreate: function (targetEl) {

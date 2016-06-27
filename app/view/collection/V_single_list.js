@@ -20,7 +20,8 @@ Ext.define('CL.view.collection.V_single_list', {
             //height: 175,
             width: '100%',
             margin: '10 0 0 0',
-            bodyStyle: 'backgroundColor: #333333',
+            bodyCls: 'mypanel',
+            //bodyStyle: 'backgroundColor: #333333',
             layout: {
                 type: 'vbox',
                 align: 'center',
@@ -63,7 +64,8 @@ Ext.define('CL.view.collection.V_single_list', {
                                 {
                                     xtype: 'button',
                                     tooltip: "Modifica Info",
-                                    iconCls: 'x-fa fa-pencil'
+                                    iconCls: 'x-fa fa-pencil',
+                                    action: 'on_edit_info'
                                 }
                             ]
                         }
@@ -137,6 +139,7 @@ Ext.define('CL.view.collection.V_single_list', {
                         },
                         {
                             title: 'Links',
+                            icon: 'images/icons/icon_link.png',
                             bodyStyle: 'background: #484848',
                             layout: {
                                 type: 'vbox',
@@ -148,6 +151,7 @@ Ext.define('CL.view.collection.V_single_list', {
                         },
                         {
                             title: 'Discussioni',
+                            icon: 'images/icons/icon_msg.png',
                             bodyStyle: 'background: #484848',
                             layout: {
                                 type: 'vbox',
@@ -157,6 +161,29 @@ Ext.define('CL.view.collection.V_single_list', {
                             padding: 1,
                             items: []
                         },
+                        {
+                            title: 'Collaboratori',
+                            icon: 'images/icons/icon_collaboratori.png',
+                            bodyStyle: 'background: #484848',
+                            layout: {
+                                type: 'vbox',
+                                align: 'center',
+                                pack: 'center'
+                            },
+                            padding: 1,
+                            items: []
+                        },
+                        {
+                            title: 'TAGs',
+                            bodyStyle: 'background: #484848',
+                            layout: {
+                                type: 'vbox',
+                                align: 'center',
+                                pack: 'center'
+                            },
+                            padding: 1,
+                            items: []
+                        }/*,
                         {
                             title: 'Collezioni Correlate',
                             bodyStyle: 'background: #484848',
@@ -200,7 +227,7 @@ Ext.define('CL.view.collection.V_single_list', {
                             },
                             padding: 1,
                             items: []
-                        }
+                        }*/
                     ]
                 }
             ]

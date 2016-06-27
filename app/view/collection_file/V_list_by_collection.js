@@ -5,6 +5,7 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
     alias: 'widget.collection_file_list_by_collection',
 
     title: 'Documenti',
+    icon: 'images/icons/icon_file.png',
     bodyStyle: 'background: #484848',
     padding: 1,
     items: [
@@ -21,14 +22,22 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                             xtype: 'button',
                             text: 'Carica nuovi Documenti',
                             iconCls: 'x-fa fa-upload',
+                            action: 'carica_documenti',
                             listeners: {
                                 click: function (btn) {
                                     var collection_id = (window.location.hash.split("/"))[1];
-                                    CL.app.getController("C_uploader").showCollectionUploader(btn.getEl(),collection_id,function(){
-                                        Ext.StoreManager.lookup("S_collection_file").reload();
-					                    console.log("ricarico lo store dei collection_files perchè probabilmente ne ho uppato dei nuovi")
-					                    //location.reload();
+
+                                    CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+                                        CL.app.getController("C_uploader").showCollectionUploader(btn.getEl(),collection_id,function(){
+                                            Ext.StoreManager.lookup("S_collection_file").load({
+                                                params: {
+                                                    collection_id: collection_id
+                                                }
+                                            });
+                                            console.log("ricarico lo store dei collection_files perchè probabilmente ne ho uppato dei nuovi");
+                                        });
                                     });
+
                                 }
                             }
                         }
@@ -108,22 +117,32 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                             iconCls: 'x-fa fa-edit',
                             tooltip: 'Modifica',
                             handler: function(grid, rowIndex) {
-                                var rec = grid.getStore().getAt(rowIndex);
-                                console.log(rec);
+                                var collection_id = (window.location.hash.split("/"))[1];
 
-                                CL.app.getController("C_collection_file").onEdit(rec);
+                                CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+                                    var rec = grid.getStore().getAt(rowIndex);
+
+                                    CL.app.getController("C_collection_file").onEdit(rec);
+                                });
+
                             }
                         },
                         {
                             iconCls: 'x-fa fa-trash',
                             tooltip: 'Elimina',
                             handler: function(grid, rowIndex) {
-                                var record = grid.getStore().getAt(rowIndex);
+                                var collection_id = (window.location.hash.split("/"))[1];
 
-                                Ext.Msg.confirm('Attenzione!', 'Eliminare <b>'+record.get("title")+"</b>?",function(btn){
-                                    if (btn === 'yes')
-                                        Ext.StoreManager.lookup("S_collection_file").remove(record);
+                                CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+                                    var rec = grid.getStore().getAt(rowIndex);
+
+                                    Ext.Msg.confirm('Attenzione!', 'Eliminare <b>'+rec.get("title")+"</b>?",function(btn){
+                                        if (btn === 'yes')
+                                            Ext.StoreManager.lookup("S_collection_file").remove(rec);
+                                    });
                                 });
+
+
                             }
                         }
                     ]

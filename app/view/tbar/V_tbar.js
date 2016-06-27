@@ -130,6 +130,7 @@ Ext.define('CL.view.tbar.V_tbar', {
 					items:[
 						{
 							xtype: 'button',
+							name: 'app_icon',
 							width: 46,
 							height: 46,
 							style: "background-image: url('images/logos/icon_app_large_red.png') !important; " +

@@ -1,7 +1,8 @@
 
 TABELLE CREATE
--kms_collection
--kms_collection_file
+- kms_collection
+- kms_collection_file
+- kms_collection_user
 
 
 
@@ -38,5 +39,19 @@ CREATE TABLE public.kms_collection_file
       ON UPDATE NO ACTION ON DELETE CASCADE,
   CONSTRAINT kms_collection_file_file_id_fkey FOREIGN KEY (file_id)
       REFERENCES public.st_file (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE
+)
+
+CREATE TABLE public.kms_collection_user
+(
+  collection_id integer NOT NULL,
+  user_id integer NOT NULL,
+  is_coworker_manager boolean NOT NULL DEFAULT false,
+  CONSTRAINT kms_collection_user_pkey PRIMARY KEY (collection_id, user_id),
+  CONSTRAINT kms_collection_user_collection_id_fkey FOREIGN KEY (collection_id)
+      REFERENCES public.kms_collection (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE,
+  CONSTRAINT kms_collection_user_user_id_fkey FOREIGN KEY (user_id)
+      REFERENCES public.sf_guard_user (id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE CASCADE
 )

@@ -52,21 +52,15 @@
     <script src="lib/fine-uploader/fine-uploader.js"></script>
 
 
-
-
-
-    <link href="my_style.css" rel="stylesheet" type="text/css">
-
 </head>
 
 
 
 
 
-
-
-
 <body bgcolor="#963232">
+    <link href="my_style.css" rel="stylesheet" type="text/css">
+
 
     <!-- jquery -->
    <!-- <script src="//code.jquery.com/jquery-2.1.4.min.js"></script> -->
