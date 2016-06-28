@@ -40,7 +40,7 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                                     var collection_id = (window.location.hash.split("/"))[1];
 
                                     CL.app.getController("C_permessi").canWriteCollaboratoriCollection(collection_id, true,function(){
-                                        alert("mostro form di aggiunta collaboratore");
+                                        CL.app.getController("C_collection_user").onCreate(btn.el);
                                     });
 
                                 }
@@ -56,7 +56,7 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                                     var collection_id = (window.location.hash.split("/"))[1];
 
                                     CL.app.getController("C_permessi").canWriteCollaboratoriCollection(collection_id, true,function(){
-                                        alert("mostro form di aggiunta collaboratori/userpool");
+                                        alert("TODO: mostro form di aggiunta collaboratori/userpool");
                                     });
 
                                 }
@@ -66,6 +66,17 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                 }
             ],
             columns: [
+                {
+                    sortable: false,
+                    dataIndex: 'type',
+                    flex: 0.7,
+                    renderer: function(value, metaData, record){
+                        if(record.get("icon_url") == "")
+                            return "";
+                        else
+                            return '<img src="'+record.get("icon_url")+'" title="'+record.get("icon_tooltip")+'" alt=" " height="20" width="20">';
+                    }
+                },
                 {
                     text: 'Nome',
                     dataIndex: 'user_name',
@@ -80,19 +91,8 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                     flex: 10
                 },
                 {
-                    sortable: false,
-                    dataIndex: 'type',
-                    flex: 0.7,
-                    renderer: function(value, metaData, record){
-                        if(record.get("icon_url") == "")
-                            return "";
-                        else
-                            return '<img src="'+record.get("icon_url")+'" title="'+record.get("icon_tooltip")+'" alt=" " height="20" width="20">';
-                    }
-                },
-                {
                     xtype: 'actioncolumn',
-                    width: 110,
+                    width: 75,
                     items: [
                         {
                             iconCls: 'x-fa fa-trash',
@@ -106,11 +106,34 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                                         Ext.Msg.alert("Attenzione!","Non è possibile rimuovere il <b>creatore</b> della Collezione!");
                                     else{
                                         Ext.Msg.confirm('Attenzione!', 'Rimuovere il collaboratore <b>'+rec.get("user_name")+"</b>?",function(btn){
-                                            if (btn === 'yes')
+                                            if (btn === 'yes'){
                                                 Ext.StoreManager.lookup("S_collection_user").remove(rec);
-
+                                                Ext.StoreManager.lookup("S_collection_user").sync();
+                                            }
                                         });
                                     }
+                                });
+
+                            }
+                        },
+                        {
+                            icon: 'images/icons/icon_medal.png',
+                            tooltip: 'Promuovi a Gestore Collaboratori',
+                            handler: function(grid, rowIndex) {
+                                var rec = grid.getStore().getAt(rowIndex);
+                                var collection_id = (window.location.hash.split("/"))[1];
+
+                                CL.app.getController("C_permessi").canWriteCollaboratoriCollection(collection_id, true,function(){
+                                    Ext.Msg.confirm('Attenzione!', 'Eleggere come Gestore dei Collaboratori <b>'+rec.get("user_name")+"</b>?<br>Ricorda che può esserci <u>un solo gestore alla volta</u>.",function(btn){
+                                        if (btn === 'yes'){
+                                            rec.set({is_coworker_manager: true});
+                                            Ext.StoreManager.lookup("S_collection_user").sync({
+                                                callback: function () {
+                                                    Ext.StoreManager.lookup("S_collection_user").reload();
+                                                }
+                                            });
+                                        }
+                                    });
                                 });
 
                             }

@@ -8,6 +8,20 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
     icon: 'images/icons/icon_file.png',
     bodyStyle: 'background: #484848',
     padding: 1,
+
+
+    listeners: {
+        activate: function(){
+            Ext.StoreManager.lookup("S_collection_file").load({
+                params:{
+                    collection_id: (window.location.hash.split("/"))[1]
+                }
+            });
+        }
+    },
+
+
+
     items: [
         {
             xtype: 'grid',

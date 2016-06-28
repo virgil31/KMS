@@ -9,7 +9,7 @@ $pdo=new PDO("pgsql:host=".$ini_array['pdo_host'].";port=".$ini_array['pdo_port'
 
 
 $statement = $pdo->prepare("
-	SELECT A.id, A.first_name, A.last_name, A.email_address, C.name as group_name
+	SELECT A.id, A.first_name, A.last_name, A.email_address, C.name as group_name, CONCAT(A.first_name,' ',A.last_name, ' ', A.id) as full_name
 	FROM sf_guard_user A
 		LEFT JOIN sf_guard_user_group B ON A.id = B.user_id
 		LEFT JOIN sf_guard_group C ON C.id = B.group_id

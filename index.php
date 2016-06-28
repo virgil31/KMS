@@ -58,7 +58,8 @@
 
 
 
-<body bgcolor="#963232">
+<!--<body bgcolor="#963232">-->
+<body style="background: url(images/background.png)">
     <link href="my_style.css" rel="stylesheet" type="text/css">
 
 

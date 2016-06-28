@@ -119,6 +119,14 @@ Ext.application({
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     applyOverrides: function () {
+
+        Ext.override(Ext.window.MessageBox,{
+            buttonText: {
+                yes: "Sì"
+            }
+        });
+
+
         /*
          fade animation card layout
          */

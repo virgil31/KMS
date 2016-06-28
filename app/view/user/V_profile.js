@@ -4,6 +4,7 @@ Ext.define('CL.view.user.V_profile', {
     itemId: 'user_profile_id',
     alias: 'widget.user_profile',
 
+
     layout: {
         type: 'vbox',
         align: 'center',
@@ -20,7 +21,9 @@ Ext.define('CL.view.user.V_profile', {
             height: 150,
             width: '100%',
             margin: '10 0 0 0',
-            bodyStyle: 'backgroundColor: #333333',
+            bodyCls: 'mypanel',
+
+            //bodyStyle: 'backgroundColor: #333333',
             layout: {
                 type: 'vbox',
                 align: 'center',
@@ -56,6 +59,42 @@ Ext.define('CL.view.user.V_profile', {
                     margin: '20 0 0 0'
                 }
             ]
+        },
+
+        {
+            xtype: 'panel',
+            height: 500,
+            width: '100%',
+            margin: '10 0 10 0',
+            layout: {
+                type: 'hbox',
+                align: 'center',
+                pack: 'center'
+            },
+
+            title: 'Attività Recenti',
+
+            bodyStyle: {
+                background: "#484848"
+            }
+        },
+
+        {
+            xtype: 'panel',
+            height: 500,
+            width: '100%',
+            margin: '10 0 10 0',
+            layout: {
+                type: 'hbox',
+                align: 'center',
+                pack: 'center'
+            },
+
+            title: 'Attività di Interesse',
+
+            bodyStyle: {
+                background: "#484848"
+            }
         },
 
         {
@@ -105,8 +144,9 @@ Ext.define('CL.view.user.V_profile', {
                                         xtype: 'button',
                                         name: 'on_create_collection',
                                         text: '+ Carica una nuova Collezione',
-                                        icon: 'images/icons/icon_box.png',
+                                        icon: 'images/icons/icon_collection.png',
                                         hidden: true,
+                                        cls: 'mybutton',
                                         listeners:{
                                             click: function (btn) {
                                                 CL.app.getController("C_collection").onCreate(btn.el);
@@ -160,6 +200,7 @@ Ext.define('CL.view.user.V_profile', {
                                         name: 'on_create_event',
                                         text: '+ Crea un nuovo Evento !',
                                         icon: 'images/icons/icon_calendar.png',
+                                        cls: 'mybutton',
                                         hidden: true
                                     }
                                 ]
