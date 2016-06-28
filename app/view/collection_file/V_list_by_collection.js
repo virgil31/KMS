@@ -21,6 +21,8 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
     },
 
 
+    layout: 'fit',
+
 
     items: [
         {
@@ -62,7 +64,7 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                 {
                     text: 'Tipo',
                     dataIndex: 'type',
-                    flex: 0.7,
+                    flex: 1,
                     renderer: function(tipo){
                         var url = "";
                         switch(tipo){
@@ -94,6 +96,15 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                     flex: 10,
                     renderer: function (value, metaData, record) {
                         return value+"."+record.get("extension");
+                    }
+                },
+                {
+                    text: 'Caricato da',
+                    dataIndex: 'uploaded_by_name',
+                    flex: 3,
+                    renderer: function (value, metaData, record) {
+                        var user_id = record.get("uploaded_by");
+                        return '<a style="color: #963232 !important;" target="_blank" href="#user/'+user_id+'"><u>'+value+'</u></a>';
                     }
                 },
                 {

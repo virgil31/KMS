@@ -1,6 +1,16 @@
 TODO LIST
 
 -----------------------------------------------------------------------------
+COLLEZIONE_RISORSA_ESTERNA
+-----------------------------------------------------------------------------
+x Possibilità di inserire URLS come risorse esterne. Una risorsa esterna avrà i seguenti attributi:
+    .url
+    .titolo
+    .tipo
+
+x Solo i collaboratori potranno modificare tali risorse esterne.
+
+-----------------------------------------------------------------------------
 UTENTI
 -----------------------------------------------------------------------------
 - Registrazione nuovi Utenti con mail di conferma/attivazione:
@@ -40,19 +50,13 @@ x  In fase di aggiunta di un collaboratore si potrà aggiungere un utente singol
 
 - Possibilità di modificare le info principali (titolo, descrizione, licenza) se non è ancora CHIUSA
 
------------------------------------------------------------------------------
-COLLEZIONE_RISORSA_ESTERNA
------------------------------------------------------------------------------
-- Possibilità di inserire URLS come risorse esterne. Una risorsa esterna avrà i seguenti attributi:
-    .url
-    .titolo
-    .tipo
-
-- Solo i collaboratori potranno modificare tali risorse esterne.
 
 -----------------------------------------------------------------------------
 COLLEZIONE_FILE
 -----------------------------------------------------------------------------
+
+- Aggiungere come campo il "caricato da"
+
 - Creare vista specializzata con URL dedicata per l'anteprima e download di un documento
     contenente link di riferimento alla Collezione genitrice
 

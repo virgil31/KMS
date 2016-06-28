@@ -19,6 +19,9 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
         }
     },
 
+
+    layout: 'fit',
+
     items: [
         {
             xtype: 'grid',

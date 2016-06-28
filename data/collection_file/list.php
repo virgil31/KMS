@@ -12,9 +12,10 @@ $pdo=new PDO("pgsql:host=".$ini_array['pdo_host'].";port=".$ini_array['pdo_port'
 if(isset($_GET["collection_id"])){
     $collection_id = $_GET["collection_id"];
     $statement = $pdo->prepare("
-        SELECT A.collection_id,A.file_id,A.title,B.url as extension
+        SELECT A.collection_id,A.file_id,A.title,B.url as extension, A.uploaded_by, CONCAT(C.first_name,' ',C.last_name) as uploaded_by_name 
         FROM kms_collection_file A
           LEFT JOIN st_file B ON B.id = A.file_id
+          LEFT JOIN sf_guard_user C ON C.id = A.uploaded_by
         WHERE A.collection_id = $collection_id
         ORDER BY A.title
     ");

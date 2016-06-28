@@ -3,6 +3,8 @@ TABELLE CREATE
 - kms_collection
 - kms_collection_file
 - kms_collection_user
+- kms_external_resource
+- kms_external_resource_type
 
 
 
@@ -53,5 +55,30 @@ CREATE TABLE public.kms_collection_user
       ON UPDATE NO ACTION ON DELETE CASCADE,
   CONSTRAINT kms_collection_user_user_id_fkey FOREIGN KEY (user_id)
       REFERENCES public.sf_guard_user (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE
+)
+
+
+CREATE TABLE public.kms_external_resource_type
+(
+  id serial,
+  name text NOT NULL,
+  CONSTRAINT kms_external_resource_type_pkey PRIMARY KEY (id)
+)
+
+
+CREATE TABLE public.kms_collection_external_resource
+(
+  id serial,
+  collection_id integer NOT NULL,
+  url text NOT NULL,
+  title text NOT NULL,
+  type_id integer NOT NULL,
+  CONSTRAINT kms_external_resource_pkey PRIMARY KEY (id),
+  CONSTRAINT kms_external_resource_collection_id_fkey FOREIGN KEY (collection_id)
+      REFERENCES public.kms_collection (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE,
+  CONSTRAINT kms_external_resource_type_id_fkey FOREIGN KEY (type_id)
+      REFERENCES public.kms_external_resource_type (id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE CASCADE
 )

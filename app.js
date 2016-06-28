@@ -9,6 +9,14 @@ Ext.application({
     ],
 
 
+    models: [
+        "M_generic"
+    ],
+
+    stores: [
+        "S_external_resource_type"
+    ],
+
     controllers: [
         'C_js_css_loader',
 
@@ -30,6 +38,7 @@ Ext.application({
         'C_collection',
         'C_collection_file',
         'C_collection_user',
+        'C_collection_external_resource',
 
         'C_preview'
 

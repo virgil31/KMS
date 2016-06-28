@@ -140,16 +140,7 @@ Ext.define('CL.view.collection.V_single_list', {
                             xtype: 'collection_file_list_by_collection'
                         },
                         {
-                            title: 'Links',
-                            icon: 'images/icons/icon_link.png',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
+                            xtype: 'collection_external_resource_list_by_collection'
                         },
                         {
                             xtype: 'collection_user_list_by_collection'
