@@ -39,6 +39,8 @@ Ext.define('CL.controller.C_collection_file', {
             Ext.ComponentQuery.query("collection_file_single_list label[name=description]")[0].setHtml("");
             Ext.ComponentQuery.query("collection_file_single_list label[name=created_by_name]")[0].setHtml("");
             Ext.ComponentQuery.query("collection_file_single_list label[name=data_chiusura]")[0].setHtml("");
+
+            Ext.ComponentQuery.query("collection_file_single_list panel[name=preview]")[0].remove(0);
         }catch(e){}
 
         Ext.getBody().mask("Attendere...");
@@ -54,12 +56,13 @@ Ext.define('CL.controller.C_collection_file', {
                 //se non ritorna alcun record, vuol dire che la collection con quell'id non esiste
                 if(this.getTotalCount() == 0) {
                     //piccolo controllo per evitare che se la collection non esiste non mi permette più di tornare indietro
-                    if(window.location.hash == "#collection/"+collection_id)
+                    if(window.location.hash == "#collection/"+CL.app.getController("C_collection_file").collection_id+"/file/"+file_id)
                         CL.app.getController("C_collection").redirectTo("not_found");
                 }
                 else{
                     var collection_file = this.getAt(0),
                         title = collection_file.get("title"),
+                        extension = collection_file.get("extension"),
                         collection_id = collection_file.get("collection_id"),
                         collection_name = collection_file.get("collection_name"),
                         uploaded_by = collection_file.get("uploaded_by"),
@@ -94,7 +97,10 @@ Ext.define('CL.controller.C_collection_file', {
                     Ext.ComponentQuery.query("collection_file_single_list label[name=created_by_name]")[0].setHtml("Caricato da: <a href='#user/"+uploaded_by+"'>"+uploaded_by_name+"</a> in data "+uploaded_at);
                     Ext.ComponentQuery.query("collection_file_single_list label[name=data_chiusura]")[0].setHtml("Data di chiusura modifiche: <b>"+data_scadenza_collection+"</b>");
 
-
+                    // popolo la preview
+                    CL.app.getController("C_preview").getPreviewPanel(collection_file.get("file_id"),function (preview_panel) {
+                        Ext.ComponentQuery.query("collection_file_single_list panel[name=preview]")[0].add(preview_panel);
+                    });
                 }
             }
         });

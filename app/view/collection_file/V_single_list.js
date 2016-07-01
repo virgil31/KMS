@@ -41,14 +41,15 @@ Ext.define('CL.view.collection_file.V_single_list', {
                                     iconCls: 'x-fa fa-download',
                                     cls: 'mybutton',
                                     handler: function () {
-                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0);
+                                        var colletion_id = CL.app.getController("C_collection_file").collection_id;
+                                        var file_id = CL.app.getController("C_collection_file").file_id;
 
                                         Ext.create('Ext.Component', {
                                             renderTo: Ext.getBody(),
                                             cls: 'x-hidden',
                                             autoEl: {
                                                 tag: 'iframe',
-                                                src: 'data/collection_file/download_single.php?file_id='+rec.get("file_id")+'&collection_id='+rec.get("collection_id")
+                                                src: 'data/collection_file/download_single.php?file_id='+file_id+'&collection_id='+colletion_id
                                             }
                                         });
                                     }
@@ -64,14 +65,34 @@ Ext.define('CL.view.collection_file.V_single_list', {
                                     icon: 'images/icons/icon_share.png',
                                     cls: 'mybutton',
                                     handler: function () {
-                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0);
+                                        var targetEl = this,
+                                            collection_id = CL.app.getController("C_collection_file").collection_id,
+                                            file_id = CL.app.getController("C_collection_file").file_id,
+                                            store = Ext.create("CL.store.S_collection_file");
 
-                                        CL.app.getController("C_collection_file").share(this.el,rec);
+                                        store.load({
+                                            params:{
+                                                collection_id: collection_id,
+                                                file_id: file_id
+                                            },
+                                            callback: function () {
+                                                var rec = this.getAt(0);
+                                                CL.app.getController("C_collection_file").share(targetEl,rec);
+
+                                            }
+                                        });
                                     }
                                 }
                             ]
                         },
                         '->',
+                        {
+                            style: {
+                                background: "transparent",
+                                borderColor: "transparent"
+                            },
+                            html: '<img src="http://sharpened.com/img/sw/fvl.png" alt=" " style="width:50px;height:50px;margin-left: -10px; margin-top: 10px;">'
+                        },
                         {
                             xtype: 'label',
                             text:'title',
@@ -92,14 +113,26 @@ Ext.define('CL.view.collection_file.V_single_list', {
                                     iconCls: 'x-fa fa-trash',
                                     cls: 'mybutton',
                                     handler: function(){
-                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0),
-                                            collection_id = rec.get("collection_id");
 
-                                        CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
-                                            Ext.Msg.confirm('Attenzione!', 'Eliminare <b>'+rec.get("title")+"</b>?",function(btn){
-                                                if (btn === 'yes')
-                                                    Ext.StoreManager.lookup("S_collection_file").remove(rec);
-                                            });
+                                        var collection_id = CL.app.getController("C_collection_file").collection_id,
+                                            file_id = CL.app.getController("C_collection_file").file_id,
+                                            store = Ext.create("CL.store.S_collection_file");
+
+                                        store.load({
+                                            params:{
+                                                collection_id: collection_id,
+                                                file_id: file_id
+                                            },
+                                            callback: function () {
+                                                var rec = this.getAt(0);
+                                                CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+                                                    Ext.Msg.confirm('Attenzione!', 'Eliminare <b>'+rec.get("title")+"</b>?",function(btn){
+                                                        if (btn === 'yes')
+                                                            Ext.StoreManager.lookup("S_collection_file").remove(rec);
+                                                    });
+                                                });
+
+                                            }
                                         });
                                     }
                                 }
@@ -116,11 +149,23 @@ Ext.define('CL.view.collection_file.V_single_list', {
                                     action: 'on_edit_info',
                                     cls: 'mybutton',
                                     handler: function(){
-                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0),
-                                            collection_id = rec.get("collection_id");
 
-                                        CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
-                                            CL.app.getController("C_collection_file").onEdit(rec);
+                                        var collection_id = CL.app.getController("C_collection_file").collection_id,
+                                            file_id = CL.app.getController("C_collection_file").file_id,
+                                            store = Ext.create("CL.store.S_collection_file");
+
+                                        store.load({
+                                            params:{
+                                                collection_id: collection_id,
+                                                file_id: file_id
+                                            },
+                                            callback: function () {
+                                                var rec = this.getAt(0);
+                                                CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+                                                    CL.app.getController("C_collection_file").onEdit(rec);
+                                                });
+
+                                            }
                                         });
                                     }
                                 }
@@ -175,18 +220,36 @@ Ext.define('CL.view.collection_file.V_single_list', {
                 align: 'center',
                 pack: 'center'
             },
-
             bodyStyle: {
-                background: "transparent"
+                background: "#333333"
             },
             items:[
                 {
-                    xtype: 'tabpanel',
+                    xtype: 'panel',
+                    padding: 10,
                     flex: 1,
-                    bodyStyle: 'background: #333333',
+                    bodyStyle: {
+                        background: 'url(http://www.mymart.sg/adminUpload/big2/1429100288no-preview-available.jpg)',
+                        backgroundSize: 'cover'
+                    },
                     height: '100%',
-                    items: [
-                    ]
+                    layout: 'fit',
+                    name: 'preview',
+                    listeners:{
+                        render: function (panel) {
+                            panel.el.on('mouseenter', function () {
+                                alert("TODO MOUSE ENTER PER EVITARE SCROLLING")
+                                console.log("mouseenter");
+                                //Ext.ComponentQuery.query("viewport panel[name=card]")[0].scrollable = false;
+                            });
+                            panel.el.on('mouseleave', function () {
+                                alert("TODO MOUSE LEAVE PER EVITARE SCROLLING")
+                                console.log("mouseleave");
+                                //Ext.ComponentQuery.query("viewport panel[name=card]")[0].scrollable = true;
+
+                            });
+                        }
+                    }
                 }
             ]
         }
