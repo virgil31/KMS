@@ -182,6 +182,7 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                                             Ext.StoreManager.lookup("S_collection_file").remove(rec);
                                     });
                                 });
+
                             }
                         }
                     ]

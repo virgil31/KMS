@@ -34,15 +34,16 @@ Ext.define('CL.controller.C_collection_file', {
 
 
         //resetto campi
-        /*try{
-            Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('');
-            Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText("");
-            Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setText("");
-            Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("");
-        }catch(e){}*/
+        try{
+            Ext.ComponentQuery.query("collection_file_single_list label[name=title]")[0].setHtml("");
+            Ext.ComponentQuery.query("collection_file_single_list label[name=description]")[0].setHtml("");
+            Ext.ComponentQuery.query("collection_file_single_list label[name=created_by_name]")[0].setHtml("");
+            Ext.ComponentQuery.query("collection_file_single_list label[name=data_chiusura]")[0].setHtml("");
+        }catch(e){}
 
         Ext.getBody().mask("Attendere...");
-        Ext.getStore("S_collection_file").load({
+        var store = Ext.create("CL.store.S_collection_file");
+        store.load({
             params:{
                 collection_id: collection_id,
                 file_id: file_id

@@ -21,6 +21,7 @@ Ext.define('CL.controller.C_collection', {
     //SHOW VIEW
     showView: function(collection_id){
 
+
         if(Ext.ComponentQuery.query('collection_single_list').length == 0)
             Ext.ComponentQuery.query('viewport panel[name=card]')[0].add({xtype: 'collection_single_list'});
         else
@@ -68,21 +69,6 @@ Ext.define('CL.controller.C_collection', {
                         created_by_name = collection.get("created_by_name"),
                         created_at = collection.get("created_at");
 
-
-                    /*
-                    //calcolo se le modifiche sono aperte o chiuse
-                    var startTime = new Date(created_at);   //qui metto la data di creazione
-                    var difference = new Date().getTime() - startTime.getTime(); // This will give difference in milliseconds
-                    var resultInMinutes = Math.round(difference / 60000);
-                    console.log("Differenza ore:"+Math.floor(resultInMinutes/60));
-                    console.log("Differenza minuti:"+resultInMinutes%60);
-                    if(Math.floor(resultInMinutes/60) < 48){
-                        console.log("Non ancora chiusa");
-                    }
-                    else{
-                        console.log("CHIUSE le modifiche!");
-                    }
-                    */
 
                     var result = new Date(created_at);
                     result.setDate(result.getDate() + 2);
