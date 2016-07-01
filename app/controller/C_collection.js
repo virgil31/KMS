@@ -93,7 +93,7 @@ Ext.define('CL.controller.C_collection', {
                         minuti = result.getMinutes();
                     if(minuti == "0") minuti = "00";
 
-                    var data_scadenza = giorno+"-"+mese+"-"+anno+" "+ore+":"+minuti;
+                    var data_scadenza = giorno+"/"+mese+"/"+anno+" "+ore+":"+minuti;
 
                     Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('Data di chiusura delle modifiche: <u>'+data_scadenza+'</u>');
 
@@ -183,11 +183,90 @@ Ext.define('CL.controller.C_collection', {
             // ON EDIT INFO
             "collection_single_list button[action=on_edit_info]":{
                 click: this.onEditInfo
+            },
+
+            // SHARE COLLECTION
+            "collection_single_list button[action=share_collection]":{
+                click: this.shareCollection
             }
         }, this);
     },
     /////////////////////////////////////////////////
 
+
+
+    // SHARE COLLECTION
+    shareCollection: function(btn){
+
+        Ext.create("Ext.window.Window",{
+            autoShow: true,
+            animateTarget: btn.el,
+            modal: true,
+            width: 600,
+            title: 'Condividi Collezione!',
+            padding: 10,
+            layout: 'vbox',
+            items:[
+                {
+                    xtype: 'textfield',
+                    width: "100%",
+                    readOnly: true,
+                    value: window.location.href,
+                    labelAlign: 'top',
+                    fieldLabel: 'Link diretto da copiare e incollare',
+                    selectOnFocus: true
+                },
+                {
+                    xtype: 'label',
+                    margin: '0 0 5 0',
+                    html: '<b>Oppure...</b>'
+                },
+                {
+                    xtype: 'panel',
+                    width: "100%",
+                    layout: {
+                        type: 'hbox',
+                        align: 'center',
+                        pack: 'center'
+                    },
+                    items:[
+                        {
+                            xtype: 'button',
+                            width: 220,
+                            height: 46,
+                            style: "background-image: url('images/buttons/button_share_fb.png') !important; " +
+                                "background-size: 100% 100%;" +
+                                "border-color: transparent;" +
+                                "background-color: transparent",
+                            handler: function () {
+                                window.open("http://www.facebook.com/sharer.php?u=https://www.youtube.com/watch?v=0dnlPIuRsh8&p[title]=YOUR_TITLE&p[summary]=YOUR_SUMMARY", '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            width: 240,
+                            height: 54,
+                            style: "background-image: url('images/buttons/button_share_twitter.png') !important; " +
+                                "background-size: 100% 100%;" +
+                                "border-color: transparent;" +
+                                "background-color: transparent",
+                            handler: function () {
+                                var collection_id = CL.app.getController("C_collection").collection_id,
+                                    rec = Ext.StoreManager.lookup("S_collection").getById(collection_id);
+                                window.open("https://twitter.com/share?url="+escape(window.location.href)+"&text=SITAR - Esplora la collezione '"+rec.get("title")+"'!", '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                            }
+                        }
+                    ]
+                }
+
+            ]
+
+        });
+
+    },
+
+
+    // ON EDIT INFO
     onEditInfo: function () {
         CL.app.getController("C_permessi").canWriteCollection(this.collection_id, true,function(){
             alert("TODO form edit info di base")

@@ -108,8 +108,15 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                     }
                 },
                 {
+                    xtype: 'datecolumn',
+                    format:'d/m/Y',
+                    text: 'Caricato il',
+                    dataIndex: 'uploaded_at',
+                    flex: 2
+                },
+                {
                     xtype: 'actioncolumn',
-                    width: 110,
+                    width: 150,
                     items: [
                         {
                             iconCls: 'x-fa fa-search',
@@ -136,6 +143,15 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                                         src: 'data/collection_file/download_single.php?file_id='+rec.get("file_id")+'&collection_id='+rec.get("collection_id")
                                     }
                                 });
+                            }
+                        },
+                        {
+                            iconCls: 'x-fa fa-share',
+                            tooltip: 'Condividi',
+                            handler: function(grid, rowIndex) {
+                                var rec = grid.getStore().getAt(rowIndex);
+
+                                CL.app.getController("C_collection_file").share(this.el,rec);
                             }
                         },
                         {
@@ -166,8 +182,6 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
                                             Ext.StoreManager.lookup("S_collection_file").remove(rec);
                                     });
                                 });
-
-
                             }
                         }
                     ]

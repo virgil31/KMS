@@ -47,8 +47,8 @@ if ($success) {
     //aggiungo in kms_collection_file
     //aggiungo in st_file
     $s = $pdo->prepare("
-        INSERT INTO kms_collection_file(collection_id,file_id,title,uploaded_by)
-        VALUES(:collection_id,:file_id,:title,:uploaded_by)
+        INSERT INTO kms_collection_file(collection_id,file_id,title,uploaded_by,uploaded_at)
+        VALUES(:collection_id,:file_id,:title,:uploaded_by,NOW())
     ");
 
     $tmp_info = pathinfo($nome_finale_file);

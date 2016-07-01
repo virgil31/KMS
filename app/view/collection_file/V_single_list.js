@@ -1,8 +1,8 @@
-Ext.define('CL.view.collection.V_single_list', {
+Ext.define('CL.view.collection_file.V_single_list', {
     extend: 'Ext.panel.Panel',
-    xtype: 'collection_single_list',
-    itemId: 'collection_single_list_id',
-    alias: 'widget.collection_single_list',
+    xtype: 'collection_file_single_list',
+    itemId: 'collection_file_single_list_id',
+    alias: 'widget.collection_file_single_list',
 
     layout: {
         type: 'vbox',
@@ -17,11 +17,9 @@ Ext.define('CL.view.collection.V_single_list', {
     items: [
         {
             xtype: 'panel',
-            //height: 175,
             width: '100%',
             margin: '10 0 0 0',
             bodyCls: 'mypanel',
-            //bodyStyle: 'backgroundColor: #333333',
             layout: {
                 type: 'vbox',
                 align: 'center',
@@ -39,11 +37,20 @@ Ext.define('CL.view.collection.V_single_list', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    tooltip: 'Mostra Licenza Utilizzata',
-                                    icon: 'images/icons/icon_license.png',
+                                    tooltip: 'Scarica Documento',
+                                    iconCls: 'x-fa fa-download',
                                     cls: 'mybutton',
                                     handler: function () {
-                                        alert("todo mostra licenza");
+                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0);
+
+                                        Ext.create('Ext.Component', {
+                                            renderTo: Ext.getBody(),
+                                            cls: 'x-hidden',
+                                            autoEl: {
+                                                tag: 'iframe',
+                                                src: 'data/collection_file/download_single.php?file_id='+rec.get("file_id")+'&collection_id='+rec.get("collection_id")
+                                            }
+                                        });
                                     }
                                 }
                             ]
@@ -56,13 +63,18 @@ Ext.define('CL.view.collection.V_single_list', {
                                     tooltip: 'Condividi Collezione',
                                     icon: 'images/icons/icon_share.png',
                                     cls: 'mybutton',
-                                    action: 'share_collection'
+                                    handler: function () {
+                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0);
+
+                                        CL.app.getController("C_collection_file").share(this.el,rec);
+                                    }
                                 }
                             ]
                         },
                         '->',
                         {
                             xtype: 'label',
+                            text:'title',
                             name: 'title',
                             style: {
                                 color: 'white',
@@ -76,10 +88,20 @@ Ext.define('CL.view.collection.V_single_list', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    tooltip: 'Elimina Collection',
+                                    tooltip: 'Elimina collection_file',
                                     iconCls: 'x-fa fa-trash',
-                                    action: 'on_destroy',
-                                    cls: 'mybutton'
+                                    cls: 'mybutton',
+                                    handler: function(){
+                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0),
+                                            collection_id = rec.get("collection_id");
+
+                                        CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+                                            Ext.Msg.confirm('Attenzione!', 'Eliminare <b>'+rec.get("title")+"</b>?",function(btn){
+                                                if (btn === 'yes')
+                                                    Ext.StoreManager.lookup("S_collection_file").remove(rec);
+                                            });
+                                        });
+                                    }
                                 }
                             ]
                         },
@@ -92,7 +114,15 @@ Ext.define('CL.view.collection.V_single_list', {
                                     tooltip: "Modifica Info",
                                     iconCls: 'x-fa fa-pencil',
                                     action: 'on_edit_info',
-                                    cls: 'mybutton'
+                                    cls: 'mybutton',
+                                    handler: function(){
+                                        var rec = Ext.StoreManager.lookup("S_collection_file").getAt(0),
+                                            collection_id = rec.get("collection_id");
+
+                                        CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+                                            CL.app.getController("C_collection_file").onEdit(rec);
+                                        });
+                                    }
                                 }
                             ]
                         }
@@ -101,6 +131,7 @@ Ext.define('CL.view.collection.V_single_list', {
                 },
                 {
                     xtype: 'label',
+                    text:'description',
                     name: 'description',
                     style: {
                         color: 'white',
@@ -110,6 +141,7 @@ Ext.define('CL.view.collection.V_single_list', {
                 },
                 {
                     xtype: 'label',
+                    text: 'created_by_name',
                     name: 'created_by_name',
                     style: {
                         color: '#963232',
@@ -120,6 +152,7 @@ Ext.define('CL.view.collection.V_single_list', {
                 },
                 {
                     xtype: 'label',
+                    text: 'data_chiusura',
                     name: 'data_chiusura',
                     //html: 'Data di chiusura delle modifiche: <u>24-06-2016 16:00</u>',
                     style: {
@@ -153,83 +186,6 @@ Ext.define('CL.view.collection.V_single_list', {
                     bodyStyle: 'background: #333333',
                     height: '100%',
                     items: [
-                        {
-                            xtype: 'collection_file_list_by_collection'
-                        },
-                        {
-                            xtype: 'collection_external_resource_list_by_collection'
-                        },
-                        {
-                            xtype: 'collection_user_list_by_collection'
-                        },
-                        {
-                            title: 'Discussioni',
-                            icon: 'images/icons/icon_msg.png',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
-                            title: 'TAGs',
-                            icon: 'images/icons/icon_tag.png',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        }/*,
-                        {
-                            title: 'Collezioni Correlate',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
-                            title: 'Eventi Correlati',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
-                            title: 'Origini Informazione Correlate',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
-                            title: 'Partizioni Archeologiche Correlate',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        }*/
                     ]
                 }
             ]

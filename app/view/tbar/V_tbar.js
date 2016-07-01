@@ -177,7 +177,8 @@ Ext.define('CL.view.tbar.V_tbar', {
 							items: [
 								{
 									xtype: 'button',
-									text: Ext.util.Cookies.get("username"),
+                                    cls: 'mybutton',
+                                    text: Ext.util.Cookies.get("username"),
                                     menu: [
 										{
 											text: 'Mio Profilo',

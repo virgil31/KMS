@@ -54,6 +54,7 @@ x  In fase di aggiunta di un collaboratore si potrà aggiungere un utente singol
 -----------------------------------------------------------------------------
 COLLEZIONE_FILE
 -----------------------------------------------------------------------------
+- Quando carico files, inserire una dichiarazione di responsabilità
 
 - Aggiungere come campo il "caricato da"
 

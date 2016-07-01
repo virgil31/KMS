@@ -9,14 +9,31 @@ $pdo=new PDO("pgsql:host=".$ini_array['pdo_host'].";port=".$ini_array['pdo_port'
 
 
 // LIST files BY collection_id
-if(isset($_GET["collection_id"])){
+if(isset($_GET["collection_id"]) && !isset($_GET["file_id"])){
     $collection_id = $_GET["collection_id"];
     $statement = $pdo->prepare("
-        SELECT A.collection_id,A.file_id,A.title,B.url as extension, A.uploaded_by, CONCAT(C.first_name,' ',C.last_name) as uploaded_by_name 
+        SELECT A.collection_id,A.file_id,A.title,B.url as extension, A.uploaded_by, CONCAT(C.first_name,' ',C.last_name) as uploaded_by_name, uploaded_at 
         FROM kms_collection_file A
           LEFT JOIN st_file B ON B.id = A.file_id
           LEFT JOIN sf_guard_user C ON C.id = A.uploaded_by
         WHERE A.collection_id = $collection_id
+        ORDER BY A.title
+    ");
+}
+
+// LIST files BY collection_id AND file_id
+else if(isset($_GET["collection_id"]) && isset($_GET["file_id"])){
+    $collection_id = $_GET["collection_id"];
+    $file_id = $_GET["file_id"];
+
+    $statement = $pdo->prepare("
+        SELECT A.collection_id,A.file_id,A.title,B.url as extension, A.uploaded_by, CONCAT(C.first_name,' ',C.last_name) as uploaded_by_name, uploaded_at, D.title as collection_name, D.created_at as collection_created_at
+        FROM kms_collection_file A
+          LEFT JOIN st_file B ON B.id = A.file_id
+          LEFT JOIN sf_guard_user C ON C.id = A.uploaded_by
+          LEFT JOIN kms_collection D ON D.id = A.collection_id
+        WHERE A.collection_id = $collection_id
+          AND B.id = $file_id
         ORDER BY A.title
     ");
 }
