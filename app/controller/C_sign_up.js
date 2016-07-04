@@ -4,7 +4,6 @@ Ext.define('CL.controller.C_sign_up', {
     routes: {
         'sign_up' : 'showView',
         'activate/:user_id/:user_salt': 'onActivate',
-        'on_lost_password': 'onLostPassword',
         'reset_psw/:user_id/:user_salt': 'onResetPassword'
     },
 
@@ -106,7 +105,7 @@ Ext.define('CL.controller.C_sign_up', {
     // ON LOST PASSWORD
     onLostPassword: function () {
         var me = this;
-        Ext.Msg.prompt( "Password Dimenticata", "Inserisci la mail con cui ti sei registrato", function (btnId,mail) {
+        Ext.Msg.prompt( "Reset Password", "Inserisci la mail con cui ti sei registrato", function (btnId,mail) {
             if(btnId=="ok"){
                 //alert("TODO: mando una mail contenente la username associata ed il link per il reset della password");
                 Ext.Msg.alert("Info","Riceverà a breve una mail con le istruzioni da seguire per il reset della password");

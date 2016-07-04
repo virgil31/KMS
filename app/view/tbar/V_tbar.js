@@ -124,7 +124,7 @@ Ext.define('CL.view.tbar.V_tbar', {
                                         {
                                             xtype: 'label',
                                             margin: '0 0 0 120',
-                                            html: '<a href="#" onclick="CL.app.getController(\'C_sign_up\').onLostPassword(this);return false;">Password dimenticata</a>'
+                                            html: '<a href="#" onclick="CL.app.getController(\'C_sign_up\').onLostPassword();return false;">Password dimenticata</a>'
                                         }/*,
                                         {
                                             xtype: 'component',
@@ -214,9 +214,9 @@ Ext.define('CL.view.tbar.V_tbar', {
 										},
                                         {
                                             text: 'Reset Password',
-                                            icon: "images/icons/icon_lock.png",
+                                            icon: "http://findicons.com/files/icons/1579/devine/16/lock.png",
                                             handler: function(){
-                                                CL.app.getController("C_tbar").redirectTo('on_lost_password');
+												CL.app.getController('C_sign_up').onLostPassword();
                                             }
                                         },
                                         
