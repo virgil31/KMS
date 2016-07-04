@@ -52,14 +52,14 @@ Ext.define('CL.controller.C_tbar', {
                 }
                 else{
                     Ext.toast({
-                        title: 'Credenziali errate!',
-                        html: "<strong>Assicurarsi che non sia attivato il CAPS LOCK.</strong>",
+                        title: 'Attenzione!',
+                        html: "<strong>Assicurarsi che non sia attivo il CAPS LOCK e che sia stato cliccato il link di attivazione inviato per mail.</strong>",
                         bodyStyle: 'color: #963232; background: #333333',
                         closable: true,
                         align: 'br',
                         slideInDuration: 500,
-                        width: 200,
-                        height: 100
+                        width: 300,
+                        height: 120
                     });
                 }
 

@@ -7,6 +7,10 @@ TABELLE CREATE
 - kms_external_resource_type
 
 
+TABELLE MODIFICATE
+- sf_guard_user (aggiunto campo affiliation_id ( =  st_person.id))
+
+
 
 
 

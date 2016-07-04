@@ -13,6 +13,7 @@ $result = pg_query($conn,"
         FROM sf_guard_user
         WHERE username like '".$username."'
         AND password like encode(digest(concat(salt,'".$password."'), 'sha1'),'hex')
+        AND is_active = TRUE
 ") or die(pg_last_error());
 
 
@@ -21,7 +22,7 @@ while($row = pg_fetch_object($result)) {
     $user_id = $row->id;
 }
 
-//Se non ci sono risultati il login è errato
+//Se non ci sono risultati il login Ã¨ errato
 if(pg_num_rows($result) == 0)
     echo json_encode(
         array(

@@ -54,11 +54,11 @@ x  In fase di aggiunta di un collaboratore si potrà aggiungere un utente singol
 -----------------------------------------------------------------------------
 COLLEZIONE_FILE
 -----------------------------------------------------------------------------
-- Quando carico files, inserire una dichiarazione di responsabilità
+x Quando carico files, inserire una dichiarazione di responsabilità
 
-- Aggiungere come campo il "caricato da"
+x Aggiungere come campo il "caricato da"
 
-- Creare vista specializzata con URL dedicata per l'anteprima e download di un documento
+x Creare vista specializzata con URL dedicata per l'anteprima e download di un documento
     contenente link di riferimento alla Collezione genitrice
 
 -----------------------------------------------------------------------------

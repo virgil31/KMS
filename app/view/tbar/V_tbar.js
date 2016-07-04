@@ -25,6 +25,7 @@ Ext.define('CL.view.tbar.V_tbar', {
 					items:[
 						{
 							xtype: 'button',
+							name: 'app_icon',
 							width: 46,
 							height: 46,
 							style: "background-image: url('images/logos/icon_app_large_red.png') !important; " +
@@ -105,13 +106,36 @@ Ext.define('CL.view.tbar.V_tbar', {
 									]
 								},
 								{
-									xtype: 'component',
-									margin: '5 0 0 0',
-									autoEl: {
-										tag: 'a',
-										href: '#sign_up',
-										html: 'Non ho ancora un account :('
-									}
+									xtype: 'panel',
+                                    bodyStyle: {
+                                        background: "transparent"
+                                    },
+                                    layout: 'hbox',
+                                    margin: '5 0 0 0',
+                                    items: [
+                                        {
+                                            xtype: 'component',
+                                            autoEl: {
+                                                tag: 'a',
+                                                href: '#sign_up',
+                                                html: 'Registrati!'
+                                            }
+                                        },
+                                        {
+                                            xtype: 'label',
+                                            margin: '0 0 0 120',
+                                            html: '<a href="#" onclick="CL.app.getController(\'C_sign_up\').onLostPassword(this);return false;">Password dimenticata</a>'
+                                        }/*,
+                                        {
+                                            xtype: 'component',
+                                            margin: '0 0 0 120',
+                                            autoEl: {
+                                                tag: 'a',
+                                                href: "#on_lost_password",
+                                                html: 'Password dimenticata'
+                                            }
+                                        }*/
+                                    ]
 								}
 							]
 						}
@@ -188,6 +212,13 @@ Ext.define('CL.view.tbar.V_tbar', {
                                                 CL.app.getController("C_tbar").redirectTo('user/'+my_id);
                                             }
 										},
+                                        {
+                                            text: 'Reset Password',
+                                            icon: "images/icons/icon_lock.png",
+                                            handler: function(){
+                                                CL.app.getController("C_tbar").redirectTo('on_lost_password');
+                                            }
+                                        },
                                         
                                         
                                         

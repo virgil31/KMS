@@ -49,36 +49,69 @@ Ext.define('CL.view.sign_up.V_sign_up', {
             items: [
                 {
                     xtype: 'textfield',
-                    name: 'username',
-                    fieldLabel: 'Username',
-                    allowBlank: false
+                    name: 'first_name',
+                    fieldLabel: 'Nome',
+                    width: '100%',
+                    allowBlank: false,
+                    value: 'pippo'
+                },
+                {
+                    xtype: 'textfield',
+                    name: 'last_name',
+                    fieldLabel: 'Cognome',
+                    width: '100%',
+                    allowBlank: false,
+                    value: 'pippi'
+                },
+                {
+                    xtype: 'combobox',
+                    name: 'ente_id',
+                    fieldLabel: 'Ente Appartenenza',
+                    queryMode: 'local',
+                    anyMatch: true,
+                    displayField: 'full_name',
+                    valueField: 'id',
+                    store: 'S_ente',
+                    width: '100%',
+                    forceSelection: true,
+                    allowBlank: false,
+                    value: '1'
                 },
                 {
                     xtype: 'textfield',
                     name: 'mail',
-                    fieldLabel: 'Email  ',
-                    allowBlank: false
-                },  
+                    fieldLabel: 'Email',
+                    width: '100%',
+                    allowBlank: false,
+                    value: 'lucacerini92@gmail.com'
+                },
+                {
+                    xtype: 'textfield',
+                    name: 'username',
+                    fieldLabel: 'Username',
+                    width: '100%',
+                    allowBlank: false,
+                    value: 'provaprova'
+                },
                 {
                     xtype: 'textfield',
                     name: 'password',
                     fieldLabel: 'Password',
                     inputType: 'password',
-                    allowBlank: false
-                },
-                {
-                    xtype: 'textfield',
-                    name: 'ripet_password',
-                    fieldLabel: 'Ripeti Password',
-                    inputType: 'password',
-                    allowBlank: false
+                    width: '100%',
+                    allowBlank: false,
+                    minLength: 7,
+                    value: 'provaprova'
                 }
             ],
+            buttonAlign: 'center',
             buttons: [
                 {
-                    text: 'sign_up',
+                    text: 'Conferma Dati',
                     formBind: true,
-                    action: 'do_sign_up'
+                    action: 'do_sign_up',
+                    cls: 'mybutton',
+                    icon: 'images/icons/icon_flag_ok.png'
                 }
             ]
         },
@@ -88,7 +121,7 @@ Ext.define('CL.view.sign_up.V_sign_up', {
             height: 450,
             width: 300,
             alt: ' ',
-	    margin: '0 0 0 7'
+	        margin: '0 0 0 7'
         }
     ]
 });

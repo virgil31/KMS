@@ -37,7 +37,7 @@ Ext.define('CL.controller.C_user', {
         Ext.StoreManager.lookup('S_user').load({
             callback: function(){
                 var record = this.getById(param1);
-                Ext.ComponentQuery.query("user_profile label[name=first_last_name]")[0].setText(record.get("last_name")+" "+record.get("first_name"));
+                Ext.ComponentQuery.query("user_profile label[name=first_last_name]")[0].setText(record.get("last_name")+" "+record.get("first_name")+" (#"+record.get("id")+")");
                 Ext.ComponentQuery.query("user_profile label[name=group_name]")[0].setText(record.get("group_name"));
                 Ext.ComponentQuery.query("user_profile label[name=email_address]")[0].setText(record.get("email_address"));
             }

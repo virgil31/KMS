@@ -40,7 +40,9 @@ Ext.application({
         'C_collection_user',
         'C_collection_external_resource',
 
-        'C_preview'
+        'C_preview',
+
+        'C_ente'
 
     ],
 
@@ -129,6 +131,12 @@ Ext.application({
 
     applyOverrides: function () {
 
+        Ext.override(Ext.form.field.Text,{
+            msgTarget: 'side',
+            blankText: 'Questo campo è obbligatorio',
+            minLengthText: 'Minimo {0} caratteri'
+        });
+
         Ext.override(Ext.window.MessageBox,{
             buttonText: {
                 yes: "Sì"
@@ -141,22 +149,9 @@ Ext.application({
         Ext.define('Override', {
             override : 'Ext.form.field.Checkbox',
 
-            /**
-             * @cfg {Boolean} [allowBlank=true]
-             * Specify false to validate that the value's length must be > 0. If `true`, then a blank value is **always** taken to be valid regardless of any {@link #vtype}
-             * validation that may be applied.
-             *
-             * If {@link #vtype} validation must still be applied to blank values, configure {@link #validateBlank} as `true`;
-             */
             allowBlank : true,
 
-            //<locale>
-            /**
-             * @cfg {String} blankText
-             * The error text to display if the **{@link #allowBlank}** validation fails
-             */
-            blankText : 'This field is required',
-            //</locale>
+            blankText: 'Questo campo è obbligatorio',
 
             getErrors : function(value) {
                 var me     = this,
