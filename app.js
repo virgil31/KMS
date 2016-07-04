@@ -89,7 +89,9 @@ Ext.application({
             items:[
                 {
                     xtype: 'panel',
-                    scrollable: 'y',
+                    name: 'scrollable',
+                    //scrollable: 'y',
+                    overflowY : "scroll",
                     bodyStyle: "background: url(images/background.png)",//"background: url(http://www.psdgraphics.com/file/red-grunge-background.jpg); background-size: cover",// 963232
                     tbar: Ext.widget('tbar'),
                     width: '100%',

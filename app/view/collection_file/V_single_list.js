@@ -238,14 +238,14 @@ Ext.define('CL.view.collection_file.V_single_list', {
                     listeners:{
                         render: function (panel) {
                             panel.el.on('mouseenter', function () {
-                                alert("TODO MOUSE ENTER PER EVITARE SCROLLING")
+                                // alert("TODO MOUSE ENTER PER EVITARE SCROLLING")
                                 console.log("mouseenter");
-                                //Ext.ComponentQuery.query("viewport panel[name=card]")[0].scrollable = false;
+                                Ext.ComponentQuery.query("viewport panel[name=scrollable]")[0].setOverflowXY(false,false);
                             });
                             panel.el.on('mouseleave', function () {
-                                alert("TODO MOUSE LEAVE PER EVITARE SCROLLING")
+                                //alert("TODO MOUSE LEAVE PER EVITARE SCROLLING")
                                 console.log("mouseleave");
-                                //Ext.ComponentQuery.query("viewport panel[name=card]")[0].scrollable = true;
+                                Ext.ComponentQuery.query("viewport panel[name=scrollable]")[0].setOverflowXY(false,"scroll");
 
                             });
                         }
