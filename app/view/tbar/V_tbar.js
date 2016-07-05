@@ -214,7 +214,7 @@ Ext.define('CL.view.tbar.V_tbar', {
 										},
                                         {
                                             text: 'Reset Password',
-                                            icon: "http://findicons.com/files/icons/1579/devine/16/lock.png",
+                                            icon: "images/icons/icon_lock.png",
                                             handler: function(){
 												CL.app.getController('C_sign_up').onLostPassword();
                                             }

@@ -107,12 +107,7 @@ Ext.application({
                             layout: 'card',
                             width: 960,
                             minHeight: window.innerHeight-88-264,
-                            bodyStyle: 'backgroundColor: transparent'/*,
-                            listeners: {
-                                afterlayout: function(){
-                                    try{Ext.ComponentQuery.query("Ext.window.Window").forEach(function(window){window.destroy();});}catch(e){}         //AGGIUNTA PER CHIUDERE FINESTRE QUANDO CAMBIO VIEW
-                                }
-                            }*/
+                            bodyStyle: 'backgroundColor: transparent'
                         },
                         Ext.widget('bbar')
                     ]                 

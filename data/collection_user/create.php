@@ -12,7 +12,7 @@ if(isCollectionCreator($pdo,$data["user_id"],$data["collection_id"])){
     echo json_encode(array(
         "success" => false,
         "metaData" => array(
-            "msg" => "L'utente selezionato è il <b>creatore</b> della Collezione! <br>Può quindi già gestire la lista dei collaboratori."
+            "msg" => "L'utente selezionato è il <b>creatore</b> della Collezione! <br>Ha quindi già pieno potere su quest'ultima."
         )
     ));
     exit;

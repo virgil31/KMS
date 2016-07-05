@@ -11,9 +11,20 @@ x Possibilità di inserire URLS come risorse esterne. Una risorsa esterna avrà 
 x Solo i collaboratori potranno modificare tali risorse esterne.
 
 -----------------------------------------------------------------------------
+COLLEZIONE_FILE
+-----------------------------------------------------------------------------
+x Quando carico files, inserire una dichiarazione di responsabilità
+
+x Aggiungere come campo il "caricato da"
+
+x Creare vista specializzata con URL dedicata per l'anteprima e download di un documento
+    contenente link di riferimento alla Collezione genitrice
+
+
+-----------------------------------------------------------------------------
 UTENTI
 -----------------------------------------------------------------------------
-- Registrazione nuovi Utenti con mail di conferma/attivazione:
+x Registrazione nuovi Utenti con mail di conferma/attivazione:
     .mail
     .ente_appartenenza
     .username
@@ -21,7 +32,7 @@ UTENTI
 
 - Possibilità di modifica tali info (solo l'utente stesso potrà farlo)
 
-- Sistema di reset di password tramite link inviato per mail
+x Sistema di reset di password tramite link inviato per mail
 
 
 -----------------------------------------------------------------------------
@@ -51,23 +62,28 @@ x  In fase di aggiunta di un collaboratore si potrà aggiungere un utente singol
 - Possibilità di modificare le info principali (titolo, descrizione, licenza) se non è ancora CHIUSA
 
 
------------------------------------------------------------------------------
-COLLEZIONE_FILE
------------------------------------------------------------------------------
-x Quando carico files, inserire una dichiarazione di responsabilità
 
-x Aggiungere come campo il "caricato da"
-
-x Creare vista specializzata con URL dedicata per l'anteprima e download di un documento
-    contenente link di riferimento alla Collezione genitrice
 
 -----------------------------------------------------------------------------
 USER POOL
 -----------------------------------------------------------------------------
 
 - TUTTI POSSONO CREARE USER_POOLS
-- Solo il creatore di uno user_pool potrà modificarlo
-- Gli user_pool potranno essere visualizzati/utilizzati da TUTTI
+- Solo il creatore di uno user_pool potrà modificarlo (e logicamente gli amministratori)
+- Gli user_pool potranno essere visualizzati da TUTTI in fase degli inviti a collaborare
+
+
+
+-----------------------------------------------------------------------------
+DISCUSSIONI
+-----------------------------------------------------------------------------
+- CHIUNQUE potrà SEMPRE creare nuove discussioni
+- le discussioni dei COLLABORATORI dovranno distinguersi magari con un colore diverso dell'intestazione ed un icona
+- CHIUNQUE potrà SEMPRE rispondere alle discussioni
+- Solo i collaboratori (e gli amministratori) potranno chiudere una discussione
+- Una discussione chiusa non potrà ricevere ulteriori messaggi
+
+
 
 -----------------------------------------------------------------------------
 PROFILO UTENTE

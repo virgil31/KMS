@@ -35,7 +35,7 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                         {
                             xtype: 'button',
                             text: 'Aggiungi Collaboratore',
-                            iconCls: 'x-fa fa-plus',
+                            icon: 'images/icons/icon_add_user.png',
                             action: 'aggiungi_collaboratore',
                             margin: '0 5 0 0',
                             listeners: {
@@ -52,7 +52,7 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                         {
                             xtype: 'button',
                             text: 'Aggiungi gruppo di Collaboratori',
-                            iconCls: 'x-fa fa-plus',
+                            icon: 'images/icons/icon_add_group.png',
                             action: 'aggiungi_gruppo_collaboratori',
                             listeners: {
                                 click: function (btn) {
@@ -66,6 +66,12 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                             }
                         }
                     ]
+                },
+                '->',
+                {
+                    xtype: 'label',
+                    margin: '0 10 0 10',
+                    html: '<a onclick="CL.app.getController(\'C_collection_user\').showInfo(this);return false;" href="#" style="color: #963232 !important; font-weight: bold; font-size: large;" ><u>Chi/Cosa sono i Collaboratori?</u></a>'
                 }
             ],
             columns: [
@@ -85,7 +91,7 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                     dataIndex: 'user_name',
                     flex: 10,
                     renderer: function(value, metaData, record){
-                        return '<a style="color: #963232 !important;" target="_blank" href="http://192.168.1.6/Cerini/KMS/#user/'+record.get("user_id")+'"><u>'+value+'</u></a>';
+                        return '<a style="color: #963232 !important;" target="_blank" href="http://192.168.1.6/Cerini/KMS/#user/'+record.get("user_id")+'"><u>'+value+' (#'+record.get("user_id")+')</u></a>';
                     }
                 },
                 {

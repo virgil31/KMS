@@ -38,12 +38,13 @@ Ext.define('CL.view.home.V_home', {
         this_view.items = [
             {
                 xtype: 'panel',
-                title: 'Ricerca nel SITAR',
+                //title: 'Ricerca nel SITAR',
+                bodyCls: 'mypanel',
                 titleAlign: 'center',
                 height: 100,
                 width: '100%',
                 margin: '10 0 0 0',
-                bodyStyle: 'backgroundColor: #333333',
+                //bodyStyle: 'backgroundColor: #333333',
                 layout: {
                     type: 'hbox',
                     align: 'center',
@@ -89,7 +90,7 @@ Ext.define('CL.view.home.V_home', {
                     {
                         xtype: 'textfield',
                         minChars: 3,
-                        emptyText: 'Colosseo, SITAR, inaugurazione museo...',
+                        emptyText: 'Cerca in KMS: Colosseo, SITAR, inaugurazione museo...',
                         name: 'query_quick_search',
                         width: 500,
                         margin: '0 10 0 0',
