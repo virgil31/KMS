@@ -59,9 +59,9 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                                     var collection_id = (window.location.hash.split("/"))[1];
 
                                     CL.app.getController("C_permessi").canWriteCollaboratoriCollection(collection_id, true,function(){
-                                        alert("TODO: mostro form di aggiunta collaboratori/userpool");
+                                        //alert("TODO: mostro form di aggiunta collaboratori/userpool");
+                                        CL.app.getController("C_collection_user").onCreateGroup(btn.el)
                                     });
-
                                 }
                             }
                         }

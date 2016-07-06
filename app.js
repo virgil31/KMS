@@ -42,7 +42,8 @@ Ext.application({
 
         'C_preview',
 
-        'C_ente'
+        'C_ente',
+        'C_user_pool'
 
     ],
 

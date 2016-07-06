@@ -9,7 +9,8 @@ Ext.define('CL.controller.C_collection_user', {
     ],
     views: [
         'collection_user.V_list_by_collection',
-        'collection_user.V_create'
+        'collection_user.V_create',
+        'collection_user.V_create_group'
     ],
 
     /////////////////////////////////////////////////
@@ -83,6 +84,7 @@ Ext.define('CL.controller.C_collection_user', {
             form = win.down("form"),
             values = form.getValues();
 
+        console.log(values);
 
         if(form.isValid()){
             values.collection_id = (window.location.hash.split("/"))[1];
@@ -105,6 +107,29 @@ Ext.define('CL.controller.C_collection_user', {
             });
 
         }
+    },
+
+
+
+    // ON CREATE GROUP
+    onCreateGroup: function (targetEl) {
+        Ext.widget("collection_user_create_group",{
+            animateTarget: targetEl
+        });
+    },
+
+    // DO CREATE GROUP
+    doCreateGroup: function (pool_id) {
+        Ext.Ajax.request({
+            params: {
+                pool_id: pool_id,
+                collection_id: (window.location.hash.split("/"))[1]
+            },
+            url: 'data/collection_user/create_by_pool.php',
+            callback: function () {
+                Ext.StoreManager.lookup("S_collection_user").reload(); 
+            }
+        });
     }
 
 });

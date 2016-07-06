@@ -5,12 +5,12 @@ TABELLE CREATE
 - kms_collection_user
 - kms_external_resource
 - kms_external_resource_type
+- kms_pool
+- kms_user_pool
 
 
 TABELLE MODIFICATE
 - sf_guard_user (aggiunto campo affiliation_id ( =  st_person.id))
-
-
 
 
 

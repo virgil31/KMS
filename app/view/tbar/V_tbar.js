@@ -197,6 +197,32 @@ Ext.define('CL.view.tbar.V_tbar', {
 						},
 						'->',
 						{
+							xtype: 'textfield',
+							emptyText: 'Cerca in KMS: Colosseo, SITAR, inaugurazione museo...',
+							name: 'query_quick_search',
+							width: 350,
+							margin: '0 10 0 0',
+							listeners: {
+								specialkey: function(me,e){
+									if (e.getKey() === e.ENTER)
+										Ext.ComponentQuery.query('tbar button[action=go_to_search]')[0].fireEvent("click");
+								}
+							}
+						},
+                        {
+                            xtype: 'button',
+                            action: 'go_to_search',
+                            margin: '0 20 0 -10',
+                            iconCls: 'x-fa fa-search',
+                            listeners:{
+                                click: function(){
+                                    var query = Ext.ComponentQuery.query("tbar textfield[name=query_quick_search]")[0].getValue();
+                                    if(query == null) query = "";
+                                    CL.app.getController('C_home').redirectTo('search/'+query);
+                                }
+                            }
+                        },
+						{
 							xtype: 'panel',
 							items: [
 								{
