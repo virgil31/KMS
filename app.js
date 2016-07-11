@@ -43,7 +43,9 @@ Ext.application({
         'C_preview',
 
         'C_ente',
-        'C_user_pool'
+        'C_user_pool',
+
+        'C_collection_thread'
 
     ],
 

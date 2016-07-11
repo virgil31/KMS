@@ -54,7 +54,7 @@ while($row = $statement->fetchObject()){
 }
 
 //var_dump($result);
-sleep(1.5);
+//sleep(1.5);
 
 echo json_encode(array(
 	"result" => $result

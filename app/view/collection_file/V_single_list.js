@@ -61,7 +61,7 @@ Ext.define('CL.view.collection_file.V_single_list', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    tooltip: 'Condividi Collezione',
+                                    tooltip: 'Condividi Documento',
                                     icon: 'images/icons/icon_share.png',
                                     cls: 'mybutton',
                                     handler: function () {
@@ -234,20 +234,19 @@ Ext.define('CL.view.collection_file.V_single_list', {
                     },
                     height: '100%',
                     layout: 'fit',
-                    name: 'preview',
+                    name: 'preview'/*,
                     listeners:{
                         render: function (panel) {
                             panel.el.on('mouseenter', function () {
-                                //console.log("mouseenter per evitare lo scrolling del corpo principale mentre scrollo sull'imageviewer");
+                                console.log("mouseenter per evitare lo scrolling del corpo principale mentre scrollo sull'imageviewer");
                                 Ext.ComponentQuery.query("viewport panel[name=scrollable]")[0].setOverflowXY(false,false);
                             });
                             panel.el.on('mouseleave', function () {
-                                //console.log("mouseleave per evitare lo scrolling del corpo principale mentre scrollo sull'imageviewer");
+                                console.log("mouseleave per evitare lo scrolling del corpo principale mentre scrollo sull'imageviewer");
                                 Ext.ComponentQuery.query("viewport panel[name=scrollable]")[0].setOverflowXY(false,"scroll");
-
                             });
                         }
-                    }
+                    }*/
                 }
             ]
         }

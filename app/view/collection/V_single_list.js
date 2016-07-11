@@ -163,6 +163,10 @@ Ext.define('CL.view.collection.V_single_list', {
                             xtype: 'collection_user_list_by_collection'
                         },
                         {
+                            xtype: 'collection_thread_list_by_collection'
+                        },
+                        /*
+                        {
                             title: 'Discussioni',
                             icon: 'images/icons/icon_msg.png',
                             bodyStyle: 'background: #484848',
@@ -173,7 +177,7 @@ Ext.define('CL.view.collection.V_single_list', {
                             },
                             padding: 1,
                             items: []
-                        },
+                        },*/
                         {
                             title: 'TAGs',
                             icon: 'images/icons/icon_tag.png',

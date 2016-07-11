@@ -137,6 +137,8 @@ Ext.define('CL.view.utils.imageviewer.ImageViewer', {
     },
 
     mouseWheelHandler: function(e){
+        e.preventDefault();
+
         var delta = e.getWheelDelta();
         if(delta > 0)
             Ext.ComponentQuery.query('button[name=btn_zoom_in]')[0].el.dom.click();
