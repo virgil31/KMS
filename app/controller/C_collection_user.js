@@ -116,6 +116,9 @@ Ext.define('CL.controller.C_collection_user', {
         Ext.widget("collection_user_create_group",{
             animateTarget: targetEl
         });
+        var store = Ext.StoreManager.lookup("S_user_pool");
+        delete store.proxy.extraParams.query
+        store.loadPage(1);
     },
 
     // DO CREATE GROUP
