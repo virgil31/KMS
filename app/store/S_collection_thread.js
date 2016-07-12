@@ -1,7 +1,7 @@
 Ext.define('CL.store.S_collection_thread',{
     extend: 'Ext.data.Store',
 
-    autoSync: true,
+    autoSync: false,
     //autoLoad: false,
     //remoteSort: true,
 

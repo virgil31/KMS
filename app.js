@@ -131,10 +131,22 @@ Ext.application({
 
     applyOverrides: function () {
 
+        Ext.Loader.loadScript({
+                url: "ext/classic/locale/overrides/it/ext-locale-it.js",
+                scope: this
+            }
+        );
+
+        Ext.override(Ext.form.field.Text, {
+            msgTarget: 'side'
+        });
+
+        /*
         Ext.override(Ext.form.field.Text,{
             msgTarget: 'side',
             blankText: 'Questo campo è obbligatorio',
-            minLengthText: 'Minimo {0} caratteri'
+            minLengthText: 'Minimo {0} caratteri',
+            maxLengthText: 'Massimo {0} caratteri'
         });
 
         Ext.override(Ext.window.MessageBox,{
@@ -142,6 +154,7 @@ Ext.application({
                 yes: "Sì"
             }
         });
+        */
 
         /*
         checkbox allowBlankabili
