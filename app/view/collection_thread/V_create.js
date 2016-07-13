@@ -29,7 +29,7 @@ Ext.define('CL.view.collection_thread.V_create', {
             items: [
                 {
                     xtype: 'label',
-                    html: '<div style="text-align: center">Prima di iniziare una nuova discussione si prega <u>sempre</u> di: </div><ul><li>rispettare gli altri utenti</li><li>mantenere un profilo educato e pro-positivo </li><li>non scrivere TUTTO IN MAIUSCOLO</li><li><b>e rispettare il buon senso comune :)</b></li></ul><br>'
+                    html: '<div style="text-align: center;;">Prima di iniziare una nuova discussione si prega <u>sempre</u> di: <ul><li>rispettare gli altri utenti</li><li>mantenere un profilo educato e pro-positivo </li><li>non scrivere TUTTO IN MAIUSCOLO</li><li><b>rispettare il buon senso comune :)</b></li></ul><br></div>'
                 },
                 {
                     xtype: 'combobox',

@@ -24,6 +24,28 @@ $statement->execute($params);
 
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
+// Invio l'ultimo messaggio con la giustificazione della chiusura
+inviaMessaggioChiusura($pdo,$data["id"],$data["closed_by"],$data["close_message"]);
+
 echo json_encode(array(
     "success" => true
 ));
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function inviaMessaggioChiusura($pdo,$thread_id,$closed_by,$close_message){
+
+    $statement = $pdo->prepare("
+        INSERT INTO kms_collection_thread_message (thread_id, sent_by, message, sent_at) 
+        VALUES (:thread_id,:sent_by,:message, now())
+    ");
+
+    $params = array(
+        "thread_id" => $thread_id,
+        "sent_by" => $closed_by,
+        "message" => $close_message
+    );
+    $statement->execute($params);
+
+}

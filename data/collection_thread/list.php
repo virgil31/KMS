@@ -9,21 +9,50 @@ $pdo=new PDO("pgsql:host=".$ini_array['pdo_host'].";port=".$ini_array['pdo_port'
 
 $collection_id = $_GET["collection_id"];
 
-$statement = $pdo->prepare("
-    SELECT A.id,A.prefix, A.title,A.created_by, CONCAT(B.first_name,' ',B.last_name) as created_by_name,A.created_at,
-    		A.closed_at,A.collection_id,D.title as collection_name,A.closed_by, CONCAT(C.first_name,' ',C.last_name) as closed_by_name,
-    		floor(random() * 10) as count_responses
-    FROM kms_collection_thread A
-        LEFT JOIN sf_guard_user B ON B.id = A.created_by
-        LEFT JOIN sf_guard_user C ON C.id = A.closed_by
-        LEFT JOIN kms_collection D ON D.id = A.collection_id
-    WHERE A.collection_id = :collection_id
-    ORDER BY A.created_at DESC
-");
+//GET BY ID (info che servono quando ENTRO dentro un discussione)
+if(isset($_GET["thread_id"])){
+    $thread_id = $_GET["thread_id"];
+    $statement = $pdo->prepare("
+        SELECT A.id,A.prefix, A.title,A.created_by, CONCAT(B.first_name,' ',B.last_name) as created_by_name,A.created_at,
+                A.closed_at,A.collection_id,D.title as collection_name,A.closed_by, CONCAT(C.first_name,' ',C.last_name) as closed_by_name,
+                floor(random() * 10) as count_responses
+        FROM kms_collection_thread A
+            LEFT JOIN sf_guard_user B ON B.id = A.created_by
+            LEFT JOIN sf_guard_user C ON C.id  = A.closed_by
+            LEFT JOIN kms_collection D ON D.id = A.collection_id
+        WHERE A.id = :thread_id
+        ORDER BY A.created_at DESC
+    ");
+    $params = array(
+        "thread_id" => $thread_id
+    );
+    $statement->execute($params);
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+    echo json_encode(array(
+        "result" => $result
+    ));
+    exit(0);
+}
 
-$params = array(
-    "collection_id" => $collection_id
-);
+// ALTRIMENTI LIST NORMALE DELLE DISCUSSIONI PRESENTI IN UNA COLLECTION
+else{
+    $statement = $pdo->prepare("
+        SELECT A.id,A.prefix, A.title,A.created_by, CONCAT(B.first_name,' ',B.last_name) as created_by_name,A.created_at,
+                A.closed_at,A.collection_id,D.title as collection_name,A.closed_by, CONCAT(C.first_name,' ',C.last_name) as closed_by_name,
+                floor(random() * 10) as count_responses
+        FROM kms_collection_thread A
+            LEFT JOIN sf_guard_user B ON B.id = A.created_by
+            LEFT JOIN sf_guard_user C ON C.id = A.closed_by
+            LEFT JOIN kms_collection D ON D.id = A.collection_id
+        WHERE A.collection_id = :collection_id
+        ORDER BY A.created_at DESC
+    ");
+
+    $params = array(
+        "collection_id" => $collection_id
+    );
+}
+
 $statement->execute($params);
 
 $result = $statement->fetchAll(PDO::FETCH_OBJ);

@@ -91,7 +91,7 @@ Ext.define('CL.view.collection_file.V_single_list', {
                                 background: "transparent",
                                 borderColor: "transparent"
                             },
-                            html: '<img src="http://sharpened.com/img/sw/fvl.png" alt=" " style="width:50px;height:50px;margin-left: -10px; margin-top: 10px;">'
+                            html: '<img src="images/icons/icon_preview.png" alt=" " style="width:50px;height:50px;margin-left: -10px; margin-top: 10px;">'
                         },
                         {
                             xtype: 'label',
@@ -229,7 +229,7 @@ Ext.define('CL.view.collection_file.V_single_list', {
                     padding: 10,
                     flex: 1,
                     bodyStyle: {
-                        background: 'url(http://www.mymart.sg/adminUpload/big2/1429100288no-preview-available.jpg)',
+                        background: 'url(images/no_preview.jpg)',
                         backgroundSize: 'cover'
                     },
                     height: '100%',

@@ -17,6 +17,9 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                     collection_id: (window.location.hash.split("/"))[1]
                 }
             });
+
+            var collection_id = (window.location.hash.split("/"))[1];
+            CL.app.getController("C_collection").redirectTo("collection/"+collection_id+"/threads");
         }
     },
     
@@ -27,6 +30,7 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
             xtype: 'grid',
             name:'collection_thread',
             store: 'S_collection_thread',
+            disableSelection: true,
             //hideHeaders: true,
             tbar: [
                 {
@@ -50,19 +54,20 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
             columns: [
                 {
                     dataIndex: 'closed_by',
-                    flex: 1,
+                    flex: 0.8,
                     renderer: function(value,metaData,record){
 
                         var to_return = "";
 
                         // se è NUOVA
                         if(record.get("count_responses") == 0){
-                            to_return += '<img title="Discussione Nuova senza risposte" src="images/icons/icon_new.png" alt=" " height="20" width="20">';
+                            to_return += '<img title="Nuova Discussione!" src="images/icons/icon_new.ico" alt=" " height="20" width="20" style="margin-right: 5px;" >';
                         }
 
                         // se è stata creata da un COLLABORATORE o AMMINISTRATORE
                         if(record.get("is_coworker_or_admin")){
-                            to_return += '<img title="Discussione di un Collaboratore/Amministratore" src="images/icons/icon_star.png" alt=" " height="20" width="20">';
+                            metaData.tdStyle = 'background: #FFEFBB;';
+                            to_return += '<img title="Discussione di un Collaboratore/Amministratore" src="images/icons/icon_star.png" alt=" " height="20" width="20" style="margin-right: 5px;" >';
                         }
 
                         // se è stata CHIUSA
@@ -75,7 +80,7 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                             closed_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " " +
                                 d.getHours() + ":" + d.getMinutes();
 
-                            to_return += '<img title="Discussione chiusa da '+closed_by_name+'(#'+closed_by+'), '+closed_at+'" src="images/icons/icon_lock.png" alt=" " height="20" width="20">';
+                            to_return += '<img title="Discussione chiusa da '+closed_by_name+'(#'+closed_by+'), '+closed_at+'" src="images/icons/icon_lock.png" alt=" " height="20" width="20" style="margin-right: 5px;" >';
                         }
 
 
@@ -97,34 +102,37 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                             created_at = record.get("created_at");
 
                         var d = new Date(created_at);
-                        created_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " " +
+                        created_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
                             d.getHours() + ":" + d.getMinutes();
 
 
                         if(prefix==null){
-                            to_return = '<div style="font-weight: bold"><a target="_blank" style="color:#404040 !important;" href="#thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
+                            to_return = '<div style="font-weight: bold"><a  style="color:#404040 !important;" href="#collection_thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
                                         '<i>Iniziata da <a style="color: #c70000 !important;" href="#user/'+created_by+'">'+created_by_name+' (#'+created_by+')</a>, '+created_at+'</i>';
                         }
                         else if(prefix=="[DOMANDA]"){
                             to_return = '<div style="color:blue; font-weight: bold;">'+prefix+'</div>' +
-                                '<div style="font-weight: bold"><a target="_blank" style="color:#404040 !important;" href="#thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
+                                '<div style="font-weight: bold"><a  style="color:#404040 !important;" href="#collection_thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
                                 '<i>Iniziata da <a style="color: #c70000 !important;" href="#user/'+created_by+'">'+created_by_name+' (#'+created_by+')</a>, '+created_at+'</i>';
                         }
                         else if(prefix=="[GUIDA]"){
                             to_return = '<div style="color:green; font-weight: bold;">'+prefix+'</div>' +
-                                '<div style="font-weight: bold"><a target="_blank" style="color:#404040 !important;" href="#thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
+                                '<div style="font-weight: bold"><a  style="color:#404040 !important;" href="#collection_thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
                                 '<i>Iniziata da <a style="color: #c70000 !important;" href="#user/'+created_by+'">'+created_by_name+' (#'+created_by+')</a>, '+created_at+'</i>';
                         }
                         else if(prefix=="[RICHIESTA MODIFICHE]"){
                             to_return = '<div style="color:#c47614; font-weight: bold;">'+prefix+'</div>' +
-                                '<div style="font-weight: bold"><a target="_blank" style="color:#404040 !important;" href="#thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
+                                '<div style="font-weight: bold"><a  style="color:#404040 !important;" href="#collection_thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
                                 '<i>Iniziata da <a style="color: #c70000 !important;" href="#user/'+created_by+'">'+created_by_name+' (#'+created_by+')</a>, '+created_at+'</i>';
                         }
                         else {
-                            to_return = '<div style="color:red; font-weight: bold;">'+prefix+'</div>' +
-                                        '<div style="font-weight: bold"><a target="_blank" style="color:#404040 !important;" href="#thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
+                            to_return = '<div style="color:#d90000; font-weight: bold;">'+prefix+'</div>' +
+                                        '<div style="font-weight: bold"><a  style="color:#404040 !important;" href="#collection_thread/'+thread_id+'"><u>'+title+'</u></a></div>' +
                                         '<i>Iniziata da <a style="color: #c70000 !important;" href="#user/'+created_by+'">'+created_by_name+' (#'+created_by+')</a>, '+created_at+'</i>';
                         }
+
+                        if(record.get("is_coworker_or_admin"))
+                            metaData.tdStyle = 'background: #FFEFBB;';
 
                         return to_return;
                     }
@@ -132,14 +140,21 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                 {
                     text: '#Risposte',
                     dataIndex: 'count_responses',
-                    flex: 1.5,
+                    flex: 1.2,
                     renderer: function (value, metaData, record) {
+                        if(record.get("is_coworker_or_admin"))
+                            metaData.tdStyle = 'background: #FFEFBB;';
+
                         return '('+value+')'
                     }
                 },
                 {
                     xtype: 'actioncolumn',
                     width: 75,
+                    renderer: function (value, metaData, record) {
+                        if (record.get("is_coworker_or_admin"))
+                            metaData.tdStyle = 'background: #FFEFBB;';
+                    },
                     items: [
 
                         {
@@ -151,16 +166,21 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                                 CL.app.getController("C_permessi").canWriteCollectionThread(collection_id, true,function(){
                                     var rec = grid.getStore().getAt(rowIndex);
 
-                                    Ext.Msg.confirm('Attenzione!', 'Chiudere la discussione <b>"'+rec.get("title")+"\"</b>?<br>Non sarà più possibile rispondere con ulteriori messaggi!",function(btn){
+
+                                    Ext.Msg.confirm('Attenzione!', 'Chiudere la discussione <b>"'+rec.get("title")+"\"</b>?<br><br>Non sarà più possibile rispondere con ulteriori messaggi ma rimarrà comunque consultabile!",function(btn){
                                         if (btn === 'yes'){
-                                            rec.set({
-                                                closed_by: Ext.util.Cookies.get("user_id")
+                                            Ext.Msg.prompt("Chiusura Discussione","Giustifica il motivo della chiusura:", function(btn, text){
+                                                if (btn == 'ok'){
+                                                    rec.set({
+                                                        closed_by: Ext.util.Cookies.get("user_id"),
+                                                        close_message: text
+                                                    });
+                                                    Ext.StoreManager.lookup("S_collection_thread").sync();
+                                                }
                                             });
-                                            Ext.StoreManager.lookup("S_collection_thread").sync();
                                         }
                                     });
                                 });
-
 
                             }
                         },

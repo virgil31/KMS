@@ -45,7 +45,8 @@ Ext.application({
         'C_ente',
         'C_user_pool',
 
-        'C_collection_thread'
+        'C_collection_thread',
+        'C_collection_thread_message'
 
     ],
 

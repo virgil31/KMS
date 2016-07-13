@@ -162,6 +162,81 @@ Ext.define('CL.controller.C_collection_thread', {
                 }
             }
         }
+    },
+
+
+    // SHARE
+    share: function(btn,rec_thread){
+        var thread_id = rec_thread.get("id"),
+            thread_title = rec_thread.get("title"),
+            thread_prefix = rec_thread.get("prefix"),
+            collection_title = rec_thread.get("collection_name");
+
+        var url_to_share = window.location.origin+window.location.pathname+"#thread/"+thread_id;
+
+        Ext.create("Ext.window.Window",{
+            autoShow: true,
+            animateTarget: btn.el,
+            modal: true,
+            width: 600,
+            title: 'Condividi Documento!',
+            padding: 10,
+            layout: 'vbox',
+            items:[
+                {
+                    xtype: 'textfield',
+                    width: "100%",
+                    readOnly: true,
+                    value: url_to_share,
+                    labelAlign: 'top',
+                    fieldLabel: 'Link diretto da copiare e incollare',
+                    selectOnFocus: true
+                },
+                {
+                    xtype: 'label',
+                    margin: '0 0 5 0',
+                    html: '<b>Oppure...</b>'
+                },
+                {
+                    xtype: 'panel',
+                    width: "100%",
+                    layout: {
+                        type: 'hbox',
+                        align: 'center',
+                        pack: 'center'
+                    },
+                    items:[
+                        {
+                            xtype: 'button',
+                            width: 220,
+                            height: 46,
+                            style: "background-image: url('images/buttons/button_share_fb.png') !important; " +
+                            "background-size: 100% 100%;" +
+                            "border-color: transparent;" +
+                            "background-color: transparent",
+                            handler: function () {
+                                window.open("http://www.facebook.com/sharer.php?u=https://www.youtube.com/watch?v=0dnlPIuRsh8&p[title]=YOUR_TITLE&p[summary]=YOUR_SUMMARY", '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            width: 240,
+                            height: 54,
+                            style: "background-image: url('images/buttons/button_share_twitter.png') !important; " +
+                            "background-size: 100% 100%;" +
+                            "border-color: transparent;" +
+                            "background-color: transparent",
+                            handler: function () {
+                                window.open("https://twitter.com/share?url="+escape(window.location.href)+"&text=SITAR - Guarda la discussione '"+thread_prefix+" "+thread_title+"' sulla Collezione '"+collection_title+"'!", '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                            }
+                        }
+                    ]
+                }
+
+            ]
+
+        });
+
     }
 
 

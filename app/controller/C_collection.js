@@ -2,7 +2,12 @@ Ext.define('CL.controller.C_collection', {
     extend: 'Ext.app.Controller',
 
     routes: {
-        'collection/:aaa' : 'showView'
+        'collection/:aaa' : 'showView',
+        'collection/:aaa/threads' : 'showThreads',
+        'collection/:aaa/coworkers' : 'showCoworkers',
+        'collection/:aaa/external_resources' : 'showExternalResources'
+        //'collection/:aaa/files' : 'showFiles'
+
     },
 
     stores: [
@@ -17,6 +22,54 @@ Ext.define('CL.controller.C_collection', {
     ],
 
     collection_id: null,
+
+    //SHOW Files
+    /*showExternalResources: function (collection_id) {
+        //prima mi assicuro che la vista della collection sia mostrata
+        if(Ext.ComponentQuery.query('collection_single_list').length == 0)
+            this.showView(collection_id);
+        else
+            Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('collection_single_list_id');
+
+        //dopodichè porto avanti la sezione delle discussioni
+        Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(0);
+    },*/
+
+    //SHOW ExternalResources
+    showExternalResources: function (collection_id) {
+        //prima mi assicuro che la vista della collection sia mostrata
+        if(Ext.ComponentQuery.query('collection_single_list').length == 0)
+            this.showView(collection_id);
+        else
+            Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('collection_single_list_id');
+
+        //dopodichè porto avanti la sezione delle discussioni
+        Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(1);
+    },
+
+    //SHOW COWORKER
+    showCoworkers: function (collection_id) {
+        //prima mi assicuro che la vista della collection sia mostrata
+        if(Ext.ComponentQuery.query('collection_single_list').length == 0)
+            this.showView(collection_id);
+        else
+            Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('collection_single_list_id');
+
+        //dopodichè porto avanti la sezione delle discussioni
+        Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(2);
+    },
+
+    // SHOW THREADS
+    showThreads: function (collection_id) {
+        //prima mi assicuro che la vista della collection sia mostrata
+        if(Ext.ComponentQuery.query('collection_single_list').length == 0)
+            this.showView(collection_id);
+        else
+            Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('collection_single_list_id');
+
+        //dopodichè porto avanti la sezione delle discussioni
+        Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(3);
+    },
 
     //SHOW VIEW
     showView: function(collection_id){

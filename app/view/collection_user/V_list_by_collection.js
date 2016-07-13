@@ -16,6 +16,9 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                     collection_id: (window.location.hash.split("/"))[1]
                 }
             });
+
+            var collection_id = (window.location.hash.split("/"))[1];
+            CL.app.getController("C_collection").redirectTo("collection/"+collection_id+"/coworkers");
         }
     },
 
