@@ -41,18 +41,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                                     iconCls: 'x-fa fa-refresh',
                                     cls: 'mybutton',
                                     handler: function () {
-                                        alert("todo");
-                                        /*var colletion_id = CL.app.getController("C_collection_file").collection_id;
-                                        var file_id = CL.app.getController("C_collection_file").file_id;
-
-                                        Ext.create('Ext.Component', {
-                                            renderTo: Ext.getBody(),
-                                            cls: 'x-hidden',
-                                            autoEl: {
-                                                tag: 'iframe',
-                                                src: 'data/collection_file/download_single.php?file_id='+file_id+'&collection_id='+colletion_id
-                                            }
-                                        });*/
+                                        Ext.ComponentQuery.query("collection_thread_message_list_by_thread grid")[0].getStore().reload();
                                     }
                                 }
                             ]
@@ -126,7 +115,6 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                                                 }
                                             });
                                         });
-
 
                                     }
                                 }
@@ -209,7 +197,6 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                     xtype: 'label',
                     text: 'data_chiusura',
                     name: 'data_chiusura',
-                    //html: 'Data di chiusura delle modifiche: <u>24-06-2016 16:00</u>',
                     style: {
                         color: 'white',
                         fontSize: 'medium'
@@ -235,28 +222,74 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
             },
             items:[
                 {
-                    xtype: 'panel',
+                    xtype: 'grid',
                     padding: 10,
                     flex: 1,
-                    bodyStyle: {
-                        background: 'url(images/no_preview.jpg)',
-                        backgroundSize: 'cover'
-                    },
                     height: '100%',
-                    layout: 'fit',
-                    name: 'preview'/*,
-                 listeners:{
-                 render: function (panel) {
-                 panel.el.on('mouseenter', function () {
-                 console.log("mouseenter per evitare lo scrolling del corpo principale mentre scrollo sull'imageviewer");
-                 Ext.ComponentQuery.query("viewport panel[name=scrollable]")[0].setOverflowXY(false,false);
-                 });
-                 panel.el.on('mouseleave', function () {
-                 console.log("mouseleave per evitare lo scrolling del corpo principale mentre scrollo sull'imageviewer");
-                 Ext.ComponentQuery.query("viewport panel[name=scrollable]")[0].setOverflowXY(false,"scroll");
-                 });
-                 }
-                 }*/
+                    store: "S_collection_thread_message",
+                    tbar:[
+                        {
+                            xtype: 'panel',
+                            items:[
+                                {
+                                    xtype: 'button',
+                                    text:'Rispondi',
+                                    cls: 'mybutton',
+                                    action: 'on_create',
+                                    iconCls: 'x-fa fa-plus'
+                                }
+                            ]
+                        }
+                    ],
+                    bbar:[
+                        {
+                            xtype: 'panel',
+                            items:[
+                                {
+                                    xtype: 'button',
+                                    text:'Rispondi',
+                                    cls: 'mybutton',
+                                    action: 'on_create',
+                                    iconCls: 'x-fa fa-plus'
+                                }
+                            ]
+                        },
+                        '->',
+                        {
+                            xtype: 'pagingtoolbar',
+                            store: 'S_collection_thread_message', // same store GridPanel is using
+                            dock: 'bottom',
+                            displayInfo: true
+                        }
+                    ],
+                    columns: [
+                        {
+                            text: 'Inviato da',
+                            dataIndex: 'sent_by',
+                            flex: 3,
+                            renderer: function(value, metaData, record) {
+                                var d = new Date(record.get("sent_at"));
+                                sent_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
+                                    d.getHours() + ":" + d.getMinutes();
+
+                                if(record.get("is_coworker_or_admin"))
+                                    return '<img src="images/icons/icon_star.png" title="Collaboratore/Amministratore" style="margin-right: 5px;"/><a href="#user/'+value+'"><b><u>'+record.get("sent_by_name")+' (#'+value+')</u></b></a><br>'+sent_at;
+                                else
+                                    return '<a href="#user/'+value+'"><b><u>'+record.get("sent_by_name")+' (#'+value+')</u></b></a><br>'+sent_at;
+                            }
+                        },
+                        {
+                            text: 'Messaggio',
+                            dataIndex: 'message',
+                            flex: 10,
+                            renderer: function (value) {
+                                value = value.split("<a").join('<a target="_blank" style="color: blue !important;" ');
+                                value = value.split('">').join('"><u>');
+                                value = value.split('</a>').join('</u></a>');
+                                return value;
+                            }
+                        }
+                    ]
                 }
             ]
         }

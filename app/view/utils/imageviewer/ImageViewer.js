@@ -137,7 +137,7 @@ Ext.define('CL.view.utils.imageviewer.ImageViewer', {
     },
 
     mouseWheelHandler: function(e){
-        e.preventDefault();
+        e.preventDefault(); //per evitare che lanci gli eventi di scroll e zoommi solamente
 
         var delta = e.getWheelDelta();
         if(delta > 0)

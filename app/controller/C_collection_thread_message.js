@@ -12,8 +12,8 @@ Ext.define('CL.controller.C_collection_thread_message', {
         'M_collection_thread_message'
     ],
     views: [
-        'collection_thread_message.V_list_by_thread'
-        //'collection_thread_message.V_create'
+        'collection_thread_message.V_list_by_thread',
+        'collection_thread_message.V_create'
     ],
 
     thread_record: null,
@@ -79,76 +79,14 @@ Ext.define('CL.controller.C_collection_thread_message', {
                 Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=collection]")[0].setHtml('Collezione: <a href="#collection/'+collection_id+'"><b><u>"'+collection_name+'"</u></b></a>');
                 Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=created_by_name]")[0].setHtml('Iniziata da <a href="#user/'+created_by+'"><u>'+created_by_name+'</u></a> il '+created_at);
 
+
+                //Infine carico lo la prima pagina di messaggi della discussione
+
+                var store_thread_message = Ext.StoreManager.lookup("S_collection_thread_message");
+                store_thread_message.proxy.extraParams.thread_id = thread_id;
+                store_thread_message.loadPage(1);
             }
         });
-
-
-        /*
-
-
-
-
-        Ext.getBody().mask("Attendere...");
-        var store = Ext.create("CL.store.S_collection_file");
-        store.load({
-            params:{
-                collection_id: collection_id,
-                file_id: file_id
-            },
-            callback: function () {
-                Ext.getBody().unmask();
-
-                //se non ritorna alcun record, vuol dire che la collection con quell'id non esiste
-                if(this.getTotalCount() == 0) {
-                    //piccolo controllo per evitare che se la collection non esiste non mi permette più di tornare indietro
-                    if(window.location.hash == "#collection/"+CL.app.getController("C_collection_file").collection_id+"/file/"+file_id)
-                        CL.app.getController("C_collection").redirectTo("not_found");
-                }
-                else{
-                    var collection_file = this.getAt(0),
-                        title = collection_file.get("title"),
-                        extension = collection_file.get("extension"),
-                        collection_id = collection_file.get("collection_id"),
-                        collection_name = collection_file.get("collection_name"),
-                        uploaded_by = collection_file.get("uploaded_by"),
-                        uploaded_by_name = collection_file.get("uploaded_by_name"),
-                        uploaded_at = collection_file.get("uploaded_at"),
-                        collection_created_at = collection_file.get("collection_created_at");
-
-
-                    uploaded_at = new Date(uploaded_at);
-
-                    var giorno = uploaded_at.getDate(),
-                        mese = uploaded_at.getMonth()+1,
-                        anno =  uploaded_at.getFullYear(),
-                        ore = uploaded_at.getHours(),
-                        minuti = uploaded_at.getMinutes();
-
-                    uploaded_at = giorno+"/"+mese+"/"+anno+" ("+ore+":"+minuti+")";
-
-                    var data_scadenza_collection = new Date(collection_created_at);
-                    data_scadenza_collection.setDate(data_scadenza_collection.getDate() + 2);
-
-                    giorno = data_scadenza_collection.getDate();
-                    mese = data_scadenza_collection.getMonth()+1;
-                    anno =  data_scadenza_collection.getFullYear();
-                    ore = data_scadenza_collection.getHours();
-                    minuti = data_scadenza_collection.getMinutes();
-
-                    data_scadenza_collection = giorno+"/"+mese+"/"+anno+" ("+ore+":"+minuti+")";
-
-                    Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=title]")[0].setHtml(title);
-                    Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=description]")[0].setHtml("Collezione di riferimento: <a href='#collection/"+collection_id+"'><b><u> \""+collection_name+"\"</u></b></a>");
-                    Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=created_by_name]")[0].setHtml("Caricato da: <a href='#user/"+uploaded_by+"'>"+uploaded_by_name+"</a> in data "+uploaded_at);
-                    Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=data_chiusura]")[0].setHtml("Data di chiusura modifiche: <b>"+data_scadenza_collection+"</b>");
-
-                    // popolo la preview
-                    CL.app.getController("C_preview").getPreviewPanel(collection_file.get("file_id"),function (preview_panel) {
-                        Ext.ComponentQuery.query("collection_thread_message_list_by_thread panel[name=preview]")[0].add(preview_panel);
-                    });
-                }
-            }
-        });*/
 
     },
 
@@ -156,30 +94,69 @@ Ext.define('CL.controller.C_collection_thread_message', {
     init: function () {
         this.control({
 
-            /*
+
             //ON CREATE
-            'collection_thread_message_list_by_collection button[action=on_create]':{
+            'collection_thread_message_list_by_thread button[action=on_create]':{
                 click: this.onCreate
             },
+
 
             //DO CREATE
             "collection_thread_message_create button[action=do_create]":{
                 click: this.doCreate
             }
-            */
+
 
 
         }, this);
-    }
+    },
     /////////////////////////////////////////////////
 
-    /*
+
     // ON CREATE
     onCreate: function (btn) {
-        Ext.widget("collection_thread_message_create",{
-            animateTarget: btn.el
-        });
+        if(Ext.util.Cookies.get("user_id") === null)
+            Ext.Msg.alert("Attenzione","Per proseguire bisogna essere <b>loggati</b>.");
+        else{
+            Ext.widget("collection_thread_message_create",{
+                animateTarget: btn.el
+            });
+        }
     },
+
+    // DO CREATE
+    doCreate: function (btn) {
+        var win = btn.up("window"),
+            form = win.down("form"),
+            values = form.getValues(),
+            thread_id =(window.location.hash.split("/"))[1],
+            sent_by = Ext.util.Cookies.get("user_id");
+
+        values.thread_id = thread_id;
+        values.sent_by = sent_by;
+
+        var regex = /(<([^>]+)>)/ig,
+            message_without_tags = values.message.replace(regex , "");
+        message_without_tags = message_without_tags.split("&nbsp;").join("").trim();
+
+        if(message_without_tags.length<10) {
+            Ext.Msg.alert("Attenzione", "Il testo del messaggio deve essere di <b>almeno 10 caratteri</b>!");
+        }
+        else{
+            var store = Ext.StoreManager.lookup("S_collection_thread_message");
+            store.add(values);
+            win.mask("Attendere...");
+            store.sync({
+                callback: function () {
+                    win.unmask();
+                    win.close();
+                    Ext.StoreManager.lookup("S_collection_thread_message").reload();
+                }
+            });
+        }
+    }
+
+    /*
 
     // DO CREATE
     doCreate: function (btn) {

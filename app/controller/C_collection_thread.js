@@ -98,7 +98,7 @@ Ext.define('CL.controller.C_collection_thread', {
         message_without_tags = message_without_tags.split("&nbsp;").join("").trim();
 
         if(message_without_tags.length<50) {
-            Ext.Msg.alert("Attenzione", "Il testo del messaggio deve essere di almeno 50 caratteri!");
+            Ext.Msg.alert("Attenzione", "Il testo del messaggio deve essere di <b>almeno 50 caratteri</b>!");
         }
         else{
             //altrimenti se il form è valido la creazione può avvenire
