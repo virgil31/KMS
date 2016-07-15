@@ -60,7 +60,7 @@ Ext.define('CL.controller.C_collection_thread_message', {
 
                 var d = new Date(created_at);
                 created_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
-                    d.getHours() + ":" + d.getMinutes();
+                    d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
 
                 //aggiusto il colore del prefisso
                 if(thread_prefix==null)
@@ -84,7 +84,11 @@ Ext.define('CL.controller.C_collection_thread_message', {
 
                 var store_thread_message = Ext.StoreManager.lookup("S_collection_thread_message");
                 store_thread_message.proxy.extraParams.thread_id = thread_id;
-                store_thread_message.loadPage(1);
+                setTimeout(function(){
+                    store_thread_message.loadPage(1);
+                }, 250);
+
+
             }
         });
 
@@ -117,6 +121,10 @@ Ext.define('CL.controller.C_collection_thread_message', {
     onCreate: function (btn) {
         if(Ext.util.Cookies.get("user_id") === null)
             Ext.Msg.alert("Attenzione","Per proseguire bisogna essere <b>loggati</b>.");
+
+        else if(this.thread_record.get("closed_at") != null)
+            Ext.Msg.alert("Attenzione","<b>La discussione è stata <u>chiusa</u></b>!<br>Non posso essere inviati ulteriori messaggi!");
+
         else{
             Ext.widget("collection_thread_message_create",{
                 animateTarget: btn.el
@@ -155,87 +163,5 @@ Ext.define('CL.controller.C_collection_thread_message', {
             });
         }
     }
-
-    /*
-
-    // DO CREATE
-    doCreate: function (btn) {
-        var win = btn.up("window"),
-            form = win.down("form"),
-            values = form.getValues();
-
-
-        // verifico che il testo del messaggio (senza tags) sia di almeno 50 caratteri
-        var regex = /(<([^>]+)>)/ig,
-            message_without_tags = values.message.replace(regex , "");
-        message_without_tags = message_without_tags.split("&nbsp;").join("").trim();
-
-        if(message_without_tags.length<50) {
-            Ext.Msg.alert("Attenzione", "Il testo del messaggio deve essere di almeno 50 caratteri!");
-        }
-        else{
-            //altrimenti se il form è valido la creazione può avvenire
-            if(form.isValid()){
-                if(Ext.util.Cookies.get("user_id")===null)
-                    Ext.Msg.alert("Attenzione","Per proseguire bisogna essere <b>loggati</b>.");
-                else {
-                    var collection_id = (window.location.hash.split("/"))[1];
-                    values.collection_id = collection_id;
-                    values.created_by = Ext.util.Cookies.get("user_id");
-
-                    Ext.StoreManager.lookup("S_collection_thread_message").add(values);
-
-                    Ext.ComponentQuery.query("collection_thread_message_create")[0].mask("Attendere...");
-                    Ext.StoreManager.lookup("S_collection_thread_message").sync({
-                        callback: function () {
-                            Ext.ComponentQuery.query("collection_thread_message_create")[0].unmask();
-
-                            Ext.StoreManager.lookup("S_collection_thread_message").reload();
-
-                            win.close();
-
-                            Ext.create("Ext.window.Window",{
-                                autoShow: true,
-                                modal: true,
-                                closable: false,
-                                draggable: false,
-                                resizable: false,
-                                title: 'Perfetto!',
-                                padding: 10,
-                                layout: {
-                                    type: 'vbox',
-                                    align: 'center'
-                                },
-                                items: [
-                                    {
-                                        xtype: 'image',
-                                        src: 'images/icons/icon_ok.png',
-                                        alt: " ",
-                                        width: 60,
-                                        height: 60
-                                    },
-                                    {
-                                        xtype: 'label',
-                                        html: '<div style="text-align: center">Discussione salvata!<br>La troverai nella lista qui sotto,<br>in attesa di nuovi messaggi!</div>',
-                                        margin: '10 0 10 0'
-                                    }
-                                ],
-                                buttonAlign: 'center',
-                                buttons: [
-                                    {
-                                        text: 'Ok',
-                                        handler: function () {
-                                            this.up("window").close();
-                                        }
-                                    }
-                                ]
-                            });
-                        }
-                    });
-                }
-            }
-        }
-    }
-    */
 
 });

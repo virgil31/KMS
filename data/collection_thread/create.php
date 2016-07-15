@@ -26,8 +26,33 @@ $statement->execute($params);
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
 
+$thread_id = $pdo->lastInsertId("kms_collection_thread_id_seq");
+
+inviaMessaggioIniziale($pdo,$thread_id,$data["created_by"],$data["message"]);
+
 sleep(1.5);
 
 echo json_encode(array(
     "success" => true
 ));
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+function inviaMessaggioIniziale($pdo,$thread_id,$closed_by,$start_message){
+
+    $statement = $pdo->prepare("
+        INSERT INTO kms_collection_thread_message (thread_id, sent_by, message, sent_at) 
+        VALUES (:thread_id,:sent_by,:message, now())
+    ");
+
+    $params = array(
+        "thread_id" => $thread_id,
+        "sent_by" => $closed_by,
+        "message" => $start_message
+    );
+
+    $statement->execute($params);
+
+}

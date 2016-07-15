@@ -38,14 +38,20 @@ if(isset($_GET["thread_id"])){
 else{
     $statement = $pdo->prepare("
         SELECT A.id,A.prefix, A.title,A.created_by, CONCAT(B.first_name,' ',B.last_name) as created_by_name,A.created_at,
-                A.closed_at,A.collection_id,D.title as collection_name,A.closed_by, CONCAT(C.first_name,' ',C.last_name) as closed_by_name,
-                floor(random() * 10) as count_responses
-        FROM kms_collection_thread A
-            LEFT JOIN sf_guard_user B ON B.id = A.created_by
-            LEFT JOIN sf_guard_user C ON C.id = A.closed_by
-            LEFT JOIN kms_collection D ON D.id = A.collection_id
-        WHERE A.collection_id = :collection_id
-        ORDER BY A.created_at DESC
+			A.closed_at,A.collection_id,D.title as collection_name,A.closed_by, CONCAT(C.first_name,' ',C.last_name) as closed_by_name,
+			COUNT(E.id)-1 as count_responses, MAX(E.sent_at) as last_message_at
+			
+		FROM kms_collection_thread A
+			LEFT JOIN sf_guard_user B ON B.id = A.created_by
+			LEFT JOIN sf_guard_user C ON C.id = A.closed_by
+			LEFT JOIN kms_collection D ON D.id = A.collection_id
+			LEFT JOIN kms_collection_thread_message E ON E.thread_id = A.id
+			
+		WHERE A.collection_id = :collection_id
+		
+		GROUP BY A.id,B.first_name,B.last_name,D.title,C.first_name, C.last_name
+		
+		ORDER BY A.created_at DESC
     ");
 
     $params = array(

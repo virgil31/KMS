@@ -44,7 +44,7 @@ function inviaMessaggioChiusura($pdo,$thread_id,$closed_by,$close_message){
     $params = array(
         "thread_id" => $thread_id,
         "sent_by" => $closed_by,
-        "message" => $close_message
+        "message" => '<div style="font-weight: bold !important; color: green !important;">[DISCUSSIONE CHIUSA] Motivo:</div><br>'.$close_message
     );
     $statement->execute($params);
 

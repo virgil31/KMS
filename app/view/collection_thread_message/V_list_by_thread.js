@@ -88,7 +88,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    tooltip: 'Elimina collection_file',
+                                    tooltip: 'Elimina Discussione',
                                     iconCls: 'x-fa fa-trash',
                                     cls: 'mybutton',
                                     handler: function(){
@@ -227,6 +227,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                     flex: 1,
                     height: '100%',
                     store: "S_collection_thread_message",
+                    hideHeaders: true,
                     tbar:[
                         {
                             xtype: 'panel',
@@ -270,7 +271,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                             renderer: function(value, metaData, record) {
                                 var d = new Date(record.get("sent_at"));
                                 sent_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
-                                    d.getHours() + ":" + d.getMinutes();
+                                    d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
 
                                 if(record.get("is_coworker_or_admin"))
                                     return '<img src="images/icons/icon_star.png" title="Collaboratore/Amministratore" style="margin-right: 5px;"/><a href="#user/'+value+'"><b><u>'+record.get("sent_by_name")+' (#'+value+')</u></b></a><br>'+sent_at;

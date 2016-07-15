@@ -80,9 +80,14 @@ Ext.define('CL.controller.C_collection_thread', {
 
     // ON CREATE
     onCreate: function (btn) {
-        Ext.widget("collection_thread_create",{
-            animateTarget: btn.el
-        });
+        if(Ext.util.Cookies.get("user_id") === null)
+            Ext.Msg.alert("Attenzione","Per proseguire bisogna essere <b>loggati</b>.");
+
+        else{
+            Ext.widget("collection_thread_create",{
+                animateTarget: btn.el
+            });
+        }
     },
 
     // DO CREATE

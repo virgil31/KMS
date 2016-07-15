@@ -12,11 +12,14 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
 
     listeners: {
         activate: function(){
-            Ext.StoreManager.lookup("S_collection_thread").load({
-                params:{
-                    collection_id: (window.location.hash.split("/"))[1]
-                }
-            });
+            setTimeout(function(){
+                Ext.StoreManager.lookup("S_collection_thread").load({
+                    params:{
+                        collection_id: (window.location.hash.split("/"))[1]
+                    }
+                });
+            }, 250);
+
 
             var collection_id = (window.location.hash.split("/"))[1];
             CL.app.getController("C_collection").redirectTo("collection/"+collection_id+"/threads");
@@ -78,7 +81,7 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
 
                             var d = new Date(closed_at);
                             closed_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " " +
-                                d.getHours() + ":" + d.getMinutes();
+                                d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
 
                             to_return += '<img title="Discussione chiusa da '+closed_by_name+'(#'+closed_by+'), '+closed_at+'" src="images/icons/icon_lock.png" alt=" " height="20" width="20" style="margin-right: 5px;" >';
                         }
@@ -103,7 +106,7 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
 
                         var d = new Date(created_at);
                         created_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
-                            d.getHours() + ":" + d.getMinutes();
+                            d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
 
 
                         if(prefix==null){
@@ -140,12 +143,27 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                 {
                     text: '#Risposte',
                     dataIndex: 'count_responses',
-                    flex: 1.2,
+                    flex: 1.5,
                     renderer: function (value, metaData, record) {
                         if(record.get("is_coworker_or_admin"))
                             metaData.tdStyle = 'background: #FFEFBB;';
 
                         return '('+value+')'
+                    }
+                },
+                {
+                    text: 'Ultimo Messaggio',
+                    dataIndex: 'last_message_at',
+                    flex: 2.2,
+                    renderer: function (value, metaData, record) {
+                        if(record.get("is_coworker_or_admin"))
+                            metaData.tdStyle = 'background: #FFEFBB;';
+
+                        var d = new Date(value);
+                        value = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
+                            d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
+
+                        return value
                     }
                 },
                 {
@@ -166,20 +184,23 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                                 CL.app.getController("C_permessi").canWriteCollectionThread(collection_id, true,function(){
                                     var rec = grid.getStore().getAt(rowIndex);
 
-
-                                    Ext.Msg.confirm('Attenzione!', 'Chiudere la discussione <b>"'+rec.get("title")+"\"</b>?<br><br>Non sarà più possibile rispondere con ulteriori messaggi ma rimarrà comunque consultabile!",function(btn){
-                                        if (btn === 'yes'){
-                                            Ext.Msg.prompt("Chiusura Discussione","Giustifica il motivo della chiusura:", function(btn, text){
-                                                if (btn == 'ok'){
-                                                    rec.set({
-                                                        closed_by: Ext.util.Cookies.get("user_id"),
-                                                        close_message: text
-                                                    });
-                                                    Ext.StoreManager.lookup("S_collection_thread").sync();
-                                                }
-                                            });
-                                        }
-                                    });
+                                    if(rec.get("closed_at")!=null)
+                                        Ext.Msg.alert("Attenzione!","Questa discussione è già stata chiusa!");
+                                    else{
+                                        Ext.Msg.confirm('Attenzione!', 'Chiudere la discussione <b>"'+rec.get("title")+"\"</b>?<br><br>Non sarà più possibile rispondere con ulteriori messaggi ma rimarrà comunque consultabile!",function(btn){
+                                            if (btn === 'yes'){
+                                                Ext.Msg.prompt("Chiusura Discussione","Giustifica il motivo della chiusura:", function(btn, text){
+                                                    if (btn == 'ok'){
+                                                        rec.set({
+                                                            closed_by: Ext.util.Cookies.get("user_id"),
+                                                            close_message: text
+                                                        });
+                                                        Ext.StoreManager.lookup("S_collection_thread").sync();
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
                                 });
 
                             }
