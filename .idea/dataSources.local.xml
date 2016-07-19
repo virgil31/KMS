@@ -7,5 +7,9 @@
       <schema-pattern>sitar.pg_catalog sitar.public sitar.sitar</schema-pattern>
       <default-schemas>sitar.public sitar.sitar</default-schemas>
     </data-source>
+    <data-source name="PostgreSQL - ced@192.168.1.6" uuid="e36e2d0d-404b-4a38-8c25-75ad40b2c544">
+      <secret-storage>master_key</secret-storage>
+      <user-name>sitar</user-name>
+    </data-source>
   </component>
 </project>

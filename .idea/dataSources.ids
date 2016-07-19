@@ -74673,4 +74673,600 @@ umserver</columns>
       </argument>
     </database-model>
   </data-source>
+  <data-source name="PostgreSQL - ced@192.168.1.6" uuid="e36e2d0d-404b-4a38-8c25-75ad40b2c544">
+    <database-info product="PostgreSQL" version="9.1.22" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.5">
+      <database id="1" name="ced"/>
+      <schema id="2" parent="1" name="public">
+        <object-id>2200</object-id>
+        <comment>standard public schema</comment>
+        <introspection-state-number>1862619</introspection-state-number>
+        <introspection-timestamp>2016-07-18.11:38:26.634</introspection-timestamp>
+      </schema>
+      <sequence id="3" parent="2" name="fattura_id_seq">
+        <object-id>378494</object-id>
+        <state-number>1862525</state-number>
+      </sequence>
+      <sequence id="4" parent="2" name="fornitore_id_seq">
+        <object-id>378502</object-id>
+        <state-number>1862528</state-number>
+      </sequence>
+      <sequence id="5" parent="2" name="marca_hardware_id_seq">
+        <object-id>378510</object-id>
+        <state-number>1862531</state-number>
+      </sequence>
+      <sequence id="6" parent="2" name="modello_hardware_id_seq">
+        <object-id>378518</object-id>
+        <state-number>1862534</state-number>
+      </sequence>
+      <sequence id="7" parent="2" name="richiesta_id_seq">
+        <object-id>378526</object-id>
+        <state-number>1862537</state-number>
+      </sequence>
+      <sequence id="8" parent="2" name="richiesta_tipo_hardware_id_seq">
+        <object-id>378534</object-id>
+        <state-number>1862540</state-number>
+      </sequence>
+      <sequence id="9" parent="2" name="sede_id_seq">
+        <object-id>378542</object-id>
+        <state-number>1862543</state-number>
+      </sequence>
+      <sequence id="10" parent="2" name="seriale_modello_id_seq">
+        <object-id>378551</object-id>
+        <state-number>1862546</state-number>
+      </sequence>
+      <sequence id="11" parent="2" name="tipo_ditta_id_seq">
+        <object-id>378559</object-id>
+        <state-number>1862549</state-number>
+      </sequence>
+      <sequence id="12" parent="2" name="tipo_hardware_id_seq">
+        <object-id>378567</object-id>
+        <state-number>1862552</state-number>
+      </sequence>
+      <sequence id="13" parent="2" name="ufficio_id_seq">
+        <object-id>378575</object-id>
+        <state-number>1862555</state-number>
+      </sequence>
+      <sequence id="14" parent="2" name="utente_id_seq">
+        <object-id>378584</object-id>
+        <state-number>1862558</state-number>
+      </sequence>
+      <table id="15" parent="2" name="fattura">
+        <object-id>378488</object-id>
+        <state-number>1862609</state-number>
+      </table>
+      <table id="16" parent="2" name="fornitore">
+        <object-id>378496</object-id>
+        <state-number>1862610</state-number>
+      </table>
+      <table id="17" parent="2" name="marca_hardware">
+        <object-id>378504</object-id>
+        <state-number>1862611</state-number>
+      </table>
+      <table id="18" parent="2" name="modello_hardware">
+        <object-id>378512</object-id>
+        <state-number>1862618</state-number>
+      </table>
+      <table id="19" parent="2" name="richiesta">
+        <object-id>378520</object-id>
+        <state-number>1862617</state-number>
+      </table>
+      <table id="20" parent="2" name="richiesta_tipo_hardware">
+        <object-id>378528</object-id>
+        <state-number>1862616</state-number>
+      </table>
+      <table id="21" parent="2" name="sede">
+        <object-id>378536</object-id>
+        <state-number>1862619</state-number>
+      </table>
+      <table id="22" parent="2" name="seriale_modello">
+        <object-id>378544</object-id>
+        <state-number>1862618</state-number>
+      </table>
+      <table id="23" parent="2" name="tipo_ditta">
+        <object-id>378553</object-id>
+        <state-number>1862610</state-number>
+      </table>
+      <table id="24" parent="2" name="tipo_hardware">
+        <object-id>378561</object-id>
+        <state-number>1862616</state-number>
+      </table>
+      <table id="25" parent="2" name="ufficio">
+        <object-id>378569</object-id>
+        <state-number>1862619</state-number>
+      </table>
+      <table id="26" parent="2" name="utente">
+        <object-id>378577</object-id>
+        <state-number>1862613</state-number>
+      </table>
+      <column id="27" parent="15" name="id">
+        <state-number>1862560</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;fattura_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="28" parent="15" name="fornitore_id">
+        <state-number>1862524</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="29" parent="15" name="codice">
+        <state-number>1862524</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="30" parent="15" name="data">
+        <state-number>1862524</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="31" parent="15" name="fattura_pkey">
+        <object-id>378598</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="32" parent="15" name="fattura_pkey">
+        <columns>id</columns>
+        <underlying-index>fattura_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="33" parent="15" name="fattura_fornitore_id_fkey">
+        <columns>fornitore_id</columns>
+        <ref-key>~.fornitore.fornitore_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="34" parent="16" name="id">
+        <state-number>1862561</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;fornitore_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="35" parent="16" name="tipo_id">
+        <state-number>1862527</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="36" parent="16" name="nome">
+        <state-number>1862527</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="37" parent="16" name="indirizzo">
+        <state-number>1862527</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="38" parent="16" name="telefono">
+        <state-number>1862527</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="39" parent="16" name="fax">
+        <state-number>1862527</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="40" parent="16" name="email">
+        <state-number>1862527</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="41" parent="16" name="partita_iva">
+        <state-number>1862527</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="42" parent="16" name="codice_fiscale">
+        <state-number>1862527</state-number>
+        <data-type>text</data-type>
+      </column>
+      <index id="43" parent="16" name="fornitore_pkey">
+        <object-id>378600</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="44" parent="16" name="fornitore_pkey">
+        <columns>id</columns>
+        <underlying-index>fornitore_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="45" parent="16" name="fornitore_tipo_id_fkey">
+        <columns>tipo_id</columns>
+        <ref-key>~.tipo_ditta.tipo_ditta_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="46" parent="17" name="id">
+        <state-number>1862562</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;marca_hardware_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="47" parent="17" name="nome">
+        <state-number>1862530</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <index id="48" parent="17" name="marca_hardware_pkey">
+        <object-id>378602</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="49" parent="17" name="marca_hardware_pkey">
+        <columns>id</columns>
+        <underlying-index>marca_hardware_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="50" parent="18" name="id">
+        <state-number>1862563</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;modello_hardware_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="51" parent="18" name="nome">
+        <state-number>1862533</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="52" parent="18" name="tipo_id">
+        <state-number>1862533</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="53" parent="18" name="marca_id">
+        <state-number>1862533</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <index id="54" parent="18" name="modello_hardware_pkey">
+        <object-id>378604</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="55" parent="18" name="modello_hardware_pkey">
+        <columns>id</columns>
+        <underlying-index>modello_hardware_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="56" parent="18" name="modello_hardware_tipo_id_fkey">
+        <columns>tipo_id</columns>
+        <ref-key>~.tipo_hardware.tipo_hardware_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="57" parent="18" name="modello_hardware_marca_id_fkey">
+        <columns>marca_id</columns>
+        <ref-key>~.marca_hardware.marca_hardware_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="58" parent="19" name="id">
+        <state-number>1862564</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;richiesta_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="59" parent="19" name="nome">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="60" parent="19" name="cognome">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="61" parent="19" name="funzionario_id">
+        <state-number>1862536</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="62" parent="19" name="email">
+        <state-number>1862536</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="63" parent="19" name="sede_id">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="64" parent="19" name="ufficio_id">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="65" parent="19" name="servizio">
+        <state-number>1862536</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="66" parent="19" name="motivazione">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="67" parent="19" name="disponibile_per_usato">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>boolean</data-type>
+      </column>
+      <column id="68" parent="19" name="richiesta_il">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="69" parent="19" name="assegnata_il">
+        <state-number>1862536</state-number>
+        <data-type>date</data-type>
+      </column>
+      <column id="70" parent="19" name="stato">
+        <state-number>1862536</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <index id="71" parent="19" name="richiesta_pkey">
+        <object-id>378606</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="72" parent="19" name="richiesta_pkey">
+        <columns>id</columns>
+        <underlying-index>richiesta_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="73" parent="19" name="richiesta_funzionario_id_fkey">
+        <columns>funzionario_id</columns>
+        <ref-key>~.utente.utente_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="74" parent="19" name="richiesta_sede_id_fkey">
+        <columns>sede_id</columns>
+        <ref-key>~.sede.sede_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="75" parent="19" name="richiesta_ufficio_id_fkey">
+        <columns>ufficio_id</columns>
+        <ref-key>~.ufficio.ufficio_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="76" parent="20" name="id">
+        <state-number>1862565</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;richiesta_tipo_hardware_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="77" parent="20" name="richiesta_id">
+        <state-number>1862539</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="78" parent="20" name="tipo_hardware_id">
+        <state-number>1862539</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="79" parent="20" name="note">
+        <state-number>1862539</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="80" parent="20" name="seriale_id">
+        <state-number>1862539</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="81" parent="20" name="richiesta_tipo_hardware_pkey">
+        <object-id>378608</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="82" parent="20" name="richiesta_tipo_hardware_pkey">
+        <columns>id</columns>
+        <underlying-index>richiesta_tipo_hardware_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="83" parent="20" name="richiesta_tipo_hardware_richiesta_id_fkey">
+        <columns>richiesta_id</columns>
+        <ref-key>~.richiesta.richiesta_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="84" parent="20" name="richiesta_tipo_hardware_tipo_hardware_id_fkey">
+        <columns>tipo_hardware_id</columns>
+        <ref-key>~.tipo_hardware.tipo_hardware_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="85" parent="21" name="id">
+        <state-number>1862566</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;sede_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="86" parent="21" name="nome">
+        <state-number>1862542</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <index id="87" parent="21" name="sede_pkey">
+        <object-id>378610</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="88" parent="21" name="sede_pkey">
+        <columns>id</columns>
+        <underlying-index>sede_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="89" parent="22" name="id">
+        <state-number>1862567</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;seriale_modello_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="90" parent="22" name="seriale">
+        <state-number>1862545</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="91" parent="22" name="modello_id">
+        <state-number>1862545</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="92" parent="22" name="fattura_id">
+        <state-number>1862545</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="93" parent="22" name="disponibile">
+        <state-number>1862545</state-number>
+        <mandatory>1</mandatory>
+        <data-type>boolean</data-type>
+        <default-expression>true</default-expression>
+      </column>
+      <index id="94" parent="22" name="seriale_modello_pkey">
+        <object-id>378612</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="95" parent="22" name="seriale_modello_seriale_modello_id_key">
+        <object-id>378614</object-id>
+        <columns>seriale
+modello_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="96" parent="22" name="seriale_modello_pkey">
+        <columns>id</columns>
+        <underlying-index>seriale_modello_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <key id="97" parent="22" name="seriale_modello_seriale_modello_id_key">
+        <columns>seriale
+modello_id</columns>
+        <underlying-index>seriale_modello_seriale_modello_id_key</underlying-index>
+      </key>
+      <foreign-key id="98" parent="22" name="seriale_modello_modello_id_fkey">
+        <columns>modello_id</columns>
+        <ref-key>~.modello_hardware.modello_hardware_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="99" parent="23" name="id">
+        <state-number>1862568</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;tipo_ditta_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="100" parent="23" name="nome">
+        <state-number>1862548</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <index id="101" parent="23" name="tipo_ditta_pkey">
+        <object-id>378616</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="102" parent="23" name="tipo_ditta_pkey">
+        <columns>id</columns>
+        <underlying-index>tipo_ditta_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="103" parent="24" name="id">
+        <state-number>1862569</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;tipo_hardware_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="104" parent="24" name="nome">
+        <state-number>1862551</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <index id="105" parent="24" name="tipo_hardware_pkey">
+        <object-id>378618</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="106" parent="24" name="tipo_hardware_pkey">
+        <columns>id</columns>
+        <underlying-index>tipo_hardware_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="107" parent="25" name="id">
+        <state-number>1862570</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;ufficio_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="108" parent="25" name="nome">
+        <state-number>1862554</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="109" parent="25" name="sede_id">
+        <state-number>1862554</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <index id="110" parent="25" name="ufficio_pkey">
+        <object-id>378620</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="111" parent="25" name="ufficio_pkey">
+        <columns>id</columns>
+        <underlying-index>ufficio_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="112" parent="25" name="ufficio_sede_id_fkey">
+        <columns>sede_id</columns>
+        <ref-key>~.sede.sede_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="113" parent="26" name="id">
+        <state-number>1862571</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;utente_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="114" parent="26" name="funzionario">
+        <state-number>1862557</state-number>
+        <mandatory>1</mandatory>
+        <data-type>boolean</data-type>
+        <default-expression>false</default-expression>
+      </column>
+      <column id="115" parent="26" name="cognome">
+        <state-number>1862557</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="116" parent="26" name="nome">
+        <state-number>1862557</state-number>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <index id="117" parent="26" name="utente_pkey">
+        <object-id>378622</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="118" parent="26" name="utente_pkey">
+        <columns>id</columns>
+        <underlying-index>utente_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
 </component>

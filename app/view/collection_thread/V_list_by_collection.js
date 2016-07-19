@@ -57,7 +57,7 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
             columns: [
                 {
                     dataIndex: 'closed_by',
-                    flex: 0.8,
+                    flex: 1,
                     renderer: function(value,metaData,record){
 
                         var to_return = "";

@@ -228,20 +228,26 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                     height: '100%',
                     store: "S_collection_thread_message",
                     hideHeaders: true,
-                    tbar:[
-                        {
-                            xtype: 'panel',
-                            items:[
-                                {
-                                    xtype: 'button',
-                                    text:'Rispondi',
-                                    cls: 'mybutton',
-                                    action: 'on_create',
-                                    iconCls: 'x-fa fa-plus'
-                                }
-                            ]
-                        }
-                    ],
+                    tbar:{
+                        xtype: 'toolbar',
+                        style:{
+                            background: '#e9e9e9'
+                        },
+                        items:[
+                            {
+                                xtype: 'panel',
+                                items:[
+                                    {
+                                        xtype: 'button',
+                                        text:'Rispondi',
+                                        cls: 'mybutton',
+                                        action: 'on_create',
+                                        iconCls: 'x-fa fa-plus'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
                     bbar:[
                         {
                             xtype: 'panel',
@@ -284,9 +290,14 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                             dataIndex: 'message',
                             flex: 10,
                             renderer: function (value) {
+                                // rendo gli elementi A di colore blu e con sottolineatura
                                 value = value.split("<a").join('<a target="_blank" style="color: blue !important;" ');
                                 value = value.split('">').join('"><u>');
                                 value = value.split('</a>').join('</u></a>');
+
+                                // sostituisco i B (che son di colore rosso), con lo style font-weight: bold
+                                value = value.split('<b>').join('<b style="font-weight: bold; color: black;">');
+
                                 return value;
                             }
                         }

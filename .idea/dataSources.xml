@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3669808023">
+  <component name="DataSourceManagerImpl" format="xml" hash="101233858">
     <data-source source="LOCAL" name="PostgreSQL - sitar@192.168.1.6" uuid="35ecbb0b-b549-4667-8e4d-ebd44e62a26f">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://192.168.1.6:5432/sitar</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - ced@192.168.1.6" uuid="e36e2d0d-404b-4a38-8c25-75ad40b2c544">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://192.168.1.6:5432/ced</jdbc-url>
     </data-source>
   </component>
 </project>

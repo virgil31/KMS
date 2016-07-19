@@ -66,7 +66,7 @@ Ext.define('CL.controller.C_collection_thread_message', {
                 if(thread_prefix==null)
                     thread_prefix = '<div style="color: #404040;display:inline;">'+thread_prefix+'</div>';
                 else if(thread_prefix=="[DOMANDA]")
-                    thread_prefix = '<div style="color: blue;display:inline;">'+thread_prefix+'</div>';
+                    thread_prefix = '<div style="color: #076eb7;display:inline;">'+thread_prefix+'</div>';
                 else if(thread_prefix=="[GUIDA]")
                     thread_prefix = '<div style="color: green;display:inline;">'+thread_prefix+'</div>';
                 else if(thread_prefix=="[RICHIESTA MODIFICHE]")
