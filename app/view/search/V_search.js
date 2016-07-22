@@ -49,6 +49,9 @@ Ext.define('CL.view.search.V_search', {
                     listeners:{
                         click: function(){
                             var query = Ext.ComponentQuery.query("search textfield[name=query_search]")[0].getValue();
+                            CL.app.getController('C_home').redirectTo('search/'+query);
+
+                            /*
                             if(query.length != 0){
                                 var store = Ext.StoreManager.lookup("S_search");
                                 store.proxy.extraParams.query = query;
@@ -57,6 +60,7 @@ Ext.define('CL.view.search.V_search', {
                             else{
                                 Ext.Msg.alert("Attenzione","Non sono stati esplicitati parametri di ricerca.");
                             }
+                            */
 
                         }
                     }
@@ -66,7 +70,7 @@ Ext.define('CL.view.search.V_search', {
 
         {
             xtype: 'panel',
-            height: 1000,
+            height: 750,
             width: '100%',
             margin: '10 0 10 0',
             layout: {
@@ -94,7 +98,7 @@ Ext.define('CL.view.search.V_search', {
                             title: 'Tipo di Risultato',
                             width: '100%',
                             margin: '0 0 5 0',
-                            flex: 3.5,
+                            flex: 5,
                             bodyStyle: {
                                 background: "#484848"
                             },
@@ -164,12 +168,14 @@ Ext.define('CL.view.search.V_search', {
                     },
                     margin: '0 0 0 5',
                     listeners: {
-                        itemclick: function (grid, record) {
+                        /*itemclick: function (grid, record) {
                             var id = record.get("id"),
                                 type = record.get("type");
                             CL.app.getController("C_search").redirectTo(type+"/"+id);
-                        },
+                        }*/
+
                         //tooltip
+                        /*
                         itemmouseenter: function (view,record,item,index,e,options) {
                             //chiudo i precedenti
                             Ext.ComponentQuery.query("tooltip").forEach(function (tooltip) {
@@ -183,22 +189,25 @@ Ext.define('CL.view.search.V_search', {
                                 dismissDelay: 30000,
                                 html: record.get("tooltip")
                             });
-                        }
+                        }*/
                     },
+                    cls: 'myRowClass',
                     columns: [
                         {
+                            dataIndex: 'tooltip',
+                            flex: 1,
+                            renderer: function (value, metaData, record) {
+                                metaData.tdStyle = 'background: #d3d3d3;';
+                                return value;
+                            }
+                        }
+                        /*{
                             text: 'type',
                             dataIndex: 'type',
                             flex: 1,
                             renderer: function (type,metaData,record) {
-                                //return  "<img src='images/icons/icon_"+type+".png' alt=' ' height='60' width='60'> </td>";
                                 return record.get("tooltip");
                             }
-                        }/*,
-                        {
-                            text: 'description',
-                            dataIndex: 'description',
-                            flex: 7
                         }*/
                     ],
                     dockedItems: [  
