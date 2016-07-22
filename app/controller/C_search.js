@@ -35,14 +35,18 @@ Ext.define('CL.controller.C_search', {
         if(param1 != undefined) {
             Ext.ComponentQuery.query('search textfield[name=query_search]')[0].setRawValue(param1);
 
-            Ext.StoreManager.lookup('S_search').proxy.extraParams.query = param1;
+            var store = Ext.StoreManager.lookup('S_search');
+
+            store.proxy.extraParams.query = param1.trim();
 
             Ext.ComponentQuery.query('search grid')[0].body.mask("Ricerca...");
-            Ext.StoreManager.lookup('S_search').loadPage(1,{
+
+            store.loadPage(1,{
                 callback: function () {
                     Ext.ComponentQuery.query('search grid')[0].body.unmask();
                 }
             });
+
         }
 
     }

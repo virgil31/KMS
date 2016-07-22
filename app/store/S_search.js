@@ -9,6 +9,12 @@ Ext.define('CL.store.S_search',{
     //remoteSort: true,
     //sorters: { property: 'first_name', direction : 'ASC' },
 
+    listeners:{
+        beforeload: function () {
+            Ext.Ajax.abortAll();
+        }
+    },
+
     proxy:{
         type:'ajax',
         api: {

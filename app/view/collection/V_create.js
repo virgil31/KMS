@@ -70,7 +70,7 @@ Ext.define('CL.view.collection.V_create', {
                 {
                     xtype: 'tagfield',
                     name: 'tags',
-                    store: 'S_search',
+                    store: Ext.create('CL.store.S_search'),
                     fieldLabel: 'TAGS',
                     labelAlign: 'top',
                     width: '100%',
@@ -80,6 +80,14 @@ Ext.define('CL.view.collection.V_create', {
                     allowBlank: false,
                     hideTrigger: true,
                     minChars: 3,
+
+                    tpl: Ext.create('Ext.XTemplate',
+                        '<ul class="x-list-plain" ><tpl for=".">',
+                        '<li role="option" class="x-boundlist-item" data-qtip="{tooltip}">' +
+                        '{to_display}' +
+                        '</li>',
+                        '</tpl></ul>'
+                    )/*
                     tpl: Ext.create('Ext.XTemplate',
                         '<ul class="x-list-plain" ><tpl for=".">',
                         '<li role="option" class="x-boundlist-item" data-qtip="{tooltip}">' +
@@ -89,7 +97,7 @@ Ext.define('CL.view.collection.V_create', {
                         '</tr></table>' +
                         '</li>',
                         '</tpl></ul>'
-                    )
+                    )*/
                 }
             ]
         }
