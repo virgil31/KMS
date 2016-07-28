@@ -11,8 +11,8 @@ Ext.define('CL.store.S_collection',{
         api: {
             read: 'data/collection/list.php',
             create: 'data/collection/create.php',
-            destroy: 'data/collection/destroy.php'
-            //update: 'data/collection/edit.php',
+            destroy: 'data/collection/destroy.php',
+            update: 'data/collection/edit.php'
 
         },
 

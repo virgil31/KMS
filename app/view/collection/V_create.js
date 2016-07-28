@@ -13,6 +13,7 @@ Ext.define('CL.view.collection.V_create', {
     autoShow: true,
     modal: true,
     constrain: true,
+    resizable: false,
 
     listeners: {
         //fadein on show
@@ -32,7 +33,6 @@ Ext.define('CL.view.collection.V_create', {
         }
     },
 
-    buttonAlign: 'center',
 
     title: 'Nuova Collezione',
 
@@ -54,7 +54,9 @@ Ext.define('CL.view.collection.V_create', {
                     labelAlign: 'top',
                     emptyText: 'Foto Anniversario Colosseo 2015',
                     width: '100%',
-                    allowBlank: false
+                    allowBlank: false,
+                    minLength: 15,
+                    maxLength: 80
                 },
                 {
                     xtype: 'textareafield',
@@ -70,12 +72,12 @@ Ext.define('CL.view.collection.V_create', {
                 {
                     xtype: 'tagfield',
                     name: 'tags',
-                    store: Ext.create('CL.store.S_search'),
+                    store: Ext.create('CL.store.S_quick_search'),
                     fieldLabel: 'TAGS',
                     labelAlign: 'top',
                     width: '100%',
                     displayField: 'to_display',
-                    valueField: 'id',
+                    valueField: 'composed_id',//'id',
                     filterPickList: true,
                     allowBlank: false,
                     hideTrigger: true,
@@ -99,13 +101,15 @@ Ext.define('CL.view.collection.V_create', {
                         '</tpl></ul>'
                     )*/
                 }
+            ],
+            buttonAlign: 'center',
+            buttons:[
+                {
+                    text: 'Conferma e Avanti >',
+                    action: 'do_create',
+                    formBind: true
+                }
             ]
-        }
-    ],
-    buttons:[
-        {
-            text: 'Conferma e Avanti >',
-            action: 'do_create'
         }
     ]
 

@@ -42,9 +42,7 @@ Ext.define('CL.view.collection.V_single_list', {
                                     tooltip: 'Mostra Licenza Utilizzata',
                                     icon: 'images/icons/icon_license.png',
                                     cls: 'mybutton',
-                                    handler: function () {
-                                        alert("todo mostra licenza");
-                                    }
+                                    action: 'show_license_info'
                                 }
                             ]
                         },
@@ -165,66 +163,12 @@ Ext.define('CL.view.collection.V_single_list', {
                         {
                             xtype: 'collection_thread_list_by_collection'
                         },
-                        /*
                         {
-                            title: 'Discussioni',
-                            icon: 'images/icons/icon_msg.png',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },*/
+                            xtype: 'collection_tag_list_by_collection'
+                        }/*,
                         {
                             title: 'TAGs',
                             icon: 'images/icons/icon_tag.png',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        }/*,
-                        {
-                            title: 'Collezioni Correlate',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
-                            title: 'Eventi Correlati',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
-                            title: 'Origini Informazione Correlate',
-                            bodyStyle: 'background: #484848',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            },
-                            padding: 1,
-                            items: []
-                        },
-                        {
-                            title: 'Partizioni Archeologiche Correlate',
                             bodyStyle: 'background: #484848',
                             layout: {
                                 type: 'vbox',

@@ -8,45 +8,32 @@ $ini_array = parse_ini_file("../config.ini");
 $pdo=new PDO("pgsql:host=".$ini_array['pdo_host'].";port=".$ini_array['pdo_port']."; dbname=".$ini_array['pdo_db'].";",$ini_array['pdo_user'],$ini_array['pdo_psw']);
 
 
-
-$keywords = $_GET["query"];
-
-if(strlen(trim($keywords)) == 0) exit();
-
-
-$limit = $_GET['limit'];
-$start = $_GET['start'];
-
-$ts_query_keywords = str_replace(" ",":* &",$keywords);
+$collection_id = $_GET["collection_id"];
 
 
 $query_user = "
-    SELECT id,CONCAT('user,',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name) as to_display, 'user' as type, CONCAT(last_name,' ',first_name) as description, '' as sitar_code, '' as name, NULL as officer_id ,
-      '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code
-	FROM sf_guard_user A
+    SELECT id,CONCAT('user,',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name) as to_display, CAST('user' as TEXT) as type, CONCAT(last_name,' ',first_name) as description, CAST('' as TEXT) as sitar_code, '' as name, NULL as officer_id ,
+          '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code
+    FROM sf_guard_user A
+      LEFT JOIN kms_collection_tag B ON (A.id = B.target_id AND B.type like 'user')
+    
+    WHERE B.collection_id = $collection_id
 
-	WHERE first_name ilike '%$keywords%'
-	OR last_name ilike '%$keywords%'
-	OR CONCAT(first_name,' ',last_name) ilike '%$keywords%'
-	OR CONCAT(last_name,' ',first_name) ilike '%$keywords%'";
+";
 
 
 $query_oi = "
-    SELECT *
-    FROM (
-      SELECT A.id, CONCAT('information_source,',CAST(A.id as TEXT)) as composed_id, CONCAT('Monumento-',A.sitar_code) as to_display,CAST('information_source' as TEXT) as type, 
-        ts_headline(COALESCE( NULLIF(A.description,'') , '-' ),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as description, 
+    SELECT A.id, CONCAT('information_source,',CAST(A.id as TEXT)) as composed_id, CONCAT('Monumento-',A.sitar_code) as to_display,CAST('information_source' as TEXT) as type, 
+        COALESCE( NULLIF(A.description,'') , '-' ) as description, 
         CAST(A.sitar_code as TEXT) as sitar_code,
-        ts_headline(COALESCE( NULLIF(A.name,'') , '-' ),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as name,     
-           
-        B.id as officer_id,ts_headline(CONCAT(B.last_name,' ',B.first_name),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as officer_name,         
-
+        COALESCE( NULLIF(A.name,'') , '-' ) as name,                
+        B.id as officer_id,CONCAT(B.last_name,' ',B.first_name) as officer_name,         
         D.name as zone_name, 
-        ts_headline(string_agg(F.name,', '),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as street_name,
-                 
+        string_agg(F.name,', ') as street_name,
+             
         0 as oi_id, 0 as oi_sitar_code
     
-      FROM st_information_source A
+    FROM st_information_source A
         LEFT JOIN sf_guard_user B ON B.id = A.liable_officier
     
         LEFT JOIN st_information_source_st_circoscrizione C ON C.st_information_source_id = A.id
@@ -54,43 +41,38 @@ $query_oi = "
     
         LEFT JOIN st_italian_address_info_source E ON E.information_source_id = A.id
         LEFT JOIN st_italian_street F ON F.id = E.italian_street_id
-        
-      GROUP BY A.id,B.id,B.first_name,B.last_name,D.name
-    ) tmp
     
-    WHERE to_tsvector('italian',description) ||
-          to_tsvector('italian',CAST(sitar_code as TEXT))||
-          to_tsvector('italian',name) ||
-          to_tsvector('italian',officer_name)  ||
-          to_tsvector('italian',street_name) @@ to_tsquery('italian','$ts_query_keywords')
+        LEFT JOIN kms_collection_tag G ON (A.id = G.target_id AND G.type like 'information_source')
+    
+    WHERE G.collection_id = $collection_id
+    
+    
+    GROUP BY A.id,B.id,B.first_name,B.last_name,D.name
      
 ";
 
+
+
 $query_pa = "
-    SELECT *
-    FROM (
+    SELECT A.id,CONCAT('archaeo_part,',CAST(A.id as TEXT)) as composed_id, CONCAT('Partizione-',A.id) as to_display, 'archaeo_part' as type,
+           COALESCE( NULLIF(A.description,'') , '-' ) as description,
+           CAST(A.id as TEXT) as sitar_code, '' as name,
+           B.liable_officier as officer_id,
+           CONCAT(C.last_name,' ',C.first_name) as officer_name,
+           E.name as zone_name,
+           '' as street_name,
+           B.id as oi_id, B.sitar_code as oi_sitar_code
     
-           SELECT A.id,CONCAT('archaeo_part,',CAST(A.id as TEXT)) as composed_id, CONCAT('Partizione-',A.id) as to_display, 'archaeo_part' as type, 
-                ts_headline(COALESCE( NULLIF(A.description,'') , '-' ),to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as description,     
-                CAST(A.id as TEXT) as sitar_code, '' as name,
-                B.liable_officier as officer_id,
-                ts_headline(CONCAT(C.last_name,' ',C.first_name),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as officer_name,                         
-                ts_headline(E.name,to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as zone_name, 
-                '' as street_name,
-                B.id as oi_id, B.sitar_code as oi_sitar_code
+    FROM st_archaeo_part A
+         LEFT JOIN st_information_source B ON B.id = A.information_source_id
+         LEFT JOIN sf_guard_user C ON C.id = B.liable_officier
     
-           FROM st_archaeo_part A
-             LEFT JOIN st_information_source B ON B.id = A.information_source_id
-             LEFT JOIN sf_guard_user C ON C.id = B.liable_officier
+         LEFT JOIN st_information_source_st_circoscrizione D ON D.st_information_source_id = B.id
+         LEFT JOIN st_circoscrizione E ON E.id = D.st_circoscrizione_id
     
+         LEFT JOIN kms_collection_tag F ON (A.id = F.target_id AND F.type like 'archaeo_part')
     
-             LEFT JOIN st_information_source_st_circoscrizione D ON D.st_information_source_id = B.id
-             LEFT JOIN st_circoscrizione E ON E.id = D.st_circoscrizione_id
-    )tmp
-    WHERE to_tsvector('italian',description) ||
-          to_tsvector('italian',CAST(sitar_code as TEXT))||
-          to_tsvector('italian',officer_name)  ||
-          to_tsvector('italian',zone_name) @@ to_tsquery('italian','$ts_query_keywords')
+    WHERE collection_id = $collection_id
 ";
 
 
@@ -104,8 +86,7 @@ $statement = $pdo->prepare("
     	UNION
     	($query_pa)
 	)tmp
-    ". ((isset($_GET["search_type"]) && $_GET["search_type"] != "all") ? " WHERE type like '".$_GET["search_type"]."'" : "") . "
-    ORDER BY type DESC,sitar_code ASC LIMIT $limit OFFSET $start
+    ORDER BY type DESC,sitar_code
 ");
 
 
@@ -118,34 +99,31 @@ $total_count = 0;
 foreach($result as $row){
     $total_count = $row->total_count;
 
-    $row->street_name = ucwords(strtolower($row->street_name));
+    $row->collection_id = $collection_id;
 
-    //$row->description = strip_tags($row->description);
-    //$row->description = str_ireplace($keywords,"<mark>".$keywords."</mark>",$row->description);//sottolineo le parole cercate con un semplice <mark>
-
+    $row->street_name = ucwords(strtolower($row->street_name));    
     $row->tooltip = getTooltipInformation($pdo,$row);
-    //$row->tooltip = str_ireplace($keywords,"<mark>".$keywords."</mark>",$row->tooltip);//sottolineo le parole cercate con un semplice <mark>
 
     array_push($arrayResult,$row);
 }
 
-//se non ci sono stati risultati ritorno un record
-if(count($arrayResult) == 0){
-    array_push($arrayResult,array(
-        "to_display" => '-NO RESULT-',
-        "tooltip" => '<img src="http://www.japanwanted.com/images/noresult.jpg" alt="Mountain View" style="width:100%;height:228px;">'
-    ));
-}
-
+sleep(1);   //per evitare il run layout failed
 
 
 echo json_encode(array(
-	"result" => $arrayResult,
+    "result" => $arrayResult,
     "total" => $total_count,
     "eventual_error" => $pdo->errorInfo()
 ));
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 function getTooltipInformation($pdo,$record){
     $info_tooltip = "";
 
@@ -207,9 +185,6 @@ function getTooltipInformation($pdo,$record){
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function getCountOIDocs($pdo,$oi_id){
@@ -243,5 +218,4 @@ function getCountPADocs($pdo,$pa_id){
 
     return $result[0]->count;
 }
-
 

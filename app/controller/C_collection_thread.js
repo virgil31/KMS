@@ -39,7 +39,7 @@ Ext.define('CL.controller.C_collection_thread', {
             modal: true,
             title: 'Cosa sono le Discussioni e chi può aprirle/rispondere?',
             width: 500,
-            height: 320,
+            height: 330,
             layout: {
                 type: 'vbox',
                 align: 'center'

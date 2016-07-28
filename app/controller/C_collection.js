@@ -5,9 +5,9 @@ Ext.define('CL.controller.C_collection', {
         'collection/:aaa' : 'showView',
         'collection/:aaa/threads' : 'showThreads',
         'collection/:aaa/coworkers' : 'showCoworkers',
-        'collection/:aaa/external_resources' : 'showExternalResources'
+        'collection/:aaa/external_resources' : 'showExternalResources',
+        'collection/:aaa/tags' : 'showTags'
         //'collection/:aaa/files' : 'showFiles'
-
     },
 
     stores: [
@@ -18,7 +18,8 @@ Ext.define('CL.controller.C_collection', {
     ],
     views: [
         'collection.V_create',
-        'collection.V_single_list'
+        'collection.V_single_list',
+        'collection.V_edit'
     ],
 
     collection_id: null,
@@ -34,6 +35,8 @@ Ext.define('CL.controller.C_collection', {
         //dopodichè porto avanti la sezione delle discussioni
         Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(0);
     },*/
+
+
 
     //SHOW ExternalResources
     showExternalResources: function (collection_id) {
@@ -71,6 +74,18 @@ Ext.define('CL.controller.C_collection', {
         Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(3);
     },
 
+    //SHOW Tags
+    showTags: function (collection_id) {
+        //prima mi assicuro che la vista della collection sia mostrata
+        if(Ext.ComponentQuery.query('collection_single_list').length == 0)
+            this.showView(collection_id);
+        else
+            Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('collection_single_list_id');
+
+        //dopodichè porto avanti la sezione delle discussioni
+        Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(4);
+    },
+
     //SHOW VIEW
     showView: function(collection_id){
 
@@ -85,6 +100,8 @@ Ext.define('CL.controller.C_collection', {
 
 
         // ^^
+
+        var this_controller = this;
 
         this.collection_id = collection_id;
 
@@ -121,6 +138,9 @@ Ext.define('CL.controller.C_collection', {
                         created_by = collection.get("created_by"),
                         created_by_name = collection.get("created_by_name"),
                         created_at = collection.get("created_at");
+
+                    this_controller.record_collection = collection; //mi salvo il record della collection a livello di controller
+
 
 
                     var result = new Date(created_at);
@@ -224,13 +244,69 @@ Ext.define('CL.controller.C_collection', {
                 click: this.onEditInfo
             },
 
+            // DO EDIT INFO
+            "collection_edit button[action=do_edit]":{
+                click: this.doEditInfo
+            },
+
             // SHARE COLLECTION
             "collection_single_list button[action=share_collection]":{
                 click: this.shareCollection
+            },
+
+            // SHOW LICENSE INFO
+            "collection_single_list button[action=show_license_info]":{
+                click: this.showLicenseInfo
             }
         }, this);
     },
     /////////////////////////////////////////////////
+
+    // SHOW LICENSE INFO
+    showLicenseInfo: function (btn) {
+
+        var collection_record = this.record_collection;
+
+        Ext.create("Ext.window.Window",{
+            autoShow: true,
+            animateTarget: btn.el,
+            modal: true,
+            width: 450,
+            title: 'Informazioni Licenza',
+            padding: 10,
+            layout: {
+                type: 'vbox',
+                align: 'center'
+            },
+            items:[
+                {
+                    xtype: 'image',
+                    src: 'images/icons/icon_info.png',
+                    width: 70,
+                    height: 70,
+                    margin: '0 0 20 0'
+                },
+                {
+                    xtype: 'label',
+                    name: 'license_name',
+                    html: '<div style="font-size: large; ">Licenza: <div style="font-weight: bold; display: inline;">'+collection_record.get("license_name")+'</div></div><br>'
+                    //html: '<div style="font-size: large; ">Licenza: <div style="font-weight: bold; display: inline;">grassetto</div></div><br>'
+                },
+                {
+                    xtype: 'label',
+                    html: '<div style="font-size: small; "><b><i>Cosa vuol dire?</i></b></div>',
+                    margin: '0 0 5 0'
+                },
+                {
+                    xtype: 'label',
+                    name: 'license_description',
+                    width: "100%",
+                    html: '<div style="font-size: medium; text-align: center; border: 1px solid black; background: #dbdbdb; padding: 5px;">'+collection_record.get("license_description")+'</div>'
+                    //html: '<div style="font-size: medium; text-align: center; border: 1px solid black; background: #dbdbdb; padding: 5px;">Succede molto spesso di avere la necessità di utilizzare un elemento inline come elemento di tipo blocco o viceversa. Per sopperire a questo problema è sufficiente modificare la proprietà display dell’oggetto impostandola sul valore desiderato.</div>'
+                }
+            ]
+        });
+    },
 
 
 
@@ -308,8 +384,22 @@ Ext.define('CL.controller.C_collection', {
     // ON EDIT INFO
     onEditInfo: function () {
         CL.app.getController("C_permessi").canWriteCollection(this.collection_id, true,function(){
-            alert("TODO form edit info di base")
+            var collection_record_to_edit = CL.app.getController("C_collection").record_collection;
+            var win = Ext.widget("collection_edit");
+            win.down("form").loadRecord(collection_record_to_edit);
         });
+    },
+
+    // DO EDIT INFO
+    doEditInfo: function (btn) {
+        var win = btn.up("window"),
+            form = win.down("form"),
+            values = form.getValues(),
+            record = form.getRecord();
+
+        record.set(values);
+        Ext.StoreManager.lookup("S_collection").sync();
+        document.location.reload();
     },
 
     //ON DESTROY
@@ -427,6 +517,11 @@ Ext.define('CL.controller.C_collection', {
             form = win.down("form").getForm(),
             values = form.getValues();
 
+        console.log(values);
+
+        alert("DO CREATE interrotto! Console.log dei values effettuato");
+
+        /*
         if(form.isValid()){
             values["created_by"] = Ext.util.Cookies.get("user_id");
 
@@ -491,14 +586,14 @@ Ext.define('CL.controller.C_collection', {
                                     CL.app.getController("C_collection").redirectTo("#collection/"+collection_id );
                                 }
                             }
-                            /*{
-                                text: 'Carica Files!',
-                                handler: function () {
-                                    this.up("window").close();
-                                    CL.app.getController("C_collection").redirectTo("#collection/"+collection_id );
-                                    CL.app.getController("C_uploader").showCollectionUploader(Ext.getBody(),collection_id);
-                                }
-                            }*/
+                            //{
+                            //    text: 'Carica Files!',
+                            //    handler: function () {
+                            //        this.up("window").close();
+                            //        CL.app.getController("C_collection").redirectTo("#collection/"+collection_id );
+                            //        CL.app.getController("C_uploader").showCollectionUploader(Ext.getBody(),collection_id);
+                            //    }
+                            //}
                         ]
                     });
                 },
@@ -540,7 +635,7 @@ Ext.define('CL.controller.C_collection', {
                     });
                 }
             });
-        }
+        }*/
     }
 
 });

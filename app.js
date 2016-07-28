@@ -14,7 +14,8 @@ Ext.application({
     ],
 
     stores: [
-        "S_external_resource_type"
+        "S_external_resource_type",
+        "S_license"
     ],
 
     controllers: [
@@ -46,7 +47,8 @@ Ext.application({
         'C_user_pool',
 
         'C_collection_thread',
-        'C_collection_thread_message'
+        'C_collection_thread_message',
+        'C_collection_tag'
 
     ],
 

@@ -8,6 +8,8 @@ TABELLE CREATE
 - kms_pool
 - kms_user_pool
 - kms_collection_thread
+- kms_license
+- kms_collection_tag
 
 
 TABELLE MODIFICATE
