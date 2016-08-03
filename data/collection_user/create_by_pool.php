@@ -26,6 +26,11 @@ foreach($user_ids as $user_id){
     }
 }
 
+require_once('../user_activity/create.php');
+createUserActivity($pdo,$_COOKIE["user_id"],'aggiunto il gruppo <b>'.getPoolName($pdo,$pool_id).'</b> ai collaboratori della collezione <b>"'.getCollectionTitle($pdo,$collection_id).'"</b>',"collection/".$data["collection_id"]."/coworkers","icon_collaboratori.png");
+
+
+
 echo json_encode(array(
     "success" => true
 ));

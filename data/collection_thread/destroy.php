@@ -21,6 +21,9 @@ $params = array(
 
 $success = $s->execute($params);
 
+require_once('../user_activity/create.php');
+createUserActivity($pdo,$_COOKIE["user_id"],'eliminato la discussione <b>"'.$data["prefix"].' '.$data["title"].'"</b>','collection_thread/'.$data['id'],"icon_thread.png");
+
 echo json_encode(array(
     "success" => true
 ));

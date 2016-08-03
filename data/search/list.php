@@ -21,7 +21,7 @@ $ts_query_keywords = str_replace(" ",":* &",$keywords);
 
 
 $query_user = "
-    SELECT id,CONCAT('user,',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name) as to_display, 'user' as type, CONCAT(last_name,' ',first_name) as description, '' as sitar_code, '' as name, NULL as officer_id ,
+    SELECT id,CONCAT('user.',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name) as to_display, 'user' as type, CONCAT(last_name,' ',first_name) as description, '' as sitar_code, '' as name, NULL as officer_id ,
       '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code
 	FROM sf_guard_user A
 
@@ -34,7 +34,7 @@ $query_user = "
 $query_oi = "
     SELECT *
     FROM (
-      SELECT A.id, CONCAT('information_source,',CAST(A.id as TEXT)) as composed_id, CONCAT('Monumento-',A.sitar_code) as to_display,CAST('information_source' as TEXT) as type, 
+      SELECT A.id, CONCAT('information_source.',CAST(A.id as TEXT)) as composed_id, CONCAT('Monumento-',A.sitar_code) as to_display,CAST('information_source' as TEXT) as type, 
         ts_headline(COALESCE( NULLIF(A.description,'') , '-' ),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as description, 
         CAST(A.sitar_code as TEXT) as sitar_code,
         ts_headline(COALESCE( NULLIF(A.name,'') , '-' ),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as name,     
@@ -70,7 +70,7 @@ $query_pa = "
     SELECT *
     FROM (
     
-           SELECT A.id,CONCAT('archaeo_part,',CAST(A.id as TEXT)) as composed_id, CONCAT('Partizione-',A.id) as to_display, 'archaeo_part' as type, 
+           SELECT A.id,CONCAT('archaeo_part.',CAST(A.id as TEXT)) as composed_id, CONCAT('Partizione-',A.id) as to_display, 'archaeo_part' as type, 
                 ts_headline(COALESCE( NULLIF(A.description,'') , '-' ),to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as description,     
                 CAST(A.id as TEXT) as sitar_code, '' as name,
                 B.liable_officier as officer_id,
@@ -156,7 +156,7 @@ function getTooltipInformation($pdo,$record){
                                 <tr><th align='left' width='150' style='color:#2c2c2c;' >Codice Monumento</th><td style='padding: 2px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->sitar_code)."</u></a></td></tr>
                                 <tr><th align='left' style='color:#2c2c2c;'>Nome</th><td style='padding: 2px;color:#2c2c2c;'>".$record->name."</td></tr>
                                 <tr><th align='left' style='color:#2c2c2c;'>Descrizione</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->description), 70, "<br>")."</td></tr>
-                                <tr><th align='left' style='color:#2c2c2c;'>Funz.Responsabile</th><td style='padding: 2px;'><a href='#user/".$record->officer_id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->officer_name."</u></td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Funz.Responsabile</th><td style='padding: 2px;'><a href='#user/".$record->officer_id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->officer_name." (#".$record->officer_id.")</u></td></tr>
                                 <tr><th align='left' style='color:#2c2c2c;'>Zona</th><td style='padding: 2px;color:#2c2c2c;'>".strip_tags($record->zone_name)."</td></tr>
                                 <tr><th align='left' style='color:#2c2c2c;'>Indirizzo</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->street_name), 70, "<br>")."</td></tr>
                             </table>
@@ -180,7 +180,7 @@ function getTooltipInformation($pdo,$record){
                                 <tr><th align='left' width='150'  style='color:#2c2c2c;'>Codice Partizione</th><td style='padding: 2px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->sitar_code)."</u></a></td></tr>
                                 <tr><th align='left' width='150'  style='color:#2c2c2c;'>Monumento di Rif.</th><td style='padding: 2px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->oi_sitar_code)."</u></a></td></tr>
                                 <tr><th align='left' style='color:#2c2c2c;'>Descrizione</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->description), 70, "<br>")."</td></tr>
-                                <tr><th align='left' style='color:#2c2c2c;'>Funz.Responsabile</th><td style='padding: 2px;'><a href='#user/".$record->officer_id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->officer_name."</u></td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Funz.Responsabile</th><td style='padding: 2px;'><a href='#user/".$record->officer_id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->officer_name." (#".$record->officer_id.")</u></td></tr>
                                 <tr><th align='left' style='color:#2c2c2c;'>Zona</th><td style='padding: 2px;color:#2c2c2c;'>".strip_tags($record->zone_name)."</td></tr>
                             </table>
                             <br/>
@@ -199,7 +199,7 @@ function getTooltipInformation($pdo,$record){
     // USER
     else if($record->type=="user"){
         $info_tooltip = "<table style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
-                            <tr><th align='left' width='150' style='color:#2c2c2c;' >Utente</th><td><a href='#user/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->to_display)."</u></td></tr>
+                            <tr><th align='left' width='150' style='color:#2c2c2c;' >Utente</th><td><a href='#user/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->to_display)."(#".$record->id.")</u></td></tr>
                         </table>";
     }
 

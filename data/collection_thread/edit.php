@@ -27,6 +27,9 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 // Invio l'ultimo messaggio con la giustificazione della chiusura
 inviaMessaggioChiusura($pdo,$data["id"],$data["closed_by"],$data["close_message"]);
 
+require_once('../user_activity/create.php');
+createUserActivity($pdo,$_COOKIE["user_id"],'chiuso la discussione <b>"'.$data["prefix"].' '.$data["title"].'"</b>','collection_thread/'.$data['id'],"icon_thread.png");
+
 echo json_encode(array(
     "success" => true
 ));

@@ -218,7 +218,7 @@ Ext.define('CL.view.tbar.V_tbar', {
                                 click: function(){
                                     var query = Ext.ComponentQuery.query("tbar textfield[name=query_quick_search]")[0].getValue();
                                     if(query == null) query = "";
-                                    CL.app.getController('C_home').redirectTo('search/'+query);
+                                    CL.app.getController('C_home').redirectTo('search/'+encodeURI(query));
                                 }
                             }
                         },

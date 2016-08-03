@@ -10,6 +10,7 @@ TABELLE CREATE
 - kms_collection_thread
 - kms_license
 - kms_collection_tag
+- kms_user_activity
 
 
 TABELLE MODIFICATE

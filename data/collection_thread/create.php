@@ -32,6 +32,10 @@ inviaMessaggioIniziale($pdo,$thread_id,$data["created_by"],$data["message"]);
 
 sleep(1.5);
 
+
+require_once('../user_activity/create.php');
+createUserActivity($pdo,$data["created_by"],'avviato la discussione <b>"'.$data["prefix"].' '.$data["title"].'"</b>','collection_thread/'.$thread_id,"icon_thread.png");
+
 echo json_encode(array(
     "success" => true
 ));

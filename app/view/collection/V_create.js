@@ -70,6 +70,25 @@ Ext.define('CL.view.collection.V_create', {
 		            maxLength: 270
                 },
                 {
+                    xtype: 'combobox',
+                    name: 'license_id',
+                    fieldLabel: 'Licenza',
+                    width: '100%',
+                    allowBlank: false,
+                    labelAlign: 'top',
+                    editable: false,
+                    store: 'S_license',
+                    valueField: 'id',
+                    displayField: 'name',
+                    tpl: Ext.create('Ext.XTemplate',
+                        '<ul class="x-list-plain" ><tpl for=".">',
+                        '<li role="option" class="x-boundlist-item" data-qtip="{description}">' +
+                        '{name}' +
+                        '</li>',
+                        '</tpl></ul>'
+                    )
+                },
+                {
                     xtype: 'tagfield',
                     name: 'tags',
                     store: Ext.create('CL.store.S_quick_search'),

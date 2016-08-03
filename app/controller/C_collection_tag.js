@@ -30,7 +30,7 @@ Ext.define('CL.controller.C_collection_tag', {
         }, this);
     },
     /////////////////////////////////////////////////
-
+    
     // ON CREATE
     onCreate: function (btn) {
         alert("TODO create");

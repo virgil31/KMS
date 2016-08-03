@@ -40,6 +40,10 @@ Ext.define('CL.controller.C_user', {
                 Ext.ComponentQuery.query("user_profile label[name=first_last_name]")[0].setText(record.get("last_name")+" "+record.get("first_name")+" (#"+record.get("id")+")");
                 Ext.ComponentQuery.query("user_profile label[name=group_name]")[0].setText(record.get("group_name"));
                 Ext.ComponentQuery.query("user_profile label[name=email_address]")[0].setText(record.get("email_address"));
+
+                Ext.ComponentQuery.query("user_profile grid[name=user_activity]")[0].setTitle("Attività Recenti di <div style='font-weight: bold; display: inline;' >"+record.get("last_name")+" "+record.get("first_name")+"</div>");
+                Ext.ComponentQuery.query("user_profile grid[name=user_interested_activity]")[0].setTitle("Attività d'Interesse per <div style='font-weight: bold; display: inline;' >"+record.get("last_name")+" "+record.get("first_name")+"</div>");
+
             }
         });
 
@@ -48,6 +52,10 @@ Ext.define('CL.controller.C_user', {
                 user_id: user_id
             }
         });
+
+
+        Ext.StoreManager.lookup("S_user_activity").proxy.extraParams.user_id = user_id;
+        Ext.StoreManager.lookup("S_user_activity").loadPage(1);
 
         //se sto guardando il MIO profilo, sblocco i pulsanti per la creazione di eventi e collection
         // altrimenti li nascondo

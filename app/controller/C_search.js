@@ -33,11 +33,11 @@ Ext.define('CL.controller.C_search', {
         Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('search_id');
 
         if(param1 != undefined) {
-            Ext.ComponentQuery.query('search textfield[name=query_search]')[0].setRawValue(param1);
+            Ext.ComponentQuery.query('search textfield[name=query_search]')[0].setRawValue(decodeURI(param1.trim()));
 
             var store = Ext.StoreManager.lookup('S_search');
 
-            store.proxy.extraParams.query = param1.trim();
+            store.proxy.extraParams.query = decodeURI(param1.trim());
 
             Ext.ComponentQuery.query('search grid')[0].body.mask("Ricerca...");
 

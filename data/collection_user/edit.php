@@ -42,6 +42,10 @@ $params = array(
 );
 $statement->execute($params);
 
+require_once('../user_activity/create.php');
+createUserActivity($pdo,$_COOKIE["user_id"],'promosso <b>'.getUserFullName($pdo,$data["user_id"]).'</b> a Gestore dei collaboratori della collezione <b>"'.getCollectionTitle($pdo,$data["collection_id"]).'"</b>',"collection/".$data["collection_id"]."/coworkers","icon_collaboratori.png");
+
+
 echo json_encode(array(
     "success" => true
 ));

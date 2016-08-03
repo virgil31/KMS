@@ -61,6 +61,8 @@ Ext.define('CL.view.user.V_profile', {
             ]
         },
 
+        /*
+
         {
             xtype: 'panel',
             height: 500,
@@ -95,6 +97,67 @@ Ext.define('CL.view.user.V_profile', {
             bodyStyle: {
                 background: "#484848"
             }
+        },
+        */
+        {
+            xtype: 'panel',
+            height: 500,
+            width: '100%',
+            margin: '10 0 10 0',
+            layout: {
+                type: 'hbox',
+                align: 'center',
+                pack: 'center'
+            },
+
+            bodyStyle: {
+                background: "transparent"
+            },
+            items:[
+                {
+                    xtype: 'grid',
+                    title: 'Attività Recenti',
+                    name: 'user_activity',
+                    flex: 1,
+                    height: '100%',
+                    margin: '0 5 0 0',
+                    store: 'S_user_activity',
+                    hideHeaders: true,
+                    disableSelection: true,
+                    cls: 'myRowClass',
+                    listeners:{
+                        rowclick: function (el, record) {
+                            CL.app.getController("C_user").redirectTo(record.get("target_url"));
+                        }
+                    },
+                    columns:[
+                        {
+                            dataIndex: 'composed',
+                            flex: 1,
+                            renderer: function (value, metaData, record) {
+                                metaData.tdStyle = 'background: #d3d3d3;';
+                                return "<div style='white-space: normal !important;'>"+record.get("composed")+"</div>";
+                            }
+                        }
+                    ],
+                    dockedItems: [{
+                        xtype: 'pagingtoolbar',
+                        store: 'S_user_activity',
+                        dock: 'bottom'
+                    }]
+                },
+                {
+                    xtype: 'grid',
+                    name: 'user_interested_activity',
+                    title: 'Attività di Interesse',
+                    flex: 1,
+                    height: '100%',
+                    bodyStyle: {
+                        background: "#484848"
+                    },
+                    margin: '0 0 0 5'
+                }
+            ]
         },
 
         {

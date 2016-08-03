@@ -49,7 +49,7 @@ Ext.define('CL.view.search.V_search', {
                     listeners:{
                         click: function(){
                             var query = Ext.ComponentQuery.query("search textfield[name=query_search]")[0].getValue();
-                            CL.app.getController('C_home').redirectTo('search/'+query);
+                            CL.app.getController('C_home').redirectTo('search/'+encodeURI(query.trim()));
 
                             /*
                             if(query.length != 0){

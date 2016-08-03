@@ -87,6 +87,8 @@ Ext.define('CL.view.collection_user.V_create_group', {
                                     pool_id = rec.get("pool_id"),
                                     pool_name = rec.get("pool_name");
 
+                                console.log(rec.data);
+
                                 Ext.create("Ext.window.Window",{
                                     animateTarget: this.el,
                                     title: 'Lista utenti',
@@ -110,7 +112,7 @@ Ext.define('CL.view.collection_user.V_create_group', {
                                                 items:[
                                                     {
                                                         xtype: 'label',
-                                                        html: "Creato da: <b>Luca Cerini</b>"
+                                                        html: "Creato da: <b>"+rec.get("created_by_name")+"</b>"
                                                     }
                                                 ]
                                             },
@@ -119,7 +121,7 @@ Ext.define('CL.view.collection_user.V_create_group', {
                                                     dataIndex: 'user_name',
                                                     flex: 1,
                                                     renderer: function (value, metaData, record) {
-                                                        return record.get("first_name")+" "+record.get("last_name")+" (#"+record.get("id")+")";
+                                                        return record.get("last_name")+" "+record.get("first_name")+" (#"+record.get("id")+")";
                                                     }
                                                 }
                                             ]

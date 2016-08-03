@@ -44,6 +44,9 @@ Ext.define('CL.view.home.V_home', {
                 height: 100,
                 width: '100%',
                 margin: '10 0 0 0',
+                style: {
+                    borderRadius: "5px"
+                },
                 //bodyStyle: 'backgroundColor: #333333',
                 layout: {
                     type: 'hbox',
@@ -120,7 +123,11 @@ Ext.define('CL.view.home.V_home', {
                 width: '100%',
                 height: 600,
                 margin: '10 0 10 0',
-                bodyStyle: 'backgroundColor: #732828',
+                bodyStyle: 'backgroundColor: #333333',//#732828',
+
+                style:{
+                    borderRadius: "5px"
+                },
 
                 defaults: {
                     bodyStyle: 'padding:15px'

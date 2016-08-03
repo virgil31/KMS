@@ -21,25 +21,6 @@ Ext.define('CL.controller.C_collection_thread_message', {
     //SHOW VIEW
     showView: function(thread_id){
 
-        if(Ext.ComponentQuery.query('collection_thread_message_list_by_thread').length == 0)
-            Ext.ComponentQuery.query('viewport panel[name=card]')[0].add({xtype: 'collection_thread_message_list_by_thread'});
-
-
-        Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('collection_thread_message_list_by_thread_id');
-
-        // ^^
-
-        this.collection_id = thread_id;
-
-        //resetto campi
-        try{
-            Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=title]")[0].setHtml("");
-            Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=collection]")[0].setHtml("");
-            Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=created_by_name]")[0].setHtml("");
-            Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=data_chiusura]")[0].setHtml("");
-        }catch(e){}
-        // ^^
-
         var store = Ext.create("CL.store.S_collection_thread"),
             this_controller = this;
 
@@ -50,43 +31,71 @@ Ext.define('CL.controller.C_collection_thread_message', {
             },
             callback: function () {
                 this_controller.thread_record = this.getAt(0);
-                var thread_title = this_controller.thread_record.get("title"),
-                    thread_prefix = this_controller.thread_record.get("prefix"),
-                    collection_id = this_controller.thread_record.get("collection_id"),
-                    collection_name = this_controller.thread_record.get("collection_name"),
-                    created_by = this_controller.thread_record.get("created_by"),
-                    created_by_name = this_controller.thread_record.get("created_by_name"),
-                    created_at = this_controller.thread_record.get("created_at");
-
-                var d = new Date(created_at);
-                created_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
-                    d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
-
-                //aggiusto il colore del prefisso
-                if(thread_prefix==null)
-                    thread_prefix = '<div style="color: #404040;display:inline;">'+thread_prefix+'</div>';
-                else if(thread_prefix=="[DOMANDA]")
-                    thread_prefix = '<div style="color: #076eb7;display:inline;">'+thread_prefix+'</div>';
-                else if(thread_prefix=="[GUIDA]")
-                    thread_prefix = '<div style="color: green;display:inline;">'+thread_prefix+'</div>';
-                else if(thread_prefix=="[RICHIESTA MODIFICHE]")
-                    thread_prefix = '<div style="color: #c47614;display:inline;">'+thread_prefix+'</div>';
-                else
-                    thread_prefix = '<div style="color: #d90000;display:inline;">'+thread_prefix+'</div>';
+                //se non esiste la discussione mostro il warning e torno indietro
+                if(this_controller.thread_record == null){
+                    Ext.Msg.alert("Attenzione!","Questa discussione è stata eliminata!");
+                    window.history.back();
+                }
+                else{
+                    //vv spostata qui nella callback per evitare di mostrare la vista vuota se non esiste la discussione
+                    if(Ext.ComponentQuery.query('collection_thread_message_list_by_thread').length == 0)
+                        Ext.ComponentQuery.query('viewport panel[name=card]')[0].add({xtype: 'collection_thread_message_list_by_thread'});
 
 
-                Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=title]")[0].setHtml(thread_prefix+" "+thread_title);
-                Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=collection]")[0].setHtml('Collezione: <a href="#collection/'+collection_id+'"><b><u>"'+collection_name+'"</u></b></a>');
-                Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=created_by_name]")[0].setHtml('Iniziata da <a href="#user/'+created_by+'"><u>'+created_by_name+'</u></a> il '+created_at);
+                    Ext.ComponentQuery.query('viewport panel[name=card]')[0].getLayout().setActiveItem('collection_thread_message_list_by_thread_id');
 
 
-                //Infine carico lo la prima pagina di messaggi della discussione
+                    this.collection_id = thread_id;
 
-                var store_thread_message = Ext.StoreManager.lookup("S_collection_thread_message");
-                store_thread_message.proxy.extraParams.thread_id = thread_id;
-                setTimeout(function(){
-                    store_thread_message.loadPage(1);
-                }, 250);
+                    //resetto campi
+                    try{
+                        Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=title]")[0].setHtml("");
+                        Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=collection]")[0].setHtml("");
+                        Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=created_by_name]")[0].setHtml("");
+                        Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=data_chiusura]")[0].setHtml("");
+                    }catch(e){}
+                    // ^^
+
+
+                    var thread_title = this_controller.thread_record.get("title"),
+                        thread_prefix = this_controller.thread_record.get("prefix"),
+                        collection_id = this_controller.thread_record.get("collection_id"),
+                        collection_name = this_controller.thread_record.get("collection_name"),
+                        created_by = this_controller.thread_record.get("created_by"),
+                        created_by_name = this_controller.thread_record.get("created_by_name"),
+                        created_at = this_controller.thread_record.get("created_at");
+
+                    var d = new Date(created_at);
+                    created_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
+                        d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
+
+                    //aggiusto il colore del prefisso
+                    if(thread_prefix==null)
+                        thread_prefix = '<div style="color: #404040;display:inline;">'+thread_prefix+'</div>';
+                    else if(thread_prefix=="[DOMANDA]")
+                        thread_prefix = '<div style="color: #076eb7;display:inline;">'+thread_prefix+'</div>';
+                    else if(thread_prefix=="[GUIDA]")
+                        thread_prefix = '<div style="color: green;display:inline;">'+thread_prefix+'</div>';
+                    else if(thread_prefix=="[RICHIESTA MODIFICHE]")
+                        thread_prefix = '<div style="color: #c47614;display:inline;">'+thread_prefix+'</div>';
+                    else
+                        thread_prefix = '<div style="color: #d90000;display:inline;">'+thread_prefix+'</div>';
+
+
+                    Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=title]")[0].setHtml(thread_prefix+" "+thread_title);
+                    Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=collection]")[0].setHtml('Collezione: <a href="#collection/'+collection_id+'"><b><u>"'+collection_name+'"</u></b></a>');
+                    Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=created_by_name]")[0].setHtml('Iniziata da <a href="#user/'+created_by+'"><u>'+created_by_name+'</u></a> il '+created_at);
+
+
+                    //Infine carico lo la prima pagina di messaggi della discussione
+
+                    var store_thread_message = Ext.StoreManager.lookup("S_collection_thread_message");
+                    store_thread_message.proxy.extraParams.thread_id = thread_id;
+                    setTimeout(function(){
+                        store_thread_message.loadPage(1);
+                    }, 250);
+                }
+
 
 
             }

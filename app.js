@@ -10,12 +10,14 @@ Ext.application({
 
 
     models: [
-        "M_generic"
+        "M_generic",
+        "M_user_activity"
     ],
 
     stores: [
         "S_external_resource_type",
-        "S_license"
+        "S_license",
+        "S_user_activity"
     ],
 
     controllers: [
@@ -49,7 +51,6 @@ Ext.application({
         'C_collection_thread',
         'C_collection_thread_message',
         'C_collection_tag'
-
     ],
 
     // vv ROUTING

@@ -14,7 +14,7 @@ Ext.define('CL.controller.C_home', {
     views: [
         'home.V_home'
     ],
-
+ 
     /////////////////////////////////////////////////
     init: function () {
         this.control({

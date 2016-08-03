@@ -158,7 +158,7 @@ Ext.define('CL.controller.C_collection', {
 
                     Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText(title);
                     Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setHtml("<div style='text-align: center'>"+description+"</div>");
-                    Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/"+created_by+"'>"+created_by_name+"</a> il "+Ext.Date.format(created_at,'d-m-Y'));
+                    Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/"+created_by+"'>"+created_by_name+"</a> il "+Ext.Date.format(created_at,'d/m/Y'));
 
                     //carico gli store del tabpanel
                     Ext.StoreManager.lookup("S_collection_file").load({
@@ -517,28 +517,8 @@ Ext.define('CL.controller.C_collection', {
             form = win.down("form").getForm(),
             values = form.getValues();
 
-        console.log(values);
-
-        alert("DO CREATE interrotto! Console.log dei values effettuato");
-
-        /*
         if(form.isValid()){
             values["created_by"] = Ext.util.Cookies.get("user_id");
-
-            values["tags"] = Ext.JSON.encode(
-                [
-                    {
-                        id:     123,
-                        type:   "information_source"
-                    },
-                    {
-                        id:     456,
-                        type:   "archaeo_part"
-                    }
-                ]
-            );
-
-            //console.log(values);
 
             Ext.getStore("S_collection").add(values);
 
@@ -635,7 +615,7 @@ Ext.define('CL.controller.C_collection', {
                     });
                 }
             });
-        }*/
+        }
     }
 
 });
