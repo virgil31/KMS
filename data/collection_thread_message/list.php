@@ -43,7 +43,7 @@ foreach ($result as $messaggio){
     array_push($arrayResult,$messaggio);
 }
 
-
+sleep(1);
 echo json_encode(array(
 	"result" => $arrayResult,
     "total" => $total

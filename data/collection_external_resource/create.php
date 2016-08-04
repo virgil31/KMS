@@ -22,6 +22,11 @@ $params = array(
 $statement->execute($params);
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
+
+require_once('../user_activity/create.php');
+createUserActivity($pdo,$_COOKIE["user_id"],'aggiunto la risorsa esterna <b>'.$data["title"].'</b> nella collezione <b>'.getCollectionTitle($pdo,$data["collection_id"]).'</b>','collection/'.$data["collection_id"].'/external_resources',"icon_other_external_resource.png",$data["collection_id"],null);
+
+
 echo json_encode(array(
     "success" => true
 ));

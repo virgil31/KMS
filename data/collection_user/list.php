@@ -61,6 +61,8 @@ while($row = $statement->fetchObject()){
     array_push($result,$row);
 }
 
+sleep(1);
+
 echo json_encode(array(
     "success" => true,
 	"result" => $result

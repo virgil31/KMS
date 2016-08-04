@@ -17,7 +17,8 @@ Ext.application({
     stores: [
         "S_external_resource_type",
         "S_license",
-        "S_user_activity"
+        "S_user_activity",
+        "S_user_interested_activity"
     ],
 
     controllers: [

@@ -27,6 +27,7 @@ $statement->execute($params);
 
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
+sleep(1);
 echo json_encode(array(
     "success" => true,
 	"result" => $result

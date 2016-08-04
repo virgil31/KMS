@@ -13,29 +13,19 @@ $start = $_GET['start'];
 
 $total = 0;
 
+$hot_collections = getCollectionsFromCoworker($pdo,$user_id);
+
+
 $statement = $pdo->prepare("
-    SELECT A.id,A.user_id,CONCAT(B.last_name,' ',B.first_name ) as user_name,A.activity_description,A.target_url,A.date,A.icon,COUNT(*) OVER() as total
-    FROM kms_user_activity A
-        LEFT JOIN sf_guard_user B ON B.id = A.user_id
+    SELECT A.id,A.user_id,CONCAT(B.last_name,' ',B.first_name ) as user_name,A.activity_description,A.target_url,A.date,A.icon,collection_id,event_id,COUNT(*) OVER() as total
     
-    WHERE A.user_id =  :user_id
+    FROM kms_user_activity A
+      LEFT JOIN sf_guard_user B ON B.id = A.user_id
+    
+    WHERE collection_id IN ($hot_collections)
+      AND user_id != :user_id
     ORDER BY A.date DESC LIMIT :limit OFFSET :offset
 ");
-
-/*
-//per vedere ANCHE chi mi aggiunge ai collaboratori di una collection
-$statement = $pdo->prepare("
-    SELECT A.id,A.user_id,CONCAT(B.last_name,' ',B.first_name ) as user_name,A.activity_description,A.target_url,A.date,A.icon,COUNT(*) OVER() as total
-    FROM kms_user_activity A
-        LEFT JOIN sf_guard_user B ON B.id = A.user_id
-    
-    WHERE A.user_id =  :user_id
-        OR (
-            activity_description like (SELECT CONCAT('%',last_name,' ', first_name,'%') FROM sf_guard_user WHERE id = :user_id)
-        )
-        
-    ORDER BY A.date DESC LIMIT :limit OFFSET :offset
-");*/
 
 $params = array(
     "user_id" => $user_id,
@@ -55,9 +45,7 @@ $arrayResult = array();
 
 
 foreach ($result as $user_activity){
-
     $user_name = ($user_activity->user_id==$_COOKIE["user_id"]) ? "<b>Hai</b>" : "<b>".$user_activity->user_name."</b> ha ";
-
     $activity_description = $user_activity->activity_description;
     $icon = $user_activity->icon;
 
@@ -68,7 +56,7 @@ foreach ($result as $user_activity){
     $date = new DateTime($user_activity->date);
     $day = $date->format('d/m/Y');
     $hour = $date->format('H:i');
-
+    
     $user_activity->composed =  '<div style="padding:5px; border-radius: 4px;border-bottom: 2px inset #afafaf; background: white; cursor: pointer;">'.$composed.'
                                     <hr><div style="margin-top: 5px;"><img style="margin-right: 5px;" src="images/icons/'.$icon.'" alt=" " height="16" width="16"> il '.$day.' alle '.$hour.'</div>
                                 </div>';
@@ -84,3 +72,26 @@ echo json_encode(array(
 
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
+
+
+function getCollectionsFromCoworker($pdo, $coworker_id){
+
+    $statement = $pdo->prepare("
+        SELECT STRING_AGG(DISTINCT (CAST(collection_id as TEXT)),',') as hot_collections
+
+        FROM kms_collection_user A
+          LEFT JOIN kms_collection B ON B.id = A.collection_id
+        
+        WHERE A.user_id = $coworker_id
+          OR B.created_by = $coworker_id
+    ");
+
+
+    $statement->execute();
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+    
+    return $result[0]->hot_collections;
+}
+
+

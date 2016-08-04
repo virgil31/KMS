@@ -1,0 +1,36 @@
+o Quando si registra un utente (visibile solo per l'utente stesso)
+
+
+///////////////////////////////////////
+///////////////////////////////////////
+///////////COLLECTION//////////////////
+///////////////////////////////////////
+///////////////////////////////////////
+
+
+o Creazione Collection
+o Eliminazione Collection
+o Modifica Info Collection
+
+o Creazione Discussione Collection
+o Rimozione Discussione Collection
+o Chiusura Discussione Collection
+
+o Aggiungo Collaboratore Collection
+o Aggiungo User_Pool come Collaboratori Collection
+o Rimozione Collaboratore Collection
+o Promozione Collaboratore a Gestore Collaboratori Collection
+
+o Aggiunta Risorsa Esterna Collection
+o Modifico Risorsa Esterna Collection
+o Elimino Risorsa Esterna Collection
+
+----------------------------------------------------------------
+
+o Caricamento nuovo/i Documento/i Collection
+- Modifica titolo Documento Collection
+o Eliminazione Documento Collection
+
+- Aggiunta Tag Collection
+- Rimozione Tag Collection
+

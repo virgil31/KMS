@@ -63,6 +63,7 @@ if ($success) {
 
     $success = $s->execute($params);
 
+
     if ($success) {
         //verifico se esiste la cartella $upload_dir.$directory (ad esempio /home/DocumentiSitar/34/)
         // e nel caso la creo
@@ -71,6 +72,11 @@ if ($success) {
 
         move_uploaded_file($file_to_upload,$upload_dir.$directory."/".$id_to_assign.".".$estensione_file);
 
+
+        require_once('../user_activity/create.php');
+        createUserActivity($pdo,$_COOKIE["user_id"],'caricato il documento <b>'.getCollectionFileTitle($pdo,$collection_id,$id_to_assign).'</b> nella collezione <b>'.getCollectionTitle($pdo,$collection_id).'</b>','collection/'.$collection_id."/file/".$id_to_assign,"icon_other_external_resource.png",$data["collection_id"],null);
+
+        require_once('../user_activity/create.php');
         echo json_encode(array(
             "success" => true
         ));

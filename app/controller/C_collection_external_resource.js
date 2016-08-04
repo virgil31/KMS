@@ -55,6 +55,7 @@ Ext.define('CL.controller.C_collection_external_resource', {
         if(form.isValid()){
             Ext.StoreManager.lookup("S_collection_external_resource").add(values);
             Ext.StoreManager.lookup("S_collection_external_resource").sync();
+            win.close();
         }
     },
 

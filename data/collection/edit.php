@@ -28,7 +28,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
 
 require_once('../user_activity/create.php');
-createUserActivity($pdo,$data["created_by"],'modificato le info di base della collezione <b>"'.$data["title"].'"</b>','collection/'.$data["id"],"icon_collection.png");
+createUserActivity($pdo,$data["created_by"],'modificato le info di base della collezione <b>"'.$data["title"].'"</b>','collection/'.$data["id"],"icon_collection.png",$data["id"], null);
 
 echo json_encode(array(
 	"success" => true

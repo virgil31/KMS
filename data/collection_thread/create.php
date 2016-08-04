@@ -34,7 +34,7 @@ sleep(1.5);
 
 
 require_once('../user_activity/create.php');
-createUserActivity($pdo,$data["created_by"],'avviato la discussione <b>"'.$data["prefix"].' '.$data["title"].'"</b>','collection_thread/'.$thread_id,"icon_thread.png");
+createUserActivity($pdo,$data["created_by"],'avviato la discussione <b>'.$data["prefix"].' '.$data["title"].'</b> nella collezione <b>'.getCollectionTitle($pdo,$data["collection_id"]).'</b>','collection_thread/'.$thread_id,"icon_thread.png",$data["collection_id"],null);
 
 echo json_encode(array(
     "success" => true

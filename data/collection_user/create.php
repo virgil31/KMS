@@ -45,7 +45,7 @@ if($error_info[1] == 7){
 else{
 
     require_once('../user_activity/create.php');
-    createUserActivity($pdo,$_COOKIE["user_id"],'aggiunto <b>'.getUserFullName($pdo,$data["user_id"]).'</b> ai collaboratori della collezione <b>"'.getCollectionTitle($pdo,$data["collection_id"]).'"</b>',"collection/".$data["collection_id"]."/coworkers","icon_collaboratori.png");
+    createUserActivity($pdo,$_COOKIE["user_id"],'aggiunto <b>'.getUserFullName($pdo,$data["user_id"]).'</b> ai collaboratori della collezione <b>"'.getCollectionTitle($pdo,$data["collection_id"]).'"</b>',"collection/".$data["collection_id"]."/coworkers","icon_collaboratori.png",$data["collection_id"],null);
 
     echo json_encode(array(
         "success" => true

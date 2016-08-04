@@ -70,7 +70,7 @@ Ext.define('CL.view.collection_external_resource.V_list_by_collection', {
                     flex: 0.7,
                     renderer: function(value){
 
-                        var icon_url = "images/icon_other_file.png";
+                        var icon_url = "images/icons/icon_other_external_resource.png";
 
                         if(value == "Immagine")
                             icon_url = "images/icons/icon_image.png";

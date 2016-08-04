@@ -34,7 +34,13 @@ Ext.define('CL.controller.C_collection_thread_message', {
                 //se non esiste la discussione mostro il warning e torno indietro
                 if(this_controller.thread_record == null){
                     Ext.Msg.alert("Attenzione!","Questa discussione è stata eliminata!");
-                    window.history.back();
+                    //se stavo gia navigando kms allora torno indietro
+                    if(window.history.length > 2)
+                        window.history.back();
+                    // se ho aperto direttamente il link allora non posso tornare indietro e vado invece dritto alla home kms
+                    else{
+                        this_controller.redirectTo('home');
+                    }
                 }
                 else{
                     //vv spostata qui nella callback per evitare di mostrare la vista vuota se non esiste la discussione

@@ -57,6 +57,12 @@ Ext.define('CL.controller.C_user', {
         Ext.StoreManager.lookup("S_user_activity").proxy.extraParams.user_id = user_id;
         Ext.StoreManager.lookup("S_user_activity").loadPage(1);
 
+        Ext.StoreManager.lookup("S_user_interested_activity").proxy.extraParams.user_id = user_id;
+        Ext.StoreManager.lookup("S_user_interested_activity").loadPage(1);
+
+
+
+
         //se sto guardando il MIO profilo, sblocco i pulsanti per la creazione di eventi e collection
         // altrimenti li nascondo
         if(Ext.util.Cookies.get("user_id") === param1){

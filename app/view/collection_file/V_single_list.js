@@ -127,8 +127,19 @@ Ext.define('CL.view.collection_file.V_single_list', {
                                                 var rec = this.getAt(0);
                                                 CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
                                                     Ext.Msg.confirm('Attenzione!', 'Eliminare <b>'+rec.get("title")+"</b>?",function(btn){
-                                                        if (btn === 'yes')
-                                                            Ext.StoreManager.lookup("S_collection_file").remove(rec);
+                                                        if (btn === 'yes'){
+                                                            //console.log(rec);
+                                                            //Ext.StoreManager.lookup("S_collection_file").remove(rec);
+                                                            //alert("ATTENZIONE! Anche se lo store ha l'autoSync, quest'ultimo non scatta dopo il remove. Probabilmente perchè quel 'rec' non è un record/modello")
+                                                            Ext.Ajax.request({
+                                                                url: 'data/collection_file/destroy.php',
+                                                                params: {
+                                                                    data: Ext.JSON.encode(rec.data)
+                                                                }
+                                                            });
+                                                            CL.app.getController("C_collection_file").redirectTo("collection/"+rec.get("collection_id"));
+                                                        }
+
                                                     });
                                                 });
 

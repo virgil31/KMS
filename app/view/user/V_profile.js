@@ -101,7 +101,7 @@ Ext.define('CL.view.user.V_profile', {
         */
         {
             xtype: 'panel',
-            height: 500,
+            height: 600,
             width: '100%',
             margin: '10 0 10 0',
             layout: {
@@ -148,6 +148,38 @@ Ext.define('CL.view.user.V_profile', {
                 },
                 {
                     xtype: 'grid',
+                    title: 'Attività di Interesse',
+                    name: 'user_interested_activity',
+                    flex: 1,
+                    height: '100%',
+                    margin: '0 5 0 0',
+                    store: 'S_user_interested_activity',
+                    hideHeaders: true,
+                    disableSelection: true,
+                    cls: 'myRowClass',
+                    listeners:{
+                        rowclick: function (el, record) {
+                            CL.app.getController("C_user").redirectTo(record.get("target_url"));
+                        }
+                    },
+                    columns:[
+                        {
+                            dataIndex: 'composed',
+                            flex: 1,
+                            renderer: function (value, metaData, record) {
+                                metaData.tdStyle = 'background: #d3d3d3;';
+                                return "<div style='white-space: normal !important;'>"+record.get("composed")+"</div>";
+                            }
+                        }
+                    ],
+                    dockedItems: [{
+                        xtype: 'pagingtoolbar',
+                        store: 'S_user_interested_activity',
+                        dock: 'bottom'
+                    }]
+                },
+                /*{
+                    xtype: 'grid',
                     name: 'user_interested_activity',
                     title: 'Attività di Interesse',
                     flex: 1,
@@ -156,13 +188,13 @@ Ext.define('CL.view.user.V_profile', {
                         background: "#484848"
                     },
                     margin: '0 0 0 5'
-                }
+                }*/
             ]
         },
 
         {
             xtype: 'panel',
-            height: 500,
+            height: 600,
             width: '100%',
             margin: '10 0 10 0',
             layout: {

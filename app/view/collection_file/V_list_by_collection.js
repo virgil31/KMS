@@ -179,7 +179,7 @@ Ext.define('CL.view.collection_file.V_list_by_collection', {
 
                                 CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
                                     var rec = grid.getStore().getAt(rowIndex);
-
+                                    
                                     Ext.Msg.confirm('Attenzione!', 'Eliminare <b>'+rec.get("title")+"</b>?",function(btn){
                                         if (btn === 'yes')
                                             Ext.StoreManager.lookup("S_collection_file").remove(rec);
