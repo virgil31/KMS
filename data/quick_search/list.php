@@ -22,7 +22,11 @@ $ts_query_keywords = str_replace(" ",":* &",$keywords);
 
 $query_user = "
     SELECT id,CONCAT('user.',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name) as to_display, 'user' as type, CONCAT(last_name,' ',first_name) as description, '' as sitar_code, '' as name, NULL as officer_id ,
-      '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code
+        '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code,                
+                
+        CAST('' as text) as title, 0 as created_by, CAST('' as text) as created_by_name, now() as created_at,
+        0 as license_id, CAST('' as text) as license_name
+
 	FROM sf_guard_user A
 
 	WHERE first_name ilike '%$keywords%'
@@ -44,7 +48,10 @@ $query_oi = "
         D.name as zone_name, 
         ts_headline(string_agg(F.name,', '),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as street_name,
                  
-        0 as oi_id, 0 as oi_sitar_code
+        0 as oi_id, 0 as oi_sitar_code,                
+                
+        CAST('' as text) as title, 0 as created_by, CAST('' as text) as created_by_name, now() as created_at,
+        0 as license_id, CAST('' as text) as license_name
     
       FROM st_information_source A
         LEFT JOIN sf_guard_user B ON B.id = A.liable_officier
@@ -77,7 +84,11 @@ $query_pa = "
                 ts_headline(CONCAT(C.last_name,' ',C.first_name),to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as officer_name,                         
                 ts_headline(E.name,to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as zone_name, 
                 '' as street_name,
-                B.id as oi_id, B.sitar_code as oi_sitar_code
+                B.id as oi_id, B.sitar_code as oi_sitar_code,
+                
+                
+                CAST('' as text) as title, 0 as created_by, CAST('' as text) as created_by_name, now() as created_at,
+                0 as license_id, CAST('' as text) as license_name
     
            FROM st_archaeo_part A
              LEFT JOIN st_information_source B ON B.id = A.information_source_id
@@ -94,6 +105,35 @@ $query_pa = "
 ";
 
 
+$query_collection = "
+    SELECT *
+    FROM(
+          SELECT A.id, CONCAT('collection.',CAST(A.id as TEXT)) as composed_id, CONCAT('Collezione-',CAST(A.id as TEXT)) as to_display,
+            'collection' as type,
+            ts_headline(A.description,to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as description,
+            ts_headline(CAST(A.id as TEXT),to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as sitar_code,
+            '' as name, 0 as officer_id, '' as officer_name, '' as zone_name, '' as street_name, 0 as oi_id, 0 as oi_sitar_code,
+            ts_headline(A.title,to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as title,
+    
+                 A.created_by, 
+            ts_headline(CONCAT(B.last_name,' ',B.first_name),to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as created_by_name,
+    
+            A.created_at,A.license_id, 
+            ts_headline(C.name,to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as license_name
+        
+    
+          FROM kms_collection A
+            LEFT JOIN sf_guard_user B ON B.id = A.created_by
+            LEFT JOIN kms_license C ON C.id = A.license_id
+    ) tmp
+    
+    WHERE to_tsvector('italian',description) ||
+          to_tsvector('italian',sitar_code)||
+          to_tsvector('italian',title)||
+          to_tsvector('italian',created_by_name)||
+          to_tsvector('italian',license_name) @@ to_tsquery('italian','$ts_query_keywords')
+";
+
 $statement = $pdo->prepare("
 	SELECT *,count(*) OVER() AS total_count
 	FROM
@@ -103,6 +143,8 @@ $statement = $pdo->prepare("
     	($query_oi)
     	UNION
     	($query_pa)
+    	UNION
+    	($query_collection)
 	)tmp
     ". ((isset($_GET["search_type"]) && $_GET["search_type"] != "all") ? " WHERE type like '".$_GET["search_type"]."'" : "") . "
     ORDER BY type DESC,sitar_code ASC LIMIT $limit OFFSET $start
@@ -190,6 +232,35 @@ function getTooltipInformation($pdo,$record){
                             <tr><th align='left' width='150' style='color:#2c2c2c;' >Utente</th><td style='padding: 2px;color:#2c2c2c;'>".strip_tags($record->to_display)."</td></tr>
                         </table>";
     }
+
+    // COLLECTION
+    else if($record->type=="collection"){
+        $info_tooltip = "<div style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
+                            <table>
+                                <tr><th align='left' width='150'  style='color:#2c2c2c;'>Codice Collezione</th><td style='padding: 2px;'><a href='#collection/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->sitar_code."</u></a></td></tr>
+                                <tr><th align='left' width='150'  style='color:#2c2c2c;'>Titolo</th><td style='padding: 2px;'><a href='#collection/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".wordwrap(str_replace('"',"'",$record->title), 70, "<br>")."</u></a></td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Descrizione</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->description), 70, "<br>")."</td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Creata Da</th><td style='padding: 2px;'><a href='#user/".$record->created_by."' style='color: #963232 !important; font-weight: bold;'><u>".$record->created_by_name." (#".$record->created_by.")</u></td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Creata Il</th><td style='padding: 2px;color:#2c2c2c;'>".date_format(date_create($record->created_at), 'd/m/Y')."</td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Licenza</th><td style='padding: 2px;color:#2c2c2c;'>".$record->license_name."</td></tr>
+                            </table>
+                            <br/>
+                            <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
+                                <tr>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Collaboratori</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Discussioni</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Messaggi</td>
+                                </tr>
+                                <tr>
+                                 
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Documenti</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Risorse Esterne</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># TAGS</td>
+                                </tr>
+                            </table>
+                        </div>";
+    }
+
 
     return $info_tooltip;
 }

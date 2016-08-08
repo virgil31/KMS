@@ -164,7 +164,7 @@ Ext.define('CL.view.search.V_search', {
                     title: 'Risultati',
                     height: '100%',
                     bodyStyle: {
-                        background: "#484848"
+                        background: "#d3d3d3 !important;"
                     },
                     margin: '0 0 0 5',
                     listeners: {

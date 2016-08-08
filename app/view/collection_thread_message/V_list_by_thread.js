@@ -228,6 +228,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                     height: '100%',
                     store: "S_collection_thread_message",
                     hideHeaders: true,
+                    cls: "rowDelimiterGrey",
                     tbar:{
                         xtype: 'toolbar',
                         style:{
@@ -275,6 +276,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                             dataIndex: 'sent_by',
                             flex: 3,
                             renderer: function(value, metaData, record) {
+                                metaData.style = "border-right: 1px solid grey;";
                                 var d = new Date(record.get("sent_at"));
                                 sent_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
                                     d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
@@ -289,7 +291,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                             text: 'Messaggio',
                             dataIndex: 'message',
                             flex: 10,
-                            renderer: function (value) {
+                            renderer: function (value, metaData, record) {
                                 // rendo gli elementi A di colore blu e con sottolineatura
                                 value = value.split("<a").join('<a target="_blank" style="color: blue !important;" ');
                                 value = value.split('">').join('"><u>');

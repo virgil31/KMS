@@ -520,14 +520,15 @@ Ext.define('CL.controller.C_collection', {
         if(form.isValid()){
             values["created_by"] = Ext.util.Cookies.get("user_id");
 
-            Ext.getStore("S_collection").add(values);
+            var recs_added = Ext.getStore("S_collection").add(values);
 
             win.mask("Attendere...");
 
             Ext.getStore("S_collection").sync({
 
                 success: function () {
-                    var collection_id = Ext.getStore("S_collection").getAt(0).get("id");
+
+                    var collection_id = recs_added[0].get("id");
 
                     win.unmask();
                     win.close();

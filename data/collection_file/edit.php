@@ -29,6 +29,10 @@ $success = $s->execute($params);
 $last_id = $pdo->lastInsertId("kms_collection_id_seq");
 
 if ($success) {
+
+    require_once('../user_activity/create.php');
+    createUserActivity($pdo,$_COOKIE["user_id"],'modificato il titolo del documento <b>'.$data['title'].'</b> nella collezione <b>'.getCollectionTitle($pdo,$data['collection_id']).'</b>','collection/'.$data['collection_id']."/file/".$data['file_id'],"icon_file.png",$data["collection_id"],null);
+
     echo json_encode(array(
         "success" => true
     ));

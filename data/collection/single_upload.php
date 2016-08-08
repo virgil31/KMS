@@ -74,7 +74,7 @@ if ($success) {
 
 
         require_once('../user_activity/create.php');
-        createUserActivity($pdo,$_COOKIE["user_id"],'caricato il documento <b>'.getCollectionFileTitle($pdo,$collection_id,$id_to_assign).'</b> nella collezione <b>'.getCollectionTitle($pdo,$collection_id).'</b>','collection/'.$collection_id."/file/".$id_to_assign,"icon_other_external_resource.png",$data["collection_id"],null);
+        createUserActivity($pdo,$_COOKIE["user_id"],'caricato il documento <b>'.getCollectionFileTitle($pdo,$collection_id,$id_to_assign).'</b> nella collezione <b>'.getCollectionTitle($pdo,$collection_id).'</b>','collection/'.$collection_id."/file/".$id_to_assign,"icon_file.png",$data["collection_id"],null);
 
         require_once('../user_activity/create.php');
         echo json_encode(array(

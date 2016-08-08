@@ -13,7 +13,11 @@ $collection_id = $_GET["collection_id"];
 
 $query_user = "
     SELECT id,CONCAT('user,',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name) as to_display, CAST('user' as TEXT) as type, CONCAT(last_name,' ',first_name) as description, CAST('' as TEXT) as sitar_code, '' as name, NULL as officer_id ,
-          '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code
+          '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code,
+          
+          CAST('' as text) as title, 0 as created_by, CAST('' as text) as created_by_name, now() as created_at,
+		  0 as license_id, CAST('' as text) as license_name	
+		
     FROM sf_guard_user A
       LEFT JOIN kms_collection_tag B ON (A.id = B.target_id AND B.type like 'user')
     
@@ -31,7 +35,10 @@ $query_oi = "
         D.name as zone_name, 
         string_agg(F.name,', ') as street_name,
              
-        0 as oi_id, 0 as oi_sitar_code
+        0 as oi_id, 0 as oi_sitar_code,
+        
+        CAST('' as text) as title, 0 as created_by, CAST('' as text) as created_by_name, now() as created_at,
+		0 as license_id, CAST('' as text) as license_name	
     
     FROM st_information_source A
         LEFT JOIN sf_guard_user B ON B.id = A.liable_officier
@@ -55,13 +62,16 @@ $query_oi = "
 
 $query_pa = "
     SELECT A.id,CONCAT('archaeo_part,',CAST(A.id as TEXT)) as composed_id, CONCAT('Partizione-',A.id) as to_display, 'archaeo_part' as type,
-           COALESCE( NULLIF(A.description,'') , '-' ) as description,
-           CAST(A.id as TEXT) as sitar_code, '' as name,
-           B.liable_officier as officer_id,
-           CONCAT(C.last_name,' ',C.first_name) as officer_name,
-           E.name as zone_name,
-           '' as street_name,
-           B.id as oi_id, B.sitar_code as oi_sitar_code
+            COALESCE( NULLIF(A.description,'') , '-' ) as description,
+            CAST(A.id as TEXT) as sitar_code, '' as name,
+            B.liable_officier as officer_id,
+            CONCAT(C.last_name,' ',C.first_name) as officer_name,
+            E.name as zone_name,
+            '' as street_name,
+            B.id as oi_id, B.sitar_code as oi_sitar_code,
+            
+            CAST('' as text) as title, 0 as created_by, CAST('' as text) as created_by_name, now() as created_at,
+		    0 as license_id, CAST('' as text) as license_name	
     
     FROM st_archaeo_part A
          LEFT JOIN st_information_source B ON B.id = A.information_source_id
@@ -76,6 +86,24 @@ $query_pa = "
 ";
 
 
+
+$query_collection = "
+    SELECT A.id, CONCAT('collection.',CAST(A.id as TEXT)) as composed_id, CONCAT('Collezione-',CAST(A.id as TEXT)) as to_display,
+        'collection' as type, A.description,CAST(A.id as TEXT) as sitar_code, '' as name, 0 as officer_id, '' as officer_name, '' as zone_name, '' as street_name, 0 as oi_id, 0 as oi_sitar_code,
+        A.title, A.created_by, CONCAT(B.last_name,' ',B.first_name) as created_by_name, A.created_at,A.license_id, C.name as license_name
+    
+    FROM kms_collection A
+        LEFT JOIN sf_guard_user B ON B.id = A.created_by
+        LEFT JOIN kms_license C ON C.id = A.license_id
+    
+        LEFT JOIN kms_collection_tag D ON (A.id = D.target_id AND D.type like 'collection')
+    
+    
+    WHERE collection_id = $collection_id
+";
+
+
+
 $statement = $pdo->prepare("
 	SELECT *,count(*) OVER() AS total_count
 	FROM
@@ -85,6 +113,8 @@ $statement = $pdo->prepare("
     	($query_oi)
     	UNION
     	($query_pa)
+    	UNION
+    	($query_collection)
 	)tmp
     ORDER BY type DESC,sitar_code
 ");
@@ -131,7 +161,7 @@ function getTooltipInformation($pdo,$record){
     if($record->type=="information_source"){
         $info_tooltip = "<div style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
                             <table>
-                                <tr><td width='50'><img src='images/icons/icon_information_source.png' style='border: 1px solid grey;' alt=' ' height='32' width='32'></td><th align='left' width='150' style='color:#2c2c2c;' >Codice Monumento</th><td style='padding: 2px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->sitar_code)."</u></a></td></tr>
+                                <tr><td width='50'><img src='images/icons/icon_information_source.png' style='border: 1px solid grey;' alt=' ' height='32' width='32'></td><th align='left' width='150' style='color:#2c2c2c;' >Codice Monumento</th><td style='padding: 2px;'>".strip_tags($record->sitar_code)."</td></tr>
                                 <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Nome</th><td style='padding: 2px;color:#2c2c2c;'>".$record->name."</td></tr>
                                 <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Descrizione</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->description), 70, "<br>")."</td></tr>
                                 <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Funz.Responsabile</th><td style='padding: 2px;'><a href='#user/".$record->officer_id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->officer_name." (#".$record->officer_id.")</u></td></tr>
@@ -155,8 +185,8 @@ function getTooltipInformation($pdo,$record){
     if($record->type=="archaeo_part"){
         $info_tooltip = "<div style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
                             <table>
-                                <tr><td width='50'><img src='images/icons/icon_archaeo_part.png' style='border: 1px solid grey;' alt=' ' height='32' width='32'></td><th align='left' width='150'  style='color:#2c2c2c;'>Codice Partizione</th><td style='padding: 2px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->sitar_code)."</u></a></td></tr>
-                                <tr><td width='50'></td><th align='left' width='150'  style='color:#2c2c2c;'>Monumento di Rif.</th><td style='padding: 2px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->oi_sitar_code)."</u></a></td></tr>
+                                <tr><td width='50'><img src='images/icons/icon_archaeo_part.png' style='border: 1px solid grey;' alt=' ' height='32' width='32'></td><th align='left' width='150'  style='color:#2c2c2c;'>Codice Partizione</th><td style='padding: 2px;'>".strip_tags($record->sitar_code)."</td></tr>
+                                <tr><td width='50'></td><th align='left' width='150'  style='color:#2c2c2c;'>Monumento di Rif.</th><td style='padding: 2px;'>".strip_tags($record->oi_sitar_code)."</td></tr>
                                 <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Descrizione</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->description), 70, "<br>")."</td></tr>
                                 <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Funz.Responsabile</th><td style='padding: 2px;'><a href='#user/".$record->officer_id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->officer_name." (#".$record->officer_id.")</u></td></tr>
                                 <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Zona</th><td style='padding: 2px;color:#2c2c2c;'>".strip_tags($record->zone_name)."</td></tr>
@@ -179,6 +209,34 @@ function getTooltipInformation($pdo,$record){
         $info_tooltip = "<table style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
                             <tr><td width='50'><img src='images/icons/icon_user.png' style='border: 1px solid grey;' alt=' ' height='32' width='32'></td><th align='left' width='150' style='color:#2c2c2c;' >Utente</th><td><a href='#user/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->to_display)." (#".$record->id.")</u></td></tr>
                         </table>";
+    }
+
+    // COLLECTION
+    else if($record->type=="collection"){
+        $info_tooltip = "<div style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
+                            <table>
+                                <tr><td width='50'><img src='images/icons/icon_collection_black.png' style='border: 1px solid grey;' alt=' ' height='32' width='32'></td><th align='left' width='150'  style='color:#2c2c2c;'>Codice Collezione</th><td style='padding: 2px;'><a href='#collection/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->sitar_code."</u></a></td></tr>
+                                <tr><td width='50'></td><th align='left' width='150'  style='color:#2c2c2c;'>Titolo</th><td style='padding: 2px;'><a href='#collection/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".wordwrap(str_replace('"',"'",$record->title), 70, "<br>")."</u></a></td></tr>
+                                <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Descrizione</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->description), 70, "<br>")."</td></tr>
+                                <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Creata Da</th><td style='padding: 2px;'><a href='#user/".$record->created_by."' style='color: #963232 !important; font-weight: bold;'><u>".$record->created_by_name." (#".$record->created_by.")</u></td></tr>
+                                <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Creata Il</th><td style='padding: 2px;color:#2c2c2c;'>".date_format(date_create($record->created_at), 'd/m/Y')."</td></tr>
+                                <tr><td width='50'></td><th align='left' style='color:#2c2c2c;'>Licenza</th><td style='padding: 2px;color:#2c2c2c;'>".$record->license_name."</td></tr>
+                            </table>
+                            <br/>
+                            <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
+                                <tr>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Collaboratori</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Discussioni</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Messaggi</td>
+                                </tr>
+                                <tr>
+                                 
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Documenti</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Risorse Esterne</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'># TAGS</td>
+                                </tr>
+                            </table>
+                        </div>";
     }
 
     return $info_tooltip;

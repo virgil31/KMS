@@ -29,7 +29,7 @@ sleep(1.5);
 if ($success) {
 
     require_once('../user_activity/create.php');
-    createUserActivity($pdo,$_COOKIE["user_id"],'eliminato il documento <b>'.$data["title"].'</b> nella collezione <b>'.getCollectionTitle($pdo,$data['collection_id']).'</b>','collection/'.$data['collection_id'],"icon_other_external_resource.png",$data["collection_id"],null);
+    createUserActivity($pdo,$_COOKIE["user_id"],'eliminato il documento <b>'.$data["title"].'</b> nella collezione <b>'.getCollectionTitle($pdo,$data['collection_id']).'</b>','collection/'.$data['collection_id'],"icon_file.png",$data["collection_id"],null);
 
     echo json_encode(array(
         "success" => true

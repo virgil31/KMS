@@ -30,6 +30,11 @@ a:active
     border: none;
 }
 
+/*disabilito il separatore tra le row della grid dei risultati*/
+.rowDelimiterGrey .x-grid-with-row-lines .x-grid-item {
+    border: 1px solid #9E9E9E !important;
+}
+
 .mybar{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,222426+100 */
     background: #000000; /* Old browsers */

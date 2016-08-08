@@ -21,7 +21,9 @@ Ext.define('CL.view.collection.V_single_list', {
             width: '100%',
             margin: '10 0 0 0',
             bodyCls: 'mypanel',
-            //bodyStyle: 'backgroundColor: #333333',
+            bodyStyle: {
+                borderRadius: "10px"
+            },
             layout: {
                 type: 'vbox',
                 align: 'center',

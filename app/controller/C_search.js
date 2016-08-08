@@ -39,7 +39,7 @@ Ext.define('CL.controller.C_search', {
 
             store.proxy.extraParams.query = decodeURI(param1.trim());
 
-            Ext.ComponentQuery.query('search grid')[0].body.mask("Ricerca...");
+            //Ext.ComponentQuery.query('search grid')[0].body.mask("Ricerca...");
 
             store.loadPage(1,{
                 callback: function () {
