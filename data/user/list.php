@@ -13,7 +13,7 @@ if(isset($_GET["pool_id"])){
     $pool_id = $_GET["pool_id"];
     
     $statement = $pdo->prepare("
-        SELECT A.id, A.first_name, A.last_name, A.email_address, C.name as group_name, CONCAT(A.first_name,' ',A.last_name, ' ', A.id) as full_name
+        SELECT A.id, A.first_name, A.last_name, A.email_address, C.name as group_name, CONCAT(A.first_name,' ',A.last_name, ' ', A.id) as full_name,affiliation_id
         FROM sf_guard_user A
             LEFT JOIN sf_guard_user_group B ON A.id = B.user_id
             LEFT JOIN sf_guard_group C ON C.id = B.group_id
@@ -26,7 +26,7 @@ if(isset($_GET["pool_id"])){
 //LISTING NORMALE/FULL
 else{
 	$statement = $pdo->prepare("
-        SELECT A.id, A.first_name, A.last_name, A.email_address, C.name as group_name, CONCAT(A.first_name,' ',A.last_name, ' ', A.id) as full_name
+        SELECT A.id, A.first_name, A.last_name, A.email_address, C.name as group_name, CONCAT(A.first_name,' ',A.last_name, ' ', A.id) as full_name,affiliation_id
         FROM sf_guard_user A
             LEFT JOIN sf_guard_user_group B ON A.id = B.user_id
             LEFT JOIN sf_guard_group C ON C.id = B.group_id

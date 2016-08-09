@@ -225,12 +225,13 @@ function getTooltipInformation($pdo,$record){
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
+                                    <td width='60'></td>
                                     <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionCoworkers($pdo,$record->id)."</i> Collaboratori</td>
                                     <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionThreads($pdo,$record->id)."</i> Discussioni</td>
                                     <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionMessages($pdo,$record->id)."</i> Messaggi</td>
                                 </tr>
                                 <tr>
-                                 
+                                    <td width='60'></td>                                 
                                     <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionFiles($pdo,$record->id)."</i> Documenti</td>
                                     <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionExternalResources($pdo,$record->id)."</i> Risorse Esterne</td>
                                     <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionTags($pdo,$record->id)."</i> TAGS</td>

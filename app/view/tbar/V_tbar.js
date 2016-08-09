@@ -233,10 +233,18 @@ Ext.define('CL.view.tbar.V_tbar', {
 										{
 											text: 'Mio Profilo',
 											icon: "images/icons/icon_profile.png",
-                                            handler: function(){
-                                                var my_id = Ext.util.Cookies.get("user_id");
-                                                CL.app.getController("C_tbar").redirectTo('user/'+my_id);
-                                            }
+											handler: function(){
+												var my_id = Ext.util.Cookies.get("user_id");
+												CL.app.getController("C_tbar").redirectTo('user/'+my_id);
+											}
+										},
+										{
+											text: 'Modifica Info Personali',
+											icon: "images/icons/icon_edit.png",
+											handler: function(){
+												var my_id = Ext.util.Cookies.get("user_id");
+												CL.app.getController("C_tbar").redirectTo('user/'+my_id+'/edit');
+											}
 										},
                                         {
                                             text: 'Reset Password',

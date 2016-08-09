@@ -30,7 +30,7 @@ x Registrazione nuovi Utenti con mail di conferma/attivazione:
     .username
     .password
 
-- Possibilità di modifica tali info (solo l'utente stesso potrà farlo)
+x Possibilità di modifica tali info (solo l'utente stesso potrà farlo)
 
 x Sistema di reset di password tramite link inviato per mail
 

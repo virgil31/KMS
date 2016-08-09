@@ -11,26 +11,24 @@ $data = json_decode($_POST['data'],true);
 
 
 $s = $pdo->prepare("
-	UPDATE kms_collection_file
-	SET title = :title
-	WHERE collection_id = :collection_id
-	AND file_id = :file_id
+	UPDATE sf_guard_user
+	SET first_name = :first_name,
+	  last_name = :last_name,
+	  affiliation_id = :affiliation_id
+	WHERE id = :user_id	
 ");
 
 $params = array(
-    'title' => $data['title'],
-    'collection_id' => $data['collection_id'],
-    'file_id' => $data['file_id']
+    'first_name' => $data['first_name'],
+    'last_name' => $data['last_name'],
+    'affiliation_id' => $data['affiliation_id'],
+    'user_id' => $data['id']
 );
 
 $success = $s->execute($params);
 
 
 if ($success) {
-
-    require_once('../user_activity/create.php');
-    createUserActivity($pdo,$_COOKIE["user_id"],'modificato il titolo del documento <b>'.$data['title'].'</b> nella collezione <b>'.getCollectionTitle($pdo,$data['collection_id']).'</b>','collection/'.$data['collection_id']."/file/".$data['file_id'],"icon_file.png",$data["collection_id"],null);
-
     echo json_encode(array(
         "success" => true
     ));

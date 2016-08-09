@@ -108,6 +108,7 @@ Ext.define('CL.controller.C_collection', {
 
         this.collection_id = collection_id;
 
+
         //resetto campi
         try{
             Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('');
