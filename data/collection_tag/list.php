@@ -225,15 +225,15 @@ function getTooltipInformation($pdo,$record){
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Collaboratori</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Discussioni</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Messaggi</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionCoworkers($pdo,$record->id)."</i> Collaboratori</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionThreads($pdo,$record->id)."</i> Discussioni</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionMessages($pdo,$record->id)."</i> Messaggi</td>
                                 </tr>
                                 <tr>
                                  
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Documenti</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Risorse Esterne</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># TAGS</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionFiles($pdo,$record->id)."</i> Documenti</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionExternalResources($pdo,$record->id)."</i> Risorse Esterne</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionTags($pdo,$record->id)."</i> TAGS</td>
                                 </tr>
                             </table>
                         </div>";
@@ -277,3 +277,105 @@ function getCountPADocs($pdo,$pa_id){
     return $result[0]->count;
 }
 
+
+function getCountCollectionCoworkers($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT (count(*)+1) as count
+        FROM kms_collection_user
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountCollectionThreads($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_thread
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountCollectionMessages($pdo,$collection_id){
+    $statement = $pdo->prepare("
+    SELECT count(*)
+        FROM kms_collection_thread_message A
+		  LEFT JOIN kms_collection_thread B ON B.id = A.thread_id 
+	WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+function getCountCollectionFiles($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_file
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountCollectionExternalResources($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_external_resource
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+
+function getCountCollectionTags($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_tag
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}

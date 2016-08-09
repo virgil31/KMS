@@ -84,6 +84,9 @@ Ext.define('CL.controller.C_collection', {
 
         //dopodichè porto avanti la sezione delle discussioni
         Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(4);
+
+
+        this.updateInfo(collection_id);
     },
 
     //SHOW VIEW
@@ -223,6 +226,71 @@ Ext.define('CL.controller.C_collection', {
                 }
             }
         })
+    },
+
+    updateInfo: function (collection_id) {
+        //aggiorno le informazioni solo se son passato dalla view di una collection ad un'altra
+        if(Ext.getStore("S_collection").getAt(0) != null){
+            if(Ext.getStore("S_collection").getAt(0).get("id") != collection_id){
+                var this_controller = CL.app.getController("C_collection");
+
+                //resetto campi
+                try{
+                    Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('');
+                    Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText("");
+                    Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setText("");
+                    Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("");
+                }catch(e){}
+
+                Ext.getBody().mask("Attendere...");
+
+                Ext.getStore("S_collection").load({
+                    params: {
+                        collection_id: collection_id
+                    },
+                    callback: function () {
+                        Ext.getBody().unmask();
+
+                        //se non ritorna alcun record, vuol dire che la collection con quell'id non esiste
+                        if (this.getTotalCount() == 0) {
+                            //piccolo controllo per evitare che se la collection non esiste non mi permette più di tornare indietro
+                            if (window.location.hash == "#collection/" + collection_id)
+                                CL.app.getController("C_collection").redirectTo("not_found");
+                        }
+                        else {
+                            var collection = this.getAt(0),
+                                title = collection.get("title"),
+                                description = collection.get("description"),
+                                created_by = collection.get("created_by"),
+                                created_by_name = collection.get("created_by_name"),
+                                created_at = collection.get("created_at");
+
+                            this_controller.record_collection = collection; //mi salvo il record della collection a livello di controller
+
+
+                            var result = new Date(created_at);
+                            result.setDate(result.getDate() + 2);
+                            var giorno = result.getDate(),
+                                mese = result.getMonth() + 1,
+                                anno = result.getFullYear(),
+                                ore = result.getHours(),
+                                minuti = result.getMinutes();
+                            if (minuti == "0") minuti = "00";
+
+                            var data_scadenza = giorno + "/" + mese + "/" + anno + " " + ore + ":" + minuti;
+
+                            Ext.ComponentQuery.query("collection_single_list label[name=data_chiusura]")[0].setHtml('Data di chiusura delle modifiche: <u>' + data_scadenza + '</u>');
+
+                            Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText(title);
+                            Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setHtml("<div style='text-align: center'>" + description + "</div>");
+                            Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/" + created_by + "'>" + created_by_name + "</a> il " + Ext.Date.format(created_at, 'd/m/Y'));
+
+
+                        }
+                    }
+                });
+            }
+        }
     },
 
 

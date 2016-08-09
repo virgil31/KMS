@@ -247,15 +247,16 @@ function getTooltipInformation($pdo,$record){
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Collaboratori</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Discussioni</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Messaggi</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionCoworkers($pdo,$record->id)."</i> Collaboratori</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionThreads($pdo,$record->id)."</i> Discussioni</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionMessages($pdo,$record->id)."</i> Messaggi</td>
                                 </tr>
                                 <tr>
                                  
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Documenti</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># Risorse Esterne</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'># TAGS</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionFiles($pdo,$record->id)."</i> Documenti</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionExternalResources($pdo,$record->id)."</i> Risorse Esterne</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionTags($pdo,$record->id)."</i> TAGS</td>
+                                </tr>
                                 </tr>
                             </table>
                         </div>";
@@ -305,65 +306,104 @@ function getCountPADocs($pdo,$pa_id){
 
 
 
+function getCountCollectionCoworkers($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT (count(*)+1) as count
+        FROM kms_collection_user
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountCollectionThreads($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_thread
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountCollectionMessages($pdo,$collection_id){
+    $statement = $pdo->prepare("
+    SELECT count(*)
+        FROM kms_collection_thread_message A
+		  LEFT JOIN kms_collection_thread B ON B.id = A.thread_id 
+	WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+function getCountCollectionFiles($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_file
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountCollectionExternalResources($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_external_resource
+        WHERE collection_id = :collection_id
+    ");
+
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
 
 
 
+function getCountCollectionTags($pdo,$collection_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_tag
+        WHERE collection_id = :collection_id
+    ");
 
+    $statement->execute(array(
+        "collection_id" => $collection_id
+    ));
 
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
-
-/*
-
-
-
-SELECT *
-    FROM (
-      SELECT A.id, CONCAT('OI-',A.sitar_code) as to_display,CAST('information_source' as TEXT) as type,
-        ts_headline(A.description,to_tsquery('italian','$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as description,
-        CAST(A.sitar_code as TEXT) as sitar_code,COALESCE( NULLIF(A.name,'') , '-' ) as name,
-        CONCAT(B.first_name,' ',B.last_name) as officer_name, D.name as zone_name, string_agg(F.name,', ') as street_name
-
-      FROM st_information_source A
-        LEFT JOIN sf_guard_user B ON B.id = A.liable_officier
-
-        LEFT JOIN st_information_source_st_circoscrizione C ON C.st_information_source_id = A.id
-        LEFT JOIN st_circoscrizione D ON D.id = C.st_circoscrizione_id
-
-        LEFT JOIN st_italian_address_info_source E ON E.information_source_id = A.id
-        LEFT JOIN st_italian_street F ON F.id = E.italian_street_id
-
-      GROUP BY A.id,B.first_name,B.last_name,D.name
-    ) tmp
-
-    WHERE to_tsvector('italian',description) ||
-          to_tsvector('italian',CAST(sitar_code as TEXT))||
-          to_tsvector('italian',name) ||
-          to_tsvector('italian',officer_name)  ||
-          to_tsvector('italian',street_name) @@ to_tsquery('italian','$ts_query_keywords')
-
-
-
-
-
-$query_pa = "
-    SELECT *
-    FROM (
-
-           SELECT A.id, CONCAT('PA-',A.id) as to_display, 'archaeo_part' as type, A.description, A.id as sitar_code, '' as name,
-                        B.liable_officier as officer_id,CONCAT(C.last_name,' ',C.first_name) as officer_name, E.name as zone_name, '' as street_name,
-                        B.id as oi_id, B.sitar_code as oi_sitar_code
-
-           FROM st_archaeo_part A
-             LEFT JOIN st_information_source B ON B.id = A.information_source_id
-             LEFT JOIN sf_guard_user C ON C.id = B.liable_officier
-
-
-             LEFT JOIN st_information_source_st_circoscrizione D ON D.st_information_source_id = B.id
-             LEFT JOIN st_circoscrizione E ON E.id = D.st_circoscrizione_id
-    )tmp
-    WHERE to_tsvector('italian',description) ||
-          to_tsvector('italian',officer_name)  ||
-          to_tsvector('italian',zone_name) @@ to_tsquery('italian','$ts_query_keywords')
-";
-
-*/
+    return $result[0]->count;
+}
