@@ -193,11 +193,9 @@ function getTooltipInformation($pdo,$record){
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
-                                <td align='center' style='color:#2c2c2c;'># Collezioni</td>
-                                <td align='center' style='color:#2c2c2c;'># Eventi</td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountOIDocs($pdo,$record->id)." Documenti</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Anteprima</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Mappa</u></a></td>
+                                    <td align='center' style='color:#2c2c2c;'>".getCountOICollections($pdo,$record->id)." Collezioni</td>
+                                    <td align='center' style='color:#2c2c2c;'># Eventi</td>
+                                    <td align='center' style='color:#2c2c2c;'>".getCountOIDocs($pdo,$record->id)." Documenti</td>
                                 </tr>
                             </table>
                         </div>";
@@ -216,11 +214,9 @@ function getTooltipInformation($pdo,$record){
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
-                                <td align='center' style='color:#2c2c2c;'># Collezioni</td>
-                                <td align='center' style='color:#2c2c2c;'># Eventi</td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountPADocs($pdo,$record->id)." Documenti</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Anteprima</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Mappa</u></a></td>
+                                    <td align='center' style='color:#2c2c2c;'>".getCountPACollections($pdo,$record->id)." Collezioni</td>
+                                    <td align='center' style='color:#2c2c2c;'># Eventi</td>
+                                    <td align='center' style='color:#2c2c2c;'>".getCountPADocs($pdo,$record->id)." Documenti</td>
                                 </tr>
                             </table>
                         </div>";
@@ -401,6 +397,42 @@ function getCountCollectionTags($pdo,$collection_id){
 
     $statement->execute(array(
         "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountOICollections($pdo, $oi_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_tag
+        WHERE target_id = :oi_id
+          AND type like 'information_source'
+    ");
+
+    $statement->execute(array(
+        "oi_id" => $oi_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountPACollections($pdo, $pa_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_tag
+        WHERE target_id = :pa_id
+          AND type like 'archaeo_part'
+    ");
+
+    $statement->execute(array(
+        "pa_id" => $pa_id
     ));
 
     $result = $statement->fetchAll(PDO::FETCH_OBJ);

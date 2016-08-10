@@ -25,6 +25,11 @@ $params = array(
 
 $success = $s->execute($params);
 
+
+require_once('../user_activity/create.php');
+createUserActivity($pdo,$_COOKIE["user_id"],'rimosso un tag nella Collezione <b>'.getCollectionTitle($pdo,$data["collection_id"]).'</b>','collection/'.$data["collection_id"].'/tags',"icon_tag.png",$data["collection_id"],null);
+
+
 echo json_encode(array(
     "success" => true
 ));

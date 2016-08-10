@@ -51,7 +51,9 @@ Ext.application({
 
         'C_collection_thread',
         'C_collection_thread_message',
-        'C_collection_tag'
+        'C_collection_tag',
+
+        'C_tag'
     ],
 
     // vv ROUTING

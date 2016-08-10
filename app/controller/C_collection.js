@@ -48,6 +48,8 @@ Ext.define('CL.controller.C_collection', {
 
         //dopodichè porto avanti la sezione delle discussioni
         Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(1);
+
+        this.updateInfo(collection_id);
     },
 
     //SHOW COWORKER
@@ -60,6 +62,8 @@ Ext.define('CL.controller.C_collection', {
 
         //dopodichè porto avanti la sezione delle discussioni
         Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(2);
+
+        this.updateInfo(collection_id);
     },
 
     // SHOW THREADS
@@ -72,6 +76,8 @@ Ext.define('CL.controller.C_collection', {
 
         //dopodichè porto avanti la sezione delle discussioni
         Ext.ComponentQuery.query('collection_single_list tabpanel')[0].getLayout().setActiveItem(3);
+
+        this.updateInfo(collection_id);
     },
 
     //SHOW Tags
@@ -162,7 +168,7 @@ Ext.define('CL.controller.C_collection', {
 
                     Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText(title);
                     Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setHtml("<div style='text-align: center'>"+description+"</div>");
-                    Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/"+created_by+"'>"+created_by_name+"</a> il "+Ext.Date.format(created_at,'d/m/Y'));
+                    Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/"+created_by+"'><u>"+created_by_name+"</u></a> il "+Ext.Date.format(created_at,'d/m/Y'));
 
                     //carico gli store del tabpanel
                     Ext.StoreManager.lookup("S_collection_file").load({
@@ -284,9 +290,7 @@ Ext.define('CL.controller.C_collection', {
 
                             Ext.ComponentQuery.query("collection_single_list label[name=title]")[0].setText(title);
                             Ext.ComponentQuery.query("collection_single_list label[name=description]")[0].setHtml("<div style='text-align: center'>" + description + "</div>");
-                            Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/" + created_by + "'>" + created_by_name + "</a> il " + Ext.Date.format(created_at, 'd/m/Y'));
-
-
+                            Ext.ComponentQuery.query("collection_single_list label[name=created_by_name]")[0].setHtml("Collezione creata da: <a href='#user/" + created_by + "'><u>" + created_by_name + "</u></a> il " + Ext.Date.format(created_at, 'd/m/Y'));
                         }
                     }
                 });

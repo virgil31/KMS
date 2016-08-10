@@ -35,7 +35,7 @@ if(isset($_GET["query"])){
 //LIST PAGINATO
 else{
     $statement = $pdo->prepare("
-	SELECT A.id as pool_id, A.name as pool_name,CONCAT(A.name,' ',A.id) as pool_full_name, A.created_by, CONCAT(B.first_name,' ',B.last_name) as created_by_name,COUNT(*) OVER() as total
+	SELECT A.id as pool_id, A.name as pool_name,CONCAT(A.name,' ',A.id) as pool_full_name, A.created_by, CONCAT(B.last_name,' ',B.first_name) as created_by_name,COUNT(*) OVER() as total
         FROM kms_pool A
             LEFT JOIN sf_guard_user B ON B.id = A.created_by
         ORDER BY $pro $dir LIMIT $limit OFFSET $start

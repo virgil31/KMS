@@ -210,11 +210,12 @@ function getTooltipInformation($pdo,$record){
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
-                                <td align='center' style='color:#2c2c2c;'># Collezioni</td>
-                                <td align='center' style='color:#2c2c2c;'># Eventi</td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountOIDocs($pdo,$record->id)." Documenti</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><img src='images/icons/icon_lens.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><u>Anteprima</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><img src='images/icons/icon_map.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><u>Mappa</u></a></td>
+                                    <td align='center' style='color:#2c2c2c; text-align:left;'>".getCountOICollections($pdo,$record->id)." Collezioni</td>
+                                    <td align='center' style='color:#2c2c2c; text-align:left;'># Eventi</td>
+                                    <td align='center' style='text-align:left;'><img src='images/icons/icon_file.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountOIDocs($pdo,$record->id)."</u></a> Documenti</td>      
+                                    <td align='center' style='text-align:left;'><img src='images/icons/icon_lens.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Anteprima</u></a></td>
+                                    <td align='center' style='text-align:left;'><img src='images/icons/icon_map.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Mappa</u></a></td>
+                                    <td align='center' style='text-align:left;'><img src='images/icons/icon_tag.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' onclick='CL.app.getController(\"C_tag\").onTag(this,\"$record->type\",$record->id);return false;' style='color: #963232 !important; font-weight: bold;'><u>Tag!</u></a> </td>
                                 </tr>
                             </table>
                         </div>";
@@ -232,12 +233,13 @@ function getTooltipInformation($pdo,$record){
                             </table>
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
-                                <tr>
-                                <td align='center' style='color:#2c2c2c;'># Collezioni</td>
-                                <td align='center' style='color:#2c2c2c;'># Eventi</td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountPADocs($pdo,$record->id)." Documenti</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><img src='images/icons/icon_lens.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><u>Anteprima</u></a></td>
-                                    <td align='center'><a href='#' style='color: #963232 !important; font-weight: bold;'><img src='images/icons/icon_map.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><u>Mappa</u></a></td>
+                                <tr>                                
+                                    <td align='center' style='color:#2c2c2c;'>".getCountPACollections($pdo,$record->id)." Collezioni</td>
+                                    <td align='center' style='color:#2c2c2c;'># Eventi</td>
+                                    <td align='center'><img src='images/icons/icon_file.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountPADocs($pdo,$record->id)."</u></a> Documenti</td>
+                                    <td align='center'><img src='images/icons/icon_lens.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Anteprima</u></a></td>
+                                    <td align='center'><img src='images/icons/icon_map.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Mappa</u></a></td>
+                                    <td align='center' style='text-align:left;'><img src='images/icons/icon_tag.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' onclick='CL.app.getController(\"C_tag\").onTag(this,\"$record->type\",$record->id);return false;' style='color: #963232 !important; font-weight: bold;'><u>Tag!</u></a> </td>
                                 </tr>
                             </table>
                         </div>";
@@ -246,7 +248,16 @@ function getTooltipInformation($pdo,$record){
     // USER
     else if($record->type=="user"){
         $info_tooltip = "<table style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
-                            <tr><th align='left' width='150' style='color:#2c2c2c;' >Utente</th><td><a href='#user/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->to_display)."(#".$record->id.")</u></td></tr>
+                            <tr>
+                                <th align='left' width='150' style='color:#2c2c2c;' >Utente</th>
+                                <td width='350'>
+                                    <a href='#user/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->to_display)."(#".$record->id.")</u></a>                                
+                                </td>
+                                <td>
+                                    <img src='images/icons/icon_tag.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'>                                    
+                                    <a href='#' onclick='CL.app.getController(\"C_tag\").onTag(this,\"$record->type\",$record->id);return false;' style='color: #963232 !important; font-weight: bold;'><u>Tag!</u></a>
+                                </td>
+                            </tr>
                         </table>";
     }
 
@@ -264,15 +275,15 @@ function getTooltipInformation($pdo,$record){
                             <br/>
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionCoworkers($pdo,$record->id)."</i> Collaboratori</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionThreads($pdo,$record->id)."</i> Discussioni</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionMessages($pdo,$record->id)."</i> Messaggi</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#collection/".$record->id."/coworkers' style='color: #963232 !important; font-weight: bold;'><u>".getCountCollectionCoworkers($pdo,$record->id)."</u></a> Collaboratori</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#collection/".$record->id."/threads' style='color: #963232 !important; font-weight: bold;'><u>".getCountCollectionThreads($pdo,$record->id)."</u></a> Discussioni</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#collection/".$record->id."/threads' style='color: #963232 !important; font-weight: bold;'><u>".getCountCollectionMessages($pdo,$record->id)."</u></a> Messaggi</td>
                                 </tr>
-                                <tr>
-                                 
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionFiles($pdo,$record->id)."</i> Documenti</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionExternalResources($pdo,$record->id)."</i> Risorse Esterne</td>
-                                    <td align='center' style='color:#2c2c2c;text-align:left;'><i>".getCountCollectionTags($pdo,$record->id)."</i> TAGS</td>
+                               <tr>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#collection/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".getCountCollectionFiles($pdo,$record->id)."</u></a> Documenti</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#collection/".$record->id."/external_resources' style='color: #963232 !important; font-weight: bold;'><u>".getCountCollectionExternalResources($pdo,$record->id)."</u></a> Risorse Esterne</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#collection/".$record->id."/tags' style='color: #963232 !important; font-weight: bold;'><u>".getCountCollectionTags($pdo,$record->id)."</u></a> TAGS</td>
+                                    <td align='center' style='text-align:left;'><img src='images/icons/icon_tag.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' onclick='CL.app.getController(\"C_tag\").onTag(this,\"$record->type\",$record->id);return false;' style='color: #963232 !important; font-weight: bold;'><u>Tag!</u></a> </td>
                                 </tr>
                             </table>
                         </div>";
@@ -416,6 +427,40 @@ function getCountCollectionTags($pdo,$collection_id){
 
     $statement->execute(array(
         "collection_id" => $collection_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+function getCountOICollections($pdo, $oi_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_tag
+        WHERE target_id = :oi_id
+          AND type like 'information_source'
+    ");
+
+    $statement->execute(array(
+        "oi_id" => $oi_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+function getCountPACollections($pdo, $pa_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_collection_tag
+        WHERE target_id = :pa_id
+          AND type like 'archaeo_part'
+    ");
+
+    $statement->execute(array(
+        "pa_id" => $pa_id
     ));
 
     $result = $statement->fetchAll(PDO::FETCH_OBJ);

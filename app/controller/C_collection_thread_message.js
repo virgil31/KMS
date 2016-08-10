@@ -53,12 +53,14 @@ Ext.define('CL.controller.C_collection_thread_message', {
 
                     this.collection_id = thread_id;
 
-                    //resetto campi
+                    //resetto campi e stores
                     try{
                         Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=title]")[0].setHtml("");
                         Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=collection]")[0].setHtml("");
                         Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=created_by_name]")[0].setHtml("");
                         Ext.ComponentQuery.query("collection_thread_message_list_by_thread label[name=data_chiusura]")[0].setHtml("");
+
+                        Ext.StoreManager.lookup("S_collection_thread_message").loadData([],false);
                     }catch(e){}
                     // ^^
 

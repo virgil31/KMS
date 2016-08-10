@@ -117,16 +117,17 @@ Ext.define('CL.view.search.V_search', {
                                             listeners: {
                                                 change: function (me, newValue) {
                                                     var query = Ext.ComponentQuery.query("search textfield[name=query_search]")[0].getValue();
-                                                    if(query.length != 0){
+                                                    var store = Ext.StoreManager.lookup("S_search");
 
-                                                        var array = $.map(newValue, function(value) {
-                                                            return [value];
-                                                        });
-                                                        var store = Ext.StoreManager.lookup("S_search");
-                                                        store.proxy.extraParams.query = query;
-                                                        store.proxy.extraParams.search_type = array[0];
+                                                    var array = $.map(newValue, function(value) {
+                                                        return [value];
+                                                    });
+                                                    store.proxy.extraParams.query = query;
+                                                    store.proxy.extraParams.search_type = array[0];
+
+                                                    if(query.length != 0)
                                                         store.loadPage(1);
-                                                    }
+
                                                 }
                                             },
                                             items: [
@@ -143,6 +144,14 @@ Ext.define('CL.view.search.V_search', {
                             ]
                         },
                         {
+                            xtype: 'image',
+                            src: 'images/placeholder.jpg',
+                            width: '100%',
+                            margin: '5 0 0 0',
+                            flex: 10
+                        }
+                        /*
+                        {
                             xtype: 'panel',
                             title: 'Filtri',
                             width: '100%',
@@ -151,7 +160,7 @@ Ext.define('CL.view.search.V_search', {
                             bodyStyle: {
                                 background: "#484848"
                             }
-                        }
+                        }*/
                     ]
                 },
 

@@ -1,5 +1,53 @@
 TODO LIST
 
+
+-----------------------------------------------------------------------------
+COLLECTION
+-----------------------------------------------------------------------------
+- vista per l'aggiunta di nuovi tag.
+o aggiunta inversa di nuovi tag:
+    bottone sulle varie entità taggabili per (appunto) taggarle ad una delle
+    collection di cui O siamo i creatori O collaboratori.
+
+
+-----------------------------------------------------------------------------
+USER POOL
+-----------------------------------------------------------------------------
+- TUTTI POSSONO CREARE USER_POOLS
+- Gli user_pool potranno essere visualizzati da TUTTI in fase degli inviti a collaborare
+- Solo il creatore di uno user_pool potrà modificarlo (modifica del titolo e degli utenti al suo interno)
+
+
+
+-----------------------------------------------------------------------------
+EVENTI
+-----------------------------------------------------------------------------
+- uguali alle collezioni ma con una data di chiusu MANUALE da parte
+    O del creatore dell'evento O da uno dei collaboratori.
+
+
+-----------------------------------------------------------------------------
+RICERCHE VARIE
+-----------------------------------------------------------------------------
+Aggiungere:
+- EVENTI
+- Unità Archeologiche
+- Decreti di Tutela
+- Unità Stratigrafiche
+
+
+
+
+
+
+
+
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+
+
 -----------------------------------------------------------------------------
 COLLEZIONE_RISORSA_ESTERNA
 -----------------------------------------------------------------------------
@@ -57,31 +105,24 @@ x Aggiungere CRUD lista COLLABORATORI. Un COLLABORATORE ha potere di scrittura s
   essere effettuato solamente dai 3 elementi sopracitati.
 
 x  In fase di aggiunta di un collaboratore si potrà aggiungere un utente singolo
--  In fase di aggiunta di un collaboratore si potrà aggiungere una lista di utenti tramite selezione di USER POOL
+x  In fase di aggiunta di un collaboratore si potrà aggiungere una lista di utenti tramite selezione di USER POOL
 
-- Possibilità di modificare le info principali (titolo, descrizione, licenza) se non è ancora CHIUSA
-
-
+x Possibilità di modificare le info principali (titolo, descrizione, licenza) se non è ancora CHIUSA
 
 
------------------------------------------------------------------------------
-USER POOL
------------------------------------------------------------------------------
 
-- TUTTI POSSONO CREARE USER_POOLS
-- Solo il creatore di uno user_pool potrà modificarlo (e logicamente gli amministratori)
-- Gli user_pool potranno essere visualizzati da TUTTI in fase degli inviti a collaborare
+
 
 
 
 -----------------------------------------------------------------------------
 DISCUSSIONI
 -----------------------------------------------------------------------------
-- CHIUNQUE potrà SEMPRE creare nuove discussioni
-- le discussioni dei COLLABORATORI dovranno distinguersi magari con un colore diverso dell'intestazione ed un icona
-- CHIUNQUE potrà SEMPRE rispondere alle discussioni
-- Solo i collaboratori (e gli amministratori) potranno chiudere una discussione
-- Una discussione chiusa non potrà ricevere ulteriori messaggi
+x CHIUNQUE potrà SEMPRE creare nuove discussioni
+x le discussioni dei COLLABORATORI dovranno distinguersi magari con un colore diverso dell'intestazione ed un icona
+x CHIUNQUE potrà SEMPRE rispondere alle discussioni
+x Solo i collaboratori (e gli amministratori) potranno chiudere una discussione
+x Una discussione chiusa non potrà ricevere ulteriori messaggi
 
 
 
@@ -89,5 +130,5 @@ DISCUSSIONI
 PROFILO UTENTE
 -----------------------------------------------------------------------------
 
-- Inserire storico delle attività recenti del profilo che sto guardando
-- Inserire storico delle attività interessate al profilo che sto guardando
+x Inserire storico delle attività recenti del profilo che sto guardando
+x Inserire storico delle attività interessate al profilo che sto guardando
