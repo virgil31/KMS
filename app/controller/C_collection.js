@@ -40,6 +40,8 @@ Ext.define('CL.controller.C_collection', {
 
     //SHOW ExternalResources
     showExternalResources: function (collection_id) {
+        Ext.ComponentQuery.query('viewport panel')[0].body.scrollTo('top',0);   //aggiunto per quando clicco su un link della scheda TAG
+
         //prima mi assicuro che la vista della collection sia mostrata
         if(Ext.ComponentQuery.query('collection_single_list').length == 0)
             this.showView(collection_id);
@@ -54,6 +56,8 @@ Ext.define('CL.controller.C_collection', {
 
     //SHOW COWORKER
     showCoworkers: function (collection_id) {
+        Ext.ComponentQuery.query('viewport panel')[0].body.scrollTo('top',0);   //aggiunto per quando clicco su un link della scheda TAG
+
         //prima mi assicuro che la vista della collection sia mostrata
         if(Ext.ComponentQuery.query('collection_single_list').length == 0)
             this.showView(collection_id);
@@ -68,6 +72,8 @@ Ext.define('CL.controller.C_collection', {
 
     // SHOW THREADS
     showThreads: function (collection_id) {
+        Ext.ComponentQuery.query('viewport panel')[0].body.scrollTo('top',0);   //aggiunto per quando clicco su un link della scheda TAG
+
         //prima mi assicuro che la vista della collection sia mostrata
         if(Ext.ComponentQuery.query('collection_single_list').length == 0)
             this.showView(collection_id);
@@ -82,6 +88,8 @@ Ext.define('CL.controller.C_collection', {
 
     //SHOW Tags
     showTags: function (collection_id) {
+        Ext.ComponentQuery.query('viewport panel')[0].body.scrollTo('top',0);   //aggiunto per quando clicco su un link della scheda TAG
+
         //prima mi assicuro che la vista della collection sia mostrata
         if(Ext.ComponentQuery.query('collection_single_list').length == 0)
             this.showView(collection_id);
@@ -97,6 +105,7 @@ Ext.define('CL.controller.C_collection', {
 
     //SHOW VIEW
     showView: function(collection_id){
+        Ext.ComponentQuery.query('viewport panel')[0].body.scrollTo('top',0);   //aggiunto per quando clicco su un link della scheda TAG
 
 
         if(Ext.ComponentQuery.query('collection_single_list').length == 0)

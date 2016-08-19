@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/data/quick_search/list.php" line="146" mnemonic="4" />
+    <bookmark url="file://$PROJECT_DIR$/data/quick_search/list.php" line="148" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0298592-59ac-448f-8b38-c0c1f836115e" name="Default" comment="" />
@@ -62,71 +62,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TODO_LIST.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TODO_LIST.txt">
+      <file leaf-file-name="V_tbar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/tbar/V_tbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="531">
+              <caret line="255" column="85" selection-start-line="255" selection-start-column="85" selection-end-line="255" selection-end-column="85" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="V_search.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/search/V_search.js">
+      <file leaf-file-name="V_edit.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/user_pool/V_edit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="147" column="56" selection-start-line="147" selection-start-column="56" selection-end-line="147" selection-end-column="56" />
+            <state relative-caret-position="408">
+              <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="C_tag.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controller/C_tag.js">
+      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/user/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="371">
+              <caret line="28" column="153" selection-start-line="28" selection-start-column="153" selection-end-line="28" selection-end-column="153" />
               <folding>
-                <marker date="1470839591363" expanded="true" signature="1082:1100" ph="..." />
+                <marker date="1471619939664" expanded="true" signature="390:834" ph="SELECT A.id,... sf_guard_user" />
+                <marker date="1471619939664" expanded="true" signature="913:1411" ph="SELECT A.id,... sf_guard_user" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="V_create_for_collection.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/tag/V_create_for_collection.js">
+      <file leaf-file-name="C_user_pool.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/C_user_pool.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
+            <state relative-caret-position="207">
+              <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="V_create.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/collection_user/V_create.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="45" selection-end-column="46" />
               <folding>
-                <marker date="1470835512220" expanded="true" signature="678:696" ph="..." />
+                <marker date="1471619835397" expanded="true" signature="686:704" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_for_collection.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/tag/create_for_collection.php">
+      <file leaf-file-name="V_create.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/collection/V_create.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="27" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding>
-                <marker date="1470835956970" expanded="true" signature="339:448" ph="INSERT INTO kms_collection_tag... " />
-                <marker date="1470835956970" expanded="true" signature="754:960" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="destroy.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/collection_tag/destroy.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="52" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
-              <folding>
-                <marker date="1470836218991" expanded="true" signature="331:452" ph="DELETE FROM " />
-              </folding>
+            <state relative-caret-position="326">
+              <caret line="106" column="42" selection-start-line="106" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,20 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/view/collection_external_resource/V_list_by_collection.js" />
-        <option value="$PROJECT_DIR$/data/collection/create.php" />
-        <option value="$PROJECT_DIR$/data/collection/destroy.php" />
-        <option value="$PROJECT_DIR$/data/collection/edit.php" />
-        <option value="$PROJECT_DIR$/data/collection_thread/create.php" />
-        <option value="$PROJECT_DIR$/data/collection_thread/destroy.php" />
-        <option value="$PROJECT_DIR$/data/collection_user/create.php" />
-        <option value="$PROJECT_DIR$/data/collection_user/create_by_pool.php" />
-        <option value="$PROJECT_DIR$/data/collection_user/destroy.php" />
-        <option value="$PROJECT_DIR$/data/collection_user/edit.php" />
-        <option value="$PROJECT_DIR$/data/collection_external_resource/create.php" />
-        <option value="$PROJECT_DIR$/data/collection_external_resource/destroy.php" />
-        <option value="$PROJECT_DIR$/data/collection_external_resource/edit.php" />
-        <option value="$PROJECT_DIR$/app/store/S_user_interested_activity.js" />
         <option value="$PROJECT_DIR$/data/user_interested_activity/list.php" />
         <option value="$PROJECT_DIR$/data/sign_up/activate.php" />
         <option value="$PROJECT_DIR$/data/user_activity/list.php" />
@@ -169,26 +151,16 @@
         <option value="$PROJECT_DIR$/my_style.css" />
         <option value="$PROJECT_DIR$/data/collection_thread/edit.php" />
         <option value="$PROJECT_DIR$/app/view/collection_thread_message/V_list_by_thread.js" />
-        <option value="$PROJECT_DIR$/app/view/user/V_profile.js" />
         <option value="$PROJECT_DIR$/data/collection/single_upload.php" />
         <option value="$PROJECT_DIR$/data/collection_file/destroy.php" />
-        <option value="$PROJECT_DIR$/app/controller/C_search.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/35ecbb0b-b549-4667-8e4d-ebd44e62a26f/console.sql" />
-        <option value="$PROJECT_DIR$/app/view/collection/V_single_list.js" />
-        <option value="$PROJECT_DIR$/app/view/tbar/V_tbar.js" />
         <option value="$PROJECT_DIR$/app/view/user/V_edit.js" />
-        <option value="$PROJECT_DIR$/data/user/list.php" />
         <option value="$PROJECT_DIR$/app/store/S_user.js" />
         <option value="$PROJECT_DIR$/data/collection_file/edit.php" />
         <option value="$PROJECT_DIR$/data/user/edit.php" />
-        <option value="$PROJECT_DIR$/app/controller/C_user.js" />
         <option value="$PROJECT_DIR$/app/controller/C_collection_thread_message.js" />
-        <option value="$PROJECT_DIR$/app/controller/C_collection.js" />
-        <option value="$PROJECT_DIR$/data/user_pool/list.php" />
         <option value="$PROJECT_DIR$/data/collection_tag/list.php" />
-        <option value="$PROJECT_DIR$/data/quick_search/list.php" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/data/search/list.php" />
         <option value="$PROJECT_DIR$/data/collection/list.php" />
         <option value="$PROJECT_DIR$/app/view/tag/V_create_for_collection.js" />
         <option value="$PROJECT_DIR$/data/tag/create_for_collection.php" />
@@ -197,6 +169,30 @@
         <option value="$PROJECT_DIR$/app/view/search/V_search.js" />
         <option value="$PROJECT_DIR$/TODO_LIST.txt" />
         <option value="$PROJECT_DIR$/app/controller/C_tag.js" />
+        <option value="$PROJECT_DIR$/app/controller/C_collection.js" />
+        <option value="$PROJECT_DIR$/app/view/collection/V_single_list.js" />
+        <option value="$PROJECT_DIR$/app/view/user/V_profile.js" />
+        <option value="$PROJECT_DIR$/data/search/list.php" />
+        <option value="$PROJECT_DIR$/app/controller/C_user.js" />
+        <option value="$PROJECT_DIR$/app/controller/C_search.js" />
+        <option value="$PROJECT_DIR$/app/model/M_search.js" />
+        <option value="$PROJECT_DIR$/app/model/M_quick_search.js" />
+        <option value="$PROJECT_DIR$/data/quick_search/list.php" />
+        <option value="$PROJECT_DIR$/cambiamenti_db" />
+        <option value="$PROJECT_DIR$/app/view/collection_user/V_create_group.js" />
+        <option value="$PROJECT_DIR$/app/view/tbar/V_tbar.js" />
+        <option value="$PROJECT_DIR$/data/user_pool/destroy.php" />
+        <option value="$PROJECT_DIR$/app/view/user_pool/V_list_by_user.js" />
+        <option value="$PROJECT_DIR$/app/view/user_pool/V_create.js" />
+        <option value="$PROJECT_DIR$/data/user/create.php" />
+        <option value="$PROJECT_DIR$/data/user_pool/create.php" />
+        <option value="$PROJECT_DIR$/data/user_pool/list.php" />
+        <option value="$PROJECT_DIR$/data/user_pool/edit.php" />
+        <option value="$PROJECT_DIR$/app/store/S_user_pool.js" />
+        <option value="$PROJECT_DIR$/app/controller/C_user_pool.js" />
+        <option value="$PROJECT_DIR$/app/view/collection_user/V_create.js" />
+        <option value="$PROJECT_DIR$/app/view/user_pool/V_edit.js" />
+        <option value="$PROJECT_DIR$/data/user/list.php" />
       </list>
     </option>
   </component>
@@ -299,6 +295,74 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -315,12 +379,15 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\projects\KMS\data\user_pool" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\projects\KMS\app\controller" />
+      <recent name="C:\xampp\htdocs\projects\KMS\data\user_pool" />
+      <recent name="C:\xampp\htdocs\projects\KMS\app\view\user_pool" />
       <recent name="C:\xampp\htdocs\projects\KMS\data\user" />
+      <recent name="C:\xampp\htdocs\projects\KMS\app\controller" />
       <recent name="C:\xampp\htdocs\projects\KMS\app\store" />
-      <recent name="C:\xampp\htdocs\projects\KMS\data" />
-      <recent name="C:\xampp\htdocs\projects\KMS\data\user_activity" />
     </key>
   </component>
   <component name="RunManager">
@@ -424,14 +491,16 @@
       <workItem from="1470725950247" duration="4522000" />
       <workItem from="1470747928854" duration="4715000" />
       <workItem from="1470814206132" duration="18113000" />
+      <workItem from="1471588500007" duration="892000" />
+      <workItem from="1471590810659" duration="14749000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352796000" />
+    <option name="totallyTimeSpent" value="368437000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -475,499 +544,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/collection_thread/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/S_collection_file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/collection_file/V_list_by_collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="181" column="36" selection-start-line="181" selection-start-column="36" selection-end-line="181" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/collection_file/V_single_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="139" column="153" selection-start-line="139" selection-start-column="153" selection-end-line="139" selection-end-column="153" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection_thread_message/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection_thread/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="124" selection-start-line="49" selection-start-column="124" selection-end-line="49" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/collection_thread/V_list_by_collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="54" selection-start-line="85" selection-start-column="54" selection-end-line="85" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="131" column="22" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/collection_thread_message/V_list_by_thread.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1622">
-          <caret line="278" column="79" selection-start-line="278" selection-start-column="79" selection-end-line="278" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection_file/download_single.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection_file/destroy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="226" selection-start-line="31" selection-start-column="226" selection-end-line="31" selection-end-column="226" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection/single_upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="76" column="279" selection-start-line="76" selection-start-column="279" selection-end-line="76" selection-end-column="279" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/collection/V_single_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/35ecbb0b-b549-4667-8e4d-ebd44e62a26f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_bbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/sign_up/V_sign_up.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/S_user_activity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_sign_up.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="152" column="51" selection-start-line="152" selection-start-column="51" selection-end-line="152" selection-end-column="51" />
-          <folding>
-            <marker date="1467641352432" expanded="true" signature="5659:5677" ph="..." />
-            <marker date="1467641352432" expanded="true" signature="8254:8272" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/store/S_user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection_file/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <marker date="1470754392370" expanded="true" signature="331:439" ph="UPDATE kms_c... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/user/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <marker date="1470754478588" expanded="true" signature="331:466" ph="UPDATE sf_gu... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
-          <folding>
-            <marker date="1470754980930" expanded="true" signature="1641:1676" ph="..." />
-            <marker date="1470754980930" expanded="true" signature="1888:1923" ph="..." />
-            <marker date="1470754980930" expanded="true" signature="5722:5740" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/user/V_edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/user/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="162" selection-start-line="28" selection-start-column="162" selection-end-line="28" selection-end-column="162" />
-          <folding>
-            <marker date="1470751243684" expanded="true" signature="390:828" ph="SELECT A.id,... sf_guard_user" />
-            <marker date="1470751243684" expanded="true" signature="907:1252" ph="SELECT A.id,... sf_guard_user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_thread_message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding>
-            <marker date="1470814386051" expanded="true" signature="3881:3911" ph="..." />
-            <marker date="1470814386051" expanded="true" signature="4048:4078" ph="..." />
-            <marker date="1470814386051" expanded="true" signature="4213:4241" ph="..." />
-            <marker date="1470814386051" expanded="true" signature="4390:4420" ph="..." />
-            <marker date="1470814386051" expanded="true" signature="4526:4556" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/collection_user/V_create_group.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="926">
-          <caret line="114" column="103" selection-start-line="114" selection-start-column="88" selection-end-line="114" selection-end-column="103" />
-          <folding>
-            <marker date="1470229687015" expanded="true" signature="562:580" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/user_pool/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="37" column="140" selection-start-line="37" selection-start-column="140" selection-end-line="37" selection-end-column="140" />
-          <folding>
-            <marker date="1470817358046" expanded="true" signature="607:976" ph="SELECT A.id kms_pool" />
-            <marker date="1470817358046" expanded="true" signature="1052:1366" ph="SELECT A.id kms_pool" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/tbar/V_tbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="126" column="139" selection-start-line="126" selection-start-column="63" selection-end-line="126" selection-end-column="139" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="55" column="14" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/collection_tag/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="227" column="45" selection-start-line="227" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
-          <folding>
-            <marker date="1470819007264" expanded="true" signature="329:1001" ph="SELECT id,CO... sf_guard_user" />
-            <marker date="1470819007264" expanded="true" signature="1040:2440" ph="SELECT A.id,... st_information_source" />
-            <marker date="1470819007264" expanded="true" signature="2471:3632" ph="SELECT A.id,... st_archaeo_part" />
-            <marker date="1470819007264" expanded="true" signature="3679:4414" ph="SELECT A.id,... kms_collection" />
-            <marker date="1470819007264" expanded="true" signature="3679:4428" ph="SELECT A.id,... kms_collection" />
-            <marker date="1470819007264" expanded="true" signature="4465:4664" ph="SELECT *,cou... tmp" />
-            <marker date="1470819007264" expanded="true" signature="5707:5807" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="5808:8635" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="5844:7327" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="5956:5979" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6053:6067" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6102:6115" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6243:6257" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6279:6306" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6416:6430" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6459:6486" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6646:6660" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6695:6708" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6757:6802" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6954:6968" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="6990:7017" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="7144:7158" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="7185:7212" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="7405:7500" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="7501:8604" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="7538:8567" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="7602:7616" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="7740:7754" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="7878:7919" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="7940:7985" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="8158:8199" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="8220:8265" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="8400:8441" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="8462:8507" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="8732:8832" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="8833:11460" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="8869:10152" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="8975:8998" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9073:9087" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9122:9135" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9276:9290" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9325:9338" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9469:9483" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9512:9539" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9699:9713" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9748:9761" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="9810:9855" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="10007:10021" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="10043:10070" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="10230:10325" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="10326:11429" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="10363:11392" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="10427:10441" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="10565:10579" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="10703:10744" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="10765:10810" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="10983:11024" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="11045:11090" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="11225:11266" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="11287:11332" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="11558:11658" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="11659:12071" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="11753:11776" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="11850:11864" ph="..." />
-            <marker date="1470819007264" expanded="false" signature="11921:11966" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12179:12279" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12280:16173" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12316:14017" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12426:12449" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12524:12538" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12573:12586" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12633:12678" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12818:12832" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12856:12869" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="12916:12961" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13126:13140" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13169:13196" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13356:13370" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13397:13410" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13459:13504" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13659:13673" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13700:13727" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13878:13892" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="13917:13944" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14095:14190" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14191:16142" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14228:15137" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14349:14379" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14436:14481" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14625:14655" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14710:14755" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14895:14925" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="14980:15025" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="15174:16105" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="15321:15351" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="15398:15443" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="15579:15609" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="15675:15720" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="15874:15904" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="15956:16001" ph="..." />
-            <marker date="1470819007264" expanded="true" signature="16295:16399" ph="SELECT count... st_information_source_document" />
-            <marker date="1470819007264" expanded="true" signature="16640:16732" ph="SELECT count... st_archaeo_part_document" />
-            <marker date="1470819007264" expanded="true" signature="16995:17101" ph="SELECT (coun... " />
-            <marker date="1470819007264" expanded="true" signature="17378:17473" ph="SELECT count... kms_collection_thread" />
-            <marker date="1470819007264" expanded="true" signature="17747:17906" ph="SELECT count... kms_collection_thread_message" />
-            <marker date="1470819007264" expanded="true" signature="18180:18273" ph="SELECT count... kms_collection_file" />
-            <marker date="1470819007264" expanded="true" signature="18560:18666" ph="SELECT count... kms_collection_external_resource" />
-            <marker date="1470819007264" expanded="true" signature="18941:19033" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470819007264" expanded="true" signature="19299:19424" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470819007264" expanded="true" signature="19674:19793" ph="SELECT count... kms_collection_tag" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/quick_search/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="218" column="90" selection-start-line="218" selection-start-column="90" selection-end-line="218" selection-end-column="90" />
-          <folding>
-            <marker date="1470821304124" expanded="true" signature="468:1197" ph="SELECT id,CO... sf_guard_user" />
-            <marker date="1470821304124" expanded="true" signature="6691:6856" ph="SELECT *,cou... tmp" />
-            <marker date="1470821304124" expanded="true" signature="6691:7044" ph="SELECT *,cou... tmp" />
-            <marker date="1470821304124" expanded="true" signature="7800:7900" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="7901:9912" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="7937:9235" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8011:8025" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8060:8073" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8094:8139" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8258:8272" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8294:8321" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8411:8425" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8454:8481" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8621:8635" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8670:8683" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8732:8777" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8882:8896" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="8918:8945" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="9052:9066" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="9093:9120" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="9313:9408" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="9409:9881" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="9446:9525" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="9446:9844" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="9510:9524" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="9648:9662" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="9740:9754" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="10009:10109" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="10110:12024" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="10146:11347" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10221:10235" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10270:10283" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10304:10349" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10481:10495" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10530:10543" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10564:10609" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10731:10745" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10774:10801" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10941:10955" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="10990:11003" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="11052:11097" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="11202:11216" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="11238:11265" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="11425:11520" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="11521:11993" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="11558:11956" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="11622:11636" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="11760:11774" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="11852:11866" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12122:12222" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12223:12438" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="12293:12307" ph="..." />
-            <marker date="1470821304124" expanded="false" signature="12332:12359" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12546:12646" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12647:15613" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12683:14151" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12758:12772" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12807:12820" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="12867:12912" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13032:13046" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13070:13083" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13130:13175" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13320:13334" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13363:13390" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13530:13544" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13571:13584" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13633:13678" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13813:13827" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="13854:13881" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14012:14026" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14051:14078" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14229:14324" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14325:15582" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14362:14458" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14362:14900" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14426:14456" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14596:14626" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14762:14792" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="14937:15507" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="15035:15065" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="15197:15227" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="15377:15407" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="15507:15545" ph="..." />
-            <marker date="1470821304124" expanded="true" signature="16039:16143" ph="SELECT count... st_information_source_document" />
-            <marker date="1470821304124" expanded="true" signature="16384:16476" ph="SELECT count... st_archaeo_part_document" />
-            <marker date="1470821304124" expanded="true" signature="16740:16846" ph="SELECT (coun... " />
-            <marker date="1470821304124" expanded="true" signature="17123:17218" ph="SELECT count... kms_collection_thread" />
-            <marker date="1470821304124" expanded="true" signature="17492:17651" ph="SELECT count... kms_collection_thread_message" />
-            <marker date="1470821304124" expanded="true" signature="17925:18018" ph="SELECT count... kms_collection_file" />
-            <marker date="1470821304124" expanded="true" signature="18305:18411" ph="SELECT count... kms_collection_external_resource" />
-            <marker date="1470821304124" expanded="true" signature="18686:18778" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470821304124" expanded="true" signature="19044:19119" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470821304124" expanded="true" signature="19044:19124" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470821304124" expanded="true" signature="19044:19138" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470821304124" expanded="true" signature="19044:19143" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470821304124" expanded="true" signature="19044:19169" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470821304124" expanded="true" signature="19419:19538" ph="SELECT count... kms_collection_tag" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -975,193 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="570" column="33" selection-start-line="568" selection-start-column="27" selection-end-line="570" selection-end-column="33" />
-          <folding>
-            <marker date="1470817146653" expanded="true" signature="6967:6985" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="9418:9436" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="13935:13953" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="16243:16261" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="16284:16319" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="16638:16656" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="16930:17028" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="23894:23912" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="26795:26813" ph="..." />
-            <marker date="1470817146653" expanded="true" signature="29049:29067" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/search/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="217" column="239" selection-start-line="217" selection-start-column="239" selection-end-line="217" selection-end-column="239" />
-          <folding>
-            <marker date="1470825177856" expanded="true" signature="468:1182" ph="SELECT id,CO... sf_guard_user" />
-            <marker date="1470825177856" expanded="true" signature="5180:6750" ph="SELECT * FRO... id" />
-            <marker date="1470825177856" expanded="true" signature="5209:6457" ph="SELECT A.id,... kms_collection" />
-            <marker date="1470825177856" expanded="true" signature="6786:7140" ph="SELECT *,cou... tmp" />
-            <marker date="1470825177856" expanded="true" signature="8162:8186" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="8602:8702" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="8703:11759" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="8739:8877" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="8739:9975" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="8813:8827" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="8862:8875" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="8971:8985" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9007:9034" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9124:9138" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9167:9194" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9334:9348" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9383:9396" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9445:9490" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9622:9636" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9658:9685" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9792:9806" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="9833:9860" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10053:10148" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10149:11728" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10186:10756" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10186:11691" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10250:10264" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10250:10281" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10405:10419" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10405:10436" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10514:10530" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10585:10626" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10647:10692" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10756:11355" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10756:11691" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10825:10841" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10842:11292" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10843:11287" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10896:10919" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10896:10937" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10896:11077" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="10958:11003" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11093:11109" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11163:11204" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11225:11270" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11356:11372" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11426:11467" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11586:11631" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11856:11956" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11957:14744" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11993:12132" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="11993:13043" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12068:12082" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12117:12130" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12239:12253" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12288:12301" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12400:12414" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12443:12470" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12610:12624" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12659:12672" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12721:12766" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12898:12912" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="12934:12961" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="13121:13216" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13217:14713" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13254:14279" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13254:14316" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13254:14497" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13254:14503" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13254:14676" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13350:13364" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="13488:13502" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13626:13667" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13688:13733" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13906:13947" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="13968:14013" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14148:14189" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14210:14255" ph="..." />
-            <marker date="1470825177856" expanded="false" signature="14254:14255" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14341:14357" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14411:14452" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14571:14616" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14842:14942" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14943:15905" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="14976:15872" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15046:15060" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15122:15379" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15199:15244" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15245:15374" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15416:15663" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15416:15680" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15416:15681" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15416:15688" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15416:15695" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15416:15704" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15416:15838" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15506:15547" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="15739:15784" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16005:19991" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16005:19994" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16013:16113" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16150:16309" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16150:16384" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16150:16727" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16150:17220" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16150:17546" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16150:17547" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16150:17618" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16225:16239" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16274:16287" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16334:16379" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16499:16513" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16537:16550" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16597:16642" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16787:16801" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16830:16857" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="16997:17011" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17038:17051" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17100:17145" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17280:17294" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17321:17348" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17479:17493" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17518:17545" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17696:17791" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17792:19963" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17829:17831" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17829:18681" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17829:19926" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17893:17923" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="17980:18025" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="18169:18199" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="18254:18299" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="18439:18469" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="18524:18569" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="18717:19926" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="18781:18811" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="18858:18903" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19039:19069" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19135:19180" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19334:19364" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19416:19461" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19517:19926" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19591:19607" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19661:19702" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19821:19866" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="19964:19991" ph="..." />
-            <marker date="1470825177856" expanded="true" signature="20419:20523" ph="SELECT count... st_information_source_document" />
-            <marker date="1470825177856" expanded="true" signature="20764:20856" ph="SELECT count... st_archaeo_part_document" />
-            <marker date="1470825177856" expanded="true" signature="21120:21226" ph="SELECT count... st_archaeo_part_document" />
-            <marker date="1470825177856" expanded="true" signature="21503:21598" ph="SELECT (coun... " />
-            <marker date="1470825177856" expanded="true" signature="21872:21993" ph="SELECT count... kms_collection_thread_message" />
-            <marker date="1470825177856" expanded="true" signature="21872:22031" ph="SELECT count... kms_collection_thread_message" />
-            <marker date="1470825177856" expanded="true" signature="21872:22032" ph="SELECT count... kms_collection_thread_message" />
-            <marker date="1470825177856" expanded="true" signature="22305:22398" ph="SELECT count... kms_collection_thread" />
-            <marker date="1470825177856" expanded="true" signature="22685:22791" ph="SELECT count... kms_collection_file" />
-            <marker date="1470825177856" expanded="true" signature="23066:23158" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470825177856" expanded="true" signature="23423:23548" ph="SELECT count... kms_collection_tag" />
-            <marker date="1470825177856" expanded="true" signature="23797:23916" ph="SELECT count... kms_collection_tag" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1169,19 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-          <folding>
-            <marker date="1470832816214" expanded="true" signature="454:871" ph="SELECT A.id,... kms_collection" />
-            <marker date="1470832816214" expanded="true" signature="1102:2075" ph="SELECT * FRO... id" />
-            <marker date="1470832816214" expanded="true" signature="1102:2076" ph="SELECT * FRO... id" />
-            <marker date="1470832816214" expanded="true" signature="1155:1514" ph="SELECT A.id,... kms_collection" />
-            <marker date="1470832816214" expanded="true" signature="1577:1992" ph="SELECT A.id,... kms_collection_user" />
-            <marker date="1470832816214" expanded="true" signature="2294:2583" ph="SELECT A.id,... kms_collection" />
-            <marker date="1470832816214" expanded="true" signature="2743:3590" ph="SELECT * FRO... id" />
-            <marker date="1470832816214" expanded="true" signature="2796:3086" ph="SELECT A.id,... kms_collection" />
-            <marker date="1470832816214" expanded="true" signature="3157:3494" ph="SELECT A.id,... kms_collection_user" />
-            <marker date="1470832816214" expanded="true" signature="3157:3502" ph="SELECT A.id,... kms_collection_user" />
-            <marker date="1470832816214" expanded="true" signature="3667:3907" ph="SELECT A.id,... kms_collection" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1189,18 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1470306191519" expanded="true" signature="658:747" ph="INSERT INTO kms_collection_user... " />
-            <marker date="1470306191519" expanded="true" signature="1761:1867" ph="SELECT * FRO... kms_collection" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection_thread_message/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,17 +576,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1613">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1467038419020" expanded="true" signature="974:1040" ph="SELECT * FRO... sf_guard_user_group" />
-            <marker date="1467038419020" expanded="true" signature="1575:1657" ph="SELECT creat... kms_collection" />
-            <marker date="1467038419020" expanded="true" signature="2470:2618" ph="SELECT B.use... kms_collection" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/tag/V_create_for_collection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
+        <state relative-caret-position="1360">
           <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
           <folding>
             <marker date="1470835512220" expanded="true" signature="678:696" ph="..." />
@@ -1226,19 +589,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/collection/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="45" column="30" selection-start-line="44" selection-start-column="4" selection-end-line="45" selection-end-column="159" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lista_notifiche">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="14" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,26 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="106" selection-start-line="5" selection-start-column="97" selection-end-line="5" selection-end-column="106" />
-          <folding>
-            <marker date="1470322952737" expanded="true" signature="355:515" ph="INSERT INTO kms_user_activity... " />
-            <marker date="1470322952737" expanded="true" signature="895:1085" ph="INSERT INTO kms_user_activity... " />
-            <marker date="1470322952737" expanded="true" signature="1480:1661" ph="INSERT INTO kms_user_activity... " />
-            <marker date="1470322952737" expanded="true" signature="2056:2119" ph="SELECT title... kms_collection" />
-            <marker date="1470322952737" expanded="true" signature="2391:2493" ph="SELECT CONCA... sf_guard_user" />
-            <marker date="1470322952737" expanded="true" signature="2759:2815" ph="SELECT name kms_pool" />
-            <marker date="1470322952737" expanded="true" signature="3101:3224" ph="SELECT title... kms_collection_file" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/tag/create_for_collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="27" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <marker date="1470835956970" expanded="true" signature="339:448" ph="INSERT INTO kms_collection_tag... " />
-            <marker date="1470835956970" expanded="true" signature="754:960" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1281,26 +615,619 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/search/V_search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="2499">
           <caret line="147" column="56" selection-start-line="147" selection-start-column="56" selection-end-line="147" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TODO_LIST.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/C_tag.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="561">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <marker date="1470839591363" expanded="true" signature="1082:1100" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_thread.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <marker date="1469528748126" expanded="true" signature="1560:1578" ph="..." />
+            <marker date="1469528748126" expanded="true" signature="5705:5723" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <marker date="1471590982326" expanded="true" signature="7656:7674" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="10107:10125" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="14624:14642" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="16932:16950" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="16973:17008" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="17327:17345" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="17619:17717" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="24583:24601" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="27484:27502" ph="..." />
+            <marker date="1471590982326" expanded="true" signature="29738:29756" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/collection/V_single_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+          <folding>
+            <marker date="1471592483691" expanded="true" signature="3924:3955" ph="..." />
+            <marker date="1471592483691" expanded="true" signature="5310:5341" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/sign_up/V_sign_up.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="69" column="39" selection-start-line="69" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/ente/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <marker date="1467620756212" expanded="true" signature="296:411" ph="SELECT id, l... st_person" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+          <folding>
+            <marker date="1471593386082" expanded="true" signature="1529:1580" ph="..." />
+            <marker date="1471593386082" expanded="true" signature="1755:1790" ph="..." />
+            <marker date="1471593386082" expanded="true" signature="2001:2036" ph="..." />
+            <marker date="1471593386082" expanded="true" signature="5835:5853" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/M_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/S_search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/M_quick_search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/M_search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/tag/create_for_collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <marker date="1470835956970" expanded="true" signature="339:448" ph="INSERT INTO kms_collection_tag... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/quick_search/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding>
+            <marker date="1471594414720" expanded="true" signature="468:1203" ph="SELECT id,CO... sf_guard_user" />
+            <marker date="1471594414720" expanded="true" signature="468:1245" ph="SELECT id,CO... sf_guard_user" />
+            <marker date="1471594414720" expanded="true" signature="6741:6906" ph="SELECT *,cou... tmp" />
+            <marker date="1471594414720" expanded="true" signature="6741:7094" ph="SELECT *,cou... tmp" />
+            <marker date="1471594414720" expanded="true" signature="7850:7950" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="7951:9962" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="7987:9285" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8061:8075" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8110:8123" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8144:8189" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8308:8322" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8344:8371" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8461:8475" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8504:8531" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8671:8685" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8720:8733" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8782:8827" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8932:8946" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="8968:8995" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="9102:9116" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="9143:9170" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="9363:9458" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="9459:9931" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="9496:9575" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="9496:9894" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="9560:9574" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="9698:9712" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="9790:9804" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="10059:10159" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="10160:12074" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="10196:11397" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10271:10285" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10320:10333" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10354:10399" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10531:10545" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10580:10593" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10614:10659" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10781:10795" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10824:10851" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="10991:11005" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="11040:11053" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="11102:11147" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="11252:11266" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="11288:11315" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="11475:11570" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="11571:12043" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="11608:12006" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="11672:11686" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="11810:11824" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="11902:11916" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12172:12272" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12273:12488" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="12343:12357" ph="..." />
+            <marker date="1471594414720" expanded="false" signature="12382:12409" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12596:12696" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12697:15663" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12733:14201" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12808:12822" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12857:12870" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="12917:12962" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13082:13096" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13120:13133" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13180:13225" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13370:13384" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13413:13440" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13580:13594" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13621:13634" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13683:13728" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13863:13877" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="13904:13931" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14062:14076" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14101:14128" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14279:14374" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14375:15632" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14412:14508" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14412:14950" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14476:14506" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14646:14676" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14812:14842" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="14987:15557" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="15085:15115" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="15247:15277" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="15427:15457" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="15557:15595" ph="..." />
+            <marker date="1471594414720" expanded="true" signature="16089:16193" ph="SELECT count... st_information_source_document" />
+            <marker date="1471594414720" expanded="true" signature="16434:16526" ph="SELECT count... st_archaeo_part_document" />
+            <marker date="1471594414720" expanded="true" signature="16790:16896" ph="SELECT (coun... " />
+            <marker date="1471594414720" expanded="true" signature="17173:17268" ph="SELECT count... kms_collection_thread" />
+            <marker date="1471594414720" expanded="true" signature="17542:17701" ph="SELECT count... kms_collection_thread_message" />
+            <marker date="1471594414720" expanded="true" signature="17975:18068" ph="SELECT count... kms_collection_file" />
+            <marker date="1471594414720" expanded="true" signature="18355:18461" ph="SELECT count... kms_collection_external_resource" />
+            <marker date="1471594414720" expanded="true" signature="18736:18828" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471594414720" expanded="true" signature="19094:19169" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471594414720" expanded="true" signature="19094:19174" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471594414720" expanded="true" signature="19094:19188" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471594414720" expanded="true" signature="19094:19193" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471594414720" expanded="true" signature="19094:19219" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471594414720" expanded="true" signature="19469:19588" ph="SELECT count... kms_collection_tag" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TODO_LIST.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cambiamenti_db">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/search/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="36" selection-end-column="44" />
+          <folding>
+            <marker date="1471593683897" expanded="true" signature="468:1188" ph="SELECT id,CO... sf_guard_user" />
+            <marker date="1471593683897" expanded="true" signature="6836:7190" ph="SELECT *,cou... tmp" />
+            <marker date="1471593683897" expanded="true" signature="8212:8236" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="8652:8752" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="8753:11809" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="8789:10025" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="8863:8877" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="8912:8925" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9021:9035" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9057:9084" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9174:9188" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9217:9244" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9384:9398" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9433:9446" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9495:9540" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9672:9686" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9708:9735" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9842:9856" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="9883:9910" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10103:10198" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="10199:11778" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="10236:11741" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10300:10331" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10455:10486" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10564:10580" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10635:10676" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10697:10742" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10875:10891" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="10946:10987" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="11008:11053" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="11143:11159" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="11213:11254" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="11275:11320" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="11406:11422" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="11476:11517" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="11636:11681" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="11906:12006" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="12007:14794" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="12043:13093" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12118:12132" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12167:12180" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12289:12303" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12338:12351" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12450:12464" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12493:12520" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12660:12674" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12709:12722" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12771:12816" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12948:12962" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="12984:13011" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="13171:13266" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="13267:14763" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="13304:14726" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="13400:13414" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="13538:13552" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="13676:13717" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="13738:13783" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="13956:13997" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="14018:14063" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="14198:14239" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="14260:14305" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="14391:14407" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="14461:14502" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="14621:14666" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="14892:14992" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="14993:15956" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="15026:15923" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="15096:15110" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="15172:15430" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="15249:15294" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="15467:15889" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="15557:15598" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="15790:15835" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="16064:16164" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="16165:20045" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="16201:17669" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16276:16290" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16325:16338" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16385:16430" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16550:16564" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16588:16601" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16648:16693" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16838:16852" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="16881:16908" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17048:17062" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17089:17102" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17151:17196" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17331:17345" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17372:17399" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17530:17544" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17569:17596" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17747:17842" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="17843:20014" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="17880:18732" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="17944:17974" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="18031:18076" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="18220:18250" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="18305:18350" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="18490:18520" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="18575:18620" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="18768:19977" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="18832:18862" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="18909:18954" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="19090:19120" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="19186:19231" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="19385:19415" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="19467:19512" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="19642:19658" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="19712:19753" ph="..." />
+            <marker date="1471593683897" expanded="false" signature="19872:19917" ph="..." />
+            <marker date="1471593683897" expanded="true" signature="20470:20574" ph="SELECT count... st_information_source_document" />
+            <marker date="1471593683897" expanded="true" signature="20815:20907" ph="SELECT count... st_archaeo_part_document" />
+            <marker date="1471593683897" expanded="true" signature="21171:21277" ph="SELECT (coun... " />
+            <marker date="1471593683897" expanded="true" signature="21554:21649" ph="SELECT count... kms_collection_thread" />
+            <marker date="1471593683897" expanded="true" signature="21923:22082" ph="SELECT count... kms_collection_thread_message" />
+            <marker date="1471593683897" expanded="true" signature="22356:22449" ph="SELECT count... kms_collection_file" />
+            <marker date="1471593683897" expanded="true" signature="22736:22842" ph="SELECT count... kms_collection_external_resource" />
+            <marker date="1471593683897" expanded="true" signature="23117:23209" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471593683897" expanded="true" signature="23474:23599" ph="SELECT count... kms_collection_tag" />
+            <marker date="1471593683897" expanded="true" signature="23848:23967" ph="SELECT count... kms_collection_tag" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/collection_tag/V_list_by_collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="119" column="44" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="44" />
+          <folding>
+            <marker date="1468224308079" expanded="true" signature="1384:1402" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/collection_user/V_create_group.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="146" column="32" selection-start-line="146" selection-start-column="32" selection-end-line="151" selection-end-column="35" />
+          <folding>
+            <marker date="1471611811351" expanded="true" signature="562:580" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/collection_user/destroy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="18" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <marker date="1470306213752" expanded="true" signature="331:424" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/collection_thread/destroy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <marker date="1470305988947" expanded="true" signature="331:387" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/user_pool/destroy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <marker date="1471615134748" expanded="true" signature="331:372" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/S_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="28" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/collection_thread/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <marker date="1470305977539" expanded="true" signature="341:492" ph="INSERT INTO kms_collection_thread... " />
+            <marker date="1470305977539" expanded="true" signature="1489:1623" ph="INSERT INTO kms_collection_thread_message... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/collection_thread_message/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="44" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/collection/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="27" selection-end-column="55" />
+          <folding>
+            <marker date="1470305521980" expanded="true" signature="332:471" ph="INSERT INTO kms_collection... " />
+            <marker date="1470305521980" expanded="true" signature="1572:1688" ph="INSERT INTO kms_collection_tag... " />
+            <marker date="1470305521980" expanded="true" signature="1935:1985" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/user_pool/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <marker date="1471617498526" expanded="true" signature="340:409" ph="INSERT INTO kms_pool... " />
+            <marker date="1471617498526" expanded="true" signature="767:845" ph="INSERT INTO kms_user_pool... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/user_pool/V_create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/user_pool/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <marker date="1471619108309" expanded="true" signature="340:395" ph="UPDATE kms_p... " />
+            <marker date="1471619108309" expanded="true" signature="595:651" ph="DELETE FROM " />
+            <marker date="1471619108309" expanded="true" signature="606:651" ph="UPDATE kms_p... " />
+            <marker date="1471619108309" expanded="true" signature="824:902" ph="INSERT INTO kms_user_pool... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store/S_user_pool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/user_pool/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="67" column="112" selection-start-line="67" selection-start-column="112" selection-end-line="67" selection-end-column="112" />
+          <folding>
+            <marker date="1471618837027" expanded="true" signature="607:976" ph="SELECT A.id kms_pool" />
+            <marker date="1471618837027" expanded="true" signature="1132:1664" ph="SELECT A.id kms_pool" />
+            <marker date="1471618837027" expanded="true" signature="1132:1670" ph="SELECT A.id kms_pool" />
+            <marker date="1471618837027" expanded="true" signature="1738:2052" ph="SELECT A.id kms_pool" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/user_pool/V_list_by_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="71" column="78" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/tbar/V_tbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="255" column="85" selection-start-line="255" selection-start-column="85" selection-end-line="255" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_user_pool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/collection_user/V_create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="45" selection-end-column="46" />
+          <folding>
+            <marker date="1471619835397" expanded="true" signature="686:704" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/collection/V_create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="106" column="42" selection-start-line="106" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/user_pool/V_edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/user/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="28" column="153" selection-start-line="28" selection-start-column="153" selection-end-line="28" selection-end-column="153" />
+          <folding>
+            <marker date="1471619939664" expanded="true" signature="390:834" ph="SELECT A.id,... sf_guard_user" />
+            <marker date="1471619939664" expanded="true" signature="913:1411" ph="SELECT A.id,... sf_guard_user" />
           </folding>
         </state>
       </provider>

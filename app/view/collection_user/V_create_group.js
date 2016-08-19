@@ -80,14 +80,12 @@ Ext.define('CL.view.collection_user.V_create_group', {
                     width: 60,
                     items: [
                         {
-                            iconCls: 'x-fa fa-file',
+                            iconCls: 'x-fa fa-search',
                             tooltip: 'Guarda dettagli Gruppo',
                             handler: function (grid, rowIndex) {
                                 var rec = grid.getStore().getAt(rowIndex),
                                     pool_id = rec.get("pool_id"),
                                     pool_name = rec.get("pool_name");
-
-                                console.log(rec.data);
 
                                 Ext.create("Ext.window.Window",{
                                     animateTarget: this.el,

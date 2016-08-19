@@ -21,9 +21,13 @@ Ext.define('CL.view.user.V_profile', {
             height: 150,
             width: '100%',
             margin: '10 0 0 0',
-            bodyCls: 'mypanel',
+            //bodyCls: 'mypanel',
+            bodyStyle:{
+                background: "url(images/profile_repeat.png)",
+                borderRadius: "10px",
+                border: "1px black solid !important"
+            },
 
-            //bodyStyle: 'backgroundColor: #333333',
             layout: {
                 type: 'vbox',
                 align: 'center',

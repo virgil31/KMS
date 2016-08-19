@@ -30,9 +30,11 @@ $query_user = "
 	FROM sf_guard_user A
 
 	WHERE first_name ilike '%$keywords%'
-	OR last_name ilike '%$keywords%'
-	OR CONCAT(first_name,' ',last_name) ilike '%$keywords%'
-	OR CONCAT(last_name,' ',first_name) ilike '%$keywords%'";
+	  OR last_name ilike '%$keywords%'
+	  OR CONCAT(first_name,' ',last_name) ilike '%$keywords%'
+	  OR CONCAT(last_name,' ',first_name) ilike '%$keywords%'
+	  OR CAST(id as TEXT) like '%$keywords%'
+	";
 
 
 $query_oi = "

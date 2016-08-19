@@ -31,9 +31,11 @@ $query_user = "
 	FROM sf_guard_user A
 
 	WHERE first_name ilike '%$keywords%'
-	OR last_name ilike '%$keywords%'
-	OR CONCAT(first_name,' ',last_name) ilike '%$keywords%'
-	OR CONCAT(last_name,' ',first_name) ilike '%$keywords%'";
+	  OR last_name ilike '%$keywords%'
+	  OR CONCAT(first_name,' ',last_name) ilike '%$keywords%'
+	  OR CONCAT(last_name,' ',first_name) ilike '%$keywords%'
+	  OR CAST(id as TEXT) like '%$keywords%'
+	";
 
 
 $query_oi = "
@@ -251,7 +253,7 @@ function getTooltipInformation($pdo,$record){
                             <tr>
                                 <th align='left' width='150' style='color:#2c2c2c;' >Utente</th>
                                 <td width='350'>
-                                    <a href='#user/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->to_display)."(#".$record->id.")</u></a>                                
+                                    <a href='#user/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".strip_tags($record->to_display)." (#".$record->id.")</u></a>                                
                                 </td>
                                 <td>
                                     <img src='images/icons/icon_tag.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'>                                    

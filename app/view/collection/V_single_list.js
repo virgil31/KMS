@@ -22,7 +22,9 @@ Ext.define('CL.view.collection.V_single_list', {
             margin: '10 0 0 0',
             bodyCls: 'mypanel',
             bodyStyle: {
-                borderRadius: "10px"
+                borderRadius: "10px",
+                //background: "url(http://allfreedesigns.com/wp-content/uploads/2015/06/black-patterns-8.jpg)",
+                //border: '1px black solid !important'
             },
             layout: {
                 type: 'vbox',

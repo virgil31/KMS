@@ -45,14 +45,10 @@ Ext.define('CL.view.collection_user.V_create', {
                     anyMatch: true,
                     displayField: 'full_name',
                     valueField: 'id',
+
                     tpl: Ext.create('Ext.XTemplate',
                         '<tpl for=".">',
-                        '<div class="x-boundlist-item"><b>{first_name} {last_name}</b> (#{id} - {group_name})</div>',
-                        '</tpl>'
-                    ),
-                    displayTpl: Ext.create('Ext.XTemplate',
-                        '<tpl for=".">',
-                        '{first_name} {last_name}',
+                            '<div class="x-boundlist-item"><b>{first_name} {last_name}</b> (#{id} - {group_name})</div>',
                         '</tpl>'
                     )
                 }

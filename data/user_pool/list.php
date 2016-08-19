@@ -32,6 +32,22 @@ if(isset($_GET["query"])){
 
 }
 
+//LIST da user_id PAGINATO
+else if(isset($_GET["user_id"])){
+    $user_id = $_GET["user_id"];
+
+    $statement = $pdo->prepare("
+        SELECT A.id as pool_id, A.name as pool_name,CONCAT(A.name,' ',A.id) as pool_full_name, A.created_by, CONCAT(B.last_name,' ',B.first_name) as created_by_name,
+          ARRAY_AGG(C.user_id) as user_ids,COUNT(*) OVER() as total
+        FROM kms_pool A
+            LEFT JOIN sf_guard_user B ON B.id = A.created_by
+            LEFT JOIN kms_user_pool C ON C.pool_id = A.id
+        WHERE A.created_by = $user_id
+        GROUP BY A.id, pool_name, pool_full_name, created_by, created_by_name
+        ORDER BY $pro $dir LIMIT $limit OFFSET $start
+    ");
+}
+
 //LIST PAGINATO
 else{
     $statement = $pdo->prepare("
@@ -46,12 +62,20 @@ else{
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
+$arrayResult = array();
+
+foreach ($result as $row){
+    $row->user_ids = array_map('intval',(explode(",",substr($row->user_ids,1,-1)))); // array_agg => (int) array
+
+    array_push($arrayResult,$row);
+}
 
 
-if(count($result) != 0)
-    $total = $result[0]->total;
+
+if(count($arrayResult) != 0)
+    $total = $arrayResult[0]->total;
 
 echo json_encode(array(
-	"result" => $result,
+	"result" => $arrayResult,
     "total" => $total
 ));

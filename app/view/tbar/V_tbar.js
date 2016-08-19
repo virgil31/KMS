@@ -246,6 +246,22 @@ Ext.define('CL.view.tbar.V_tbar', {
 												CL.app.getController("C_tbar").redirectTo('user/'+my_id+'/edit');
 											}
 										},
+										{
+											text: 'I miei Gruppi',
+											icon: "images/icons/icon_collaboratori_black.png",
+											handler: function(){
+												var my_id = Ext.util.Cookies.get("user_id"),
+                                                    store = Ext.StoreManager.lookup("S_user_pool");
+
+                                                delete store.proxy.extraParams.query;
+                                                store.proxy.extraParams.user_id = my_id;
+                                                store.loadPage(1);
+
+												Ext.widget("user_pool_list_by_user",{
+                                                    animateTarget: this.el
+                                                });
+											}
+										},
                                         {
                                             text: 'Reset Password',
                                             icon: "images/icons/icon_lock.png",

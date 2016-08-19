@@ -2,6 +2,7 @@ Ext.define('CL.store.S_user_pool',{
     extend: 'Ext.data.Store',
 
     //autoLoad: true,
+    autoSync: false,
 
     pageSize: 10,
 
@@ -13,22 +14,23 @@ Ext.define('CL.store.S_user_pool',{
     proxy:{
         type:'ajax',
         api: {
-            read: 'data/user_pool/list.php'
-            //update: 'data/us_document/edit.php',
-            //destroy: 'data/us_document/destroy.php'
-            //create: 'data/us/create.php',
+            read: 'data/user_pool/list.php',
+            update: 'data/user_pool/edit.php',
+            destroy: 'data/user_pool/destroy.php',
+            create: 'data/user_pool/create.php'
         },
 
         reader:{
             type:'json',
             rootProperty:'result'
-        }
+        },
 
-        /*writer: {
+        writer: {
             type: 'json',
             encode: true,
-            root: 'data'
-        }*/
+            rootProperty: 'data',
+            writeAllFields: true
+        }
     }
 
 });
