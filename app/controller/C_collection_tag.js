@@ -8,9 +8,8 @@ Ext.define('CL.controller.C_collection_tag', {
         'M_collection_tag'
     ],
     views: [
-        'collection_tag.V_list_by_collection'
-        //'collection_tag.V_create',
-        //'collection_tag.V_edit'
+        'collection_tag.V_list_by_collection',
+        'collection_tag.V_create'
     ],
 
     /////////////////////////////////////////////////
@@ -33,12 +32,13 @@ Ext.define('CL.controller.C_collection_tag', {
     
     // ON CREATE
     onCreate: function (btn) {
-        alert("TODO create");
-        /*
-        Ext.widget("collection_tag_create",{
-            animateTarget: btn.el
+        var collection_id = (window.location.hash.split("/"))[1];
+
+        CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+            Ext.widget("collection_tag_create",{
+                animateTarget: btn.el
+            });
         });
-        */
     },
 
     // DO CREATE
@@ -50,10 +50,17 @@ Ext.define('CL.controller.C_collection_tag', {
 
         var collection_id = (window.location.hash.split("/"))[1];
         values.collection_id = collection_id;
+        
+        win.mask("Tagging in corso...")
 
         if(form.isValid()){
             Ext.StoreManager.lookup("S_collection_tag").add(values);
-            Ext.StoreManager.lookup("S_collection_tag").sync();
+            Ext.StoreManager.lookup("S_collection_tag").sync({
+                callback: function () {
+                    win.close();
+                    Ext.StoreManager.lookup("S_collection_tag").reload();
+                }
+            });
         }
     }
     

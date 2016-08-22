@@ -185,6 +185,7 @@ Ext.application({
             }
         });
 
+        
 
         /*
          fade animation card layout

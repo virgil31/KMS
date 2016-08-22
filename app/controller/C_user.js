@@ -43,7 +43,7 @@ Ext.define('CL.controller.C_user', {
                 var record = this.getById(param1);
                 Ext.ComponentQuery.query("user_profile label[name=first_last_name]")[0].setText(record.get("last_name")+" "+record.get("first_name")+" (#"+record.get("id")+")");
                 Ext.ComponentQuery.query("user_profile label[name=group_name]")[0].setHtml("Ente di Appartenenza <i>"+record.get("ente_name")+"</i>");
-                Ext.ComponentQuery.query("user_profile label[name=email_address]")[0].setHtml("<div style='color: white; display: inline; font-weight: normal;'>Email: </div>"+record.get("email_address"));
+                Ext.ComponentQuery.query("user_profile label[name=email_address]")[0].setHtml("<div style='color: white; display: inline; font-weight: normal;'><img src='images/icons/icon_send_mail.png'> Email: </div><a title='Invia Mail!' style='color: #963232 !important;' href='mailto:"+record.get("email_address")+"'><u>"+record.get("email_address")+"</u></a>");
 
                 Ext.ComponentQuery.query("user_profile grid[name=user_activity]")[0].setTitle("Attività Recenti di <div style='font-weight: bold; display: inline;' >"+record.get("last_name")+" "+record.get("first_name")+"</div>");
                 Ext.ComponentQuery.query("user_profile grid[name=user_interested_activity]")[0].setTitle("Attività che riguardano <div style='font-weight: bold; display: inline;' >"+record.get("last_name")+" "+record.get("first_name")+"</div>");

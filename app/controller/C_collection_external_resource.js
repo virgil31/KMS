@@ -37,8 +37,12 @@ Ext.define('CL.controller.C_collection_external_resource', {
 
     // ON CREATE
     onCreate: function (btn) {
-        Ext.widget("collection_external_resource_create",{
-            animateTarget: btn.el
+        var collection_id = (window.location.hash.split("/"))[1];
+
+        CL.app.getController("C_permessi").canWriteCollection(collection_id, true,function(){
+            Ext.widget("collection_external_resource_create",{
+                animateTarget: btn.el
+            });
         });
     },
 

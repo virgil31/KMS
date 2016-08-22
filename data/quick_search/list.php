@@ -21,7 +21,7 @@ $ts_query_keywords = str_replace(" ",":* &",$keywords);
 
 
 $query_user = "
-    SELECT id,CONCAT('user.',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name) as to_display, 'user' as type, CONCAT(last_name,' ',first_name) as description, '' as sitar_code, '' as name, NULL as officer_id ,
+    SELECT id,CONCAT('user.',CAST(A.id as TEXT)) as composed_id,CONCAT(last_name,' ',first_name,' (#',id,')') as to_display, 'user' as type, CONCAT(last_name,' ',first_name) as description, '' as sitar_code, '' as name, NULL as officer_id ,
         '' as officer_name, '' as zone_name, '' as street_name,0 as oi_id, 0 as oi_sitar_code,                
                 
         CAST('' as text) as title, 0 as created_by, CAST('' as text) as created_by_name, now() as created_at,

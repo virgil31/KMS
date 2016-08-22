@@ -56,7 +56,7 @@ Ext.define('CL.view.user.V_profile', {
                     xtype: 'label',
                     name: 'email_address',
                     style: {
-                        color: '#963232',
+                        //color: '#963232',
                         fontSize: 'medium',
                         fontWeight: 'bold'
                     },

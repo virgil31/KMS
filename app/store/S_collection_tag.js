@@ -12,7 +12,7 @@ Ext.define('CL.store.S_collection_tag',{
         type:'ajax',
         api: {
             read: 'data/collection_tag/list.php',
-            //create: 'data/collection_external_resource/create.php',
+            create: 'data/collection_tag/create.php',
             destroy: 'data/collection_tag/destroy.php'
             //update: 'data/collection_external_resource/edit.php'
         },

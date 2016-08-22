@@ -98,7 +98,7 @@ Ext.define('CL.view.search.V_search', {
                             title: 'Tipo di Risultato',
                             width: '100%',
                             margin: '0 0 5 0',
-                            flex: 5,
+                            flex: 5.5,
                             bodyStyle: {
                                 background: "#484848"
                             },
