@@ -140,6 +140,14 @@ Ext.define('CL.view.collection_external_resource.V_list_by_collection', {
                                         if (btn === 'yes'){
                                             Ext.StoreManager.lookup("S_collection_external_resource").remove(rec);
                                             Ext.StoreManager.lookup("S_collection_external_resource").sync();
+
+                                            setTimeout(function(){
+                                                Ext.toast({
+                                                    title: 'Successo',
+                                                    html: 'Risorsa rimossa correttamente!',
+                                                    align: 'br'
+                                                });
+                                            }, 500);
                                         }
                                     });
                                 });

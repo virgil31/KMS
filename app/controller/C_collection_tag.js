@@ -47,18 +47,26 @@ Ext.define('CL.controller.C_collection_tag', {
             form = win.down("form"),
             values = form.getValues();
 
-
-        var collection_id = (window.location.hash.split("/"))[1];
-        values.collection_id = collection_id;
+        values.collection_id = (window.location.hash.split("/"))[1];
         
-        win.mask("Tagging in corso...")
 
         if(form.isValid()){
+            win.mask("Tagging in corso...");
+
             Ext.StoreManager.lookup("S_collection_tag").add(values);
+
             Ext.StoreManager.lookup("S_collection_tag").sync({
                 callback: function () {
                     win.close();
                     Ext.StoreManager.lookup("S_collection_tag").reload();
+
+                    setTimeout(function(){
+                        Ext.toast({
+                            title: 'Successo',
+                            html: 'TAG aggiunto correttamente!',
+                            align: 'br'
+                        });
+                    }, 500);
                 }
             });
         }

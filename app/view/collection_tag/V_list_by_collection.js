@@ -77,6 +77,12 @@ Ext.define('CL.view.collection_tag.V_list_by_collection', {
                                         if (btn === 'yes'){
                                             Ext.StoreManager.lookup("S_collection_tag").remove(rec);
                                             Ext.StoreManager.lookup("S_collection_tag").sync();
+
+                                            Ext.toast({
+                                                title: 'Successo',
+                                                html: 'TAG rimosso correttamente!',
+                                                align: 'br'
+                                            });
                                         }
                                     });
                                 });

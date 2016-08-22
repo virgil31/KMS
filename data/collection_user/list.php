@@ -18,7 +18,7 @@ if(isset($_GET["collection_id"])){
         SELECT *
         FROM (
             (
-                SELECT A.id as collection_id, created_by as user_id, CONCAT(B.first_name,' ',B.last_name) user_name, D.id as group_id, D.name as group_name, false as is_coworker_manager, 'images/icons/icon_hammer.png' as icon_url, 'Creatore della Collezione' as icon_tooltip
+                SELECT A.id as collection_id, created_by as user_id, CONCAT(B.last_name,' ',B.first_name) user_name, D.id as group_id, D.name as group_name, false as is_coworker_manager, 'images/icons/icon_hammer.png' as icon_url, 'Creatore della Collezione' as icon_tooltip
                 FROM kms_collection A
                     LEFT JOIN sf_guard_user B ON B.id = A.created_by
                     LEFT JOIN sf_guard_user_group C ON C.user_id = B.id
@@ -27,7 +27,7 @@ if(isset($_GET["collection_id"])){
             )
             UNION
             (
-                SELECT A.collection_id, A.user_id, CONCAT(B.first_name,' ',B.last_name) as user_name, D.id as group_id,D.name as group_name,is_coworker_manager, '' as icon_url, '' as icon_tooltip
+                SELECT A.collection_id, A.user_id, CONCAT(B.last_name,' ',B.first_name) as user_name, D.id as group_id,D.name as group_name,is_coworker_manager, '' as icon_url, '' as icon_tooltip
                 FROM kms_collection_user A
                     LEFT JOIN sf_guard_user B ON B.id = A.user_id	
                     LEFT JOIN sf_guard_user_group C ON C.user_id = B.id

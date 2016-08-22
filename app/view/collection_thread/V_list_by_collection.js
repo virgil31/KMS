@@ -196,6 +196,13 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                                                             close_message: text
                                                         });
                                                         Ext.StoreManager.lookup("S_collection_thread").sync();
+                                                        setTimeout(function(){
+                                                            Ext.toast({
+                                                                title: 'Successo',
+                                                                html: 'Discussione chiusa correttamente!',
+                                                                align: 'br'
+                                                            });
+                                                        }, 500);
                                                     }
                                                 });
                                             }
@@ -218,6 +225,14 @@ Ext.define('CL.view.collection_thread.V_list_by_collection', {
                                         if (btn === 'yes'){
                                             Ext.StoreManager.lookup("S_collection_thread").remove(rec);
                                             Ext.StoreManager.lookup("S_collection_thread").sync();
+
+                                            setTimeout(function(){
+                                                Ext.toast({
+                                                    title: 'Successo',
+                                                    html: 'Discussione eliminata correttamente!',
+                                                    align: 'br'
+                                                });
+                                            }, 500);
                                         }
                                     });
                                 });

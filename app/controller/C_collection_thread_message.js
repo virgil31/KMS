@@ -171,11 +171,23 @@ Ext.define('CL.controller.C_collection_thread_message', {
             var store = Ext.StoreManager.lookup("S_collection_thread_message");
             store.add(values);
             win.mask("Attendere...");
+
             store.sync({
                 callback: function () {
                     win.unmask();
                     win.close();
                     Ext.StoreManager.lookup("S_collection_thread_message").reload();
+
+
+                    setTimeout(function(){
+                        Ext.toast({
+                            title: 'Successo',
+                            html: 'Messaggio inviato correttamente!',
+                            align: 'br'
+                        });
+                    }, 500);
+
+
                 }
             });
         }

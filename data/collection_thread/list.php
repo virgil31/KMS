@@ -70,6 +70,8 @@ foreach ($result as $discussione){
 	array_push($arrayResult,$discussione);
 }
 
+sleep(1);
+
 echo json_encode(array(
 	"result" => $arrayResult
 ));

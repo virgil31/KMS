@@ -60,6 +60,13 @@ Ext.define('CL.controller.C_collection_external_resource', {
             Ext.StoreManager.lookup("S_collection_external_resource").add(values);
             Ext.StoreManager.lookup("S_collection_external_resource").sync();
             win.close();
+            setTimeout(function(){
+                Ext.toast({
+                    title: 'Successo',
+                    html: 'Risorsa aggiunta correttamente!',
+                    align: 'br'
+                });
+            }, 500);
         }
     },
 
@@ -88,6 +95,13 @@ Ext.define('CL.controller.C_collection_external_resource', {
                 Ext.StoreManager.lookup("S_collection_external_resource").sync({
                     callback: function () {
                         Ext.StoreManager.lookup("S_collection_external_resource").reload();
+                        setTimeout(function(){
+                            Ext.toast({
+                                title: 'Successo',
+                                html: 'Risorsa modificata correttamente!',
+                                align: 'br'
+                            });
+                        }, 500);
                     }
                 });
                 window.close();

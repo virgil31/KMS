@@ -108,6 +108,14 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                                                             this.sync({
                                                                 callback: function () {
                                                                     CL.app.getController("C_collection").redirectTo("collection/" + collection_id+"/threads");
+
+                                                                    setTimeout(function(){
+                                                                        Ext.toast({
+                                                                            title: 'Successo',
+                                                                            html: 'Discussione eliminata correttamente!',
+                                                                            align: 'br'
+                                                                        });
+                                                                    }, 500);
                                                                 }
                                                             });
                                                         }
@@ -126,7 +134,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    tooltip: "Modifica Info",
+                                    tooltip: "Chiudi Discussione",
                                     iconCls: 'x-fa fa-lock',
                                     action: 'on_edit_info',
                                     cls: 'mybutton',

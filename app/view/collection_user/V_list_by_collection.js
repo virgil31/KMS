@@ -120,6 +120,13 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                                             if (btn === 'yes'){
                                                 Ext.StoreManager.lookup("S_collection_user").remove(rec);
                                                 Ext.StoreManager.lookup("S_collection_user").sync();
+                                                setTimeout(function(){
+                                                    Ext.toast({
+                                                        title: 'Successo',
+                                                        html: 'Collaboratore rimosso correttamente!',
+                                                        align: 'br'
+                                                    });
+                                                }, 500);
                                             }
                                         });
                                     }
@@ -141,6 +148,14 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                                             Ext.StoreManager.lookup("S_collection_user").sync({
                                                 callback: function () {
                                                     Ext.StoreManager.lookup("S_collection_user").reload();
+
+                                                    setTimeout(function(){
+                                                        Ext.toast({
+                                                            title: 'Successo',
+                                                            html: 'Collaboratore promosso correttamente!',
+                                                            align: 'br'
+                                                        });
+                                                    }, 500);
                                                 }
                                             });
                                         }

@@ -95,6 +95,13 @@ Ext.define('CL.controller.C_collection_user', {
                 success: function () {
                     store.reload();
                     win.close();
+                    setTimeout(function(){
+                        Ext.toast({
+                            title: 'Successo',
+                            html: 'Collaboratore aggiunto correttamente!',
+                            align: 'br'
+                        });
+                    }, 500);
                 },
                 failure: function (batch) {
                     store.rejectChanges();
