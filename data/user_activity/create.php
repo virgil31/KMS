@@ -129,3 +129,41 @@ function getCollectionFileTitle($pdo,$colletion_id,$file_id){
     return $result[0]->title;
 
 }
+
+/////////////////////////////////////////////////////////////////////
+
+function getEventTitle($pdo,$event_id){
+
+    $statement = $pdo->prepare("
+        SELECT title
+        FROM kms_event
+        WHERE id = :id
+    ");
+    $params = array(
+        "id" => $event_id
+    );
+
+    $statement->execute($params);
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+    return $result[0]->title;
+}
+
+
+function getEventFileTitle($pdo,$colletion_id,$file_id){
+
+    $statement = $pdo->prepare("
+        SELECT title
+        FROM kms_event_file
+        WHERE event_id = :event_id
+          AND file_id = :file_id
+    ");
+    $params = array(
+        "event_id" =>  $colletion_id,
+        "file_id" => $file_id
+    );
+
+    $statement->execute($params);
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+    return $result[0]->title;
+
+}

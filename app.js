@@ -53,7 +53,13 @@ Ext.application({
         'C_collection_thread_message',
         'C_collection_tag',
 
-        'C_tag'
+        'C_tag',
+
+        //
+
+        'C_event',
+        'C_event_file',
+        'C_event_external_resource'
     ],
 
     // vv ROUTING

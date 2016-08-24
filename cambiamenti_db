@@ -11,6 +11,12 @@ TABELLE CREATE
 - kms_license
 - kms_collection_tag
 - kms_user_activity
+    --
+- kms_event
+- kms_event_tag
+- kms_event_file
+- kms_event_external_resource
+
 
 
 TABELLE MODIFICATE

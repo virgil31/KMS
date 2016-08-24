@@ -9,17 +9,17 @@ $pdo=new PDO("pgsql:host=".$ini_array['pdo_host'].";port=".$ini_array['pdo_port'
 
 $data = json_decode($_POST['data'],true);
 
-// GET BY COLLECTION ID
-if(isset($_GET["collection_id"])){
-    $collection_id = $_GET["collection_id"];
+// GET BY EVENT ID
+if(isset($_GET["event_id"])){
+    $event_id = $_GET["event_id"];
 
     $statement = $pdo->prepare("
-        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,
+        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.closed_at,
           license_id, C.name as license_name, C.description as license_description
-        FROM kms_collection A
+        FROM kms_event A
           LEFT JOIN sf_guard_user B ON B.id = A.created_by
           LEFT JOIN kms_license C ON C.id = A.license_id
-        WHERE A.id = $collection_id
+        WHERE A.id = $event_id
         ORDER BY title,description
     ");
 }
@@ -32,9 +32,9 @@ else if(isset($_GET["user_id"]) && isset($_GET["flag_solo_aperte"])){
         SELECT *
         FROM(
             (
-                SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
+                SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.closed_at
         
-                FROM kms_collection A
+                FROM kms_event A
                   LEFT JOIN sf_guard_user B ON B.id = A.created_by	  
                   
                 WHERE A.created_by = 122
@@ -42,10 +42,10 @@ else if(isset($_GET["user_id"]) && isset($_GET["flag_solo_aperte"])){
             )
             UNION
             (
-                SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
+                SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.closed_at
         
-                FROM kms_collection_user C
-                    LEFT JOIN kms_collection A ON C.collection_id = A.id
+                FROM kms_event_user C
+                    LEFT JOIN kms_event A ON C.event_id = A.id
                     LEFT JOIN sf_guard_user B ON B.id = A.created_by	
                 WHERE C.user_id = 122
                     AND DATE_PART('day',now() - A.created_at) < 2
@@ -62,10 +62,10 @@ else if(isset($_GET["user_id"])){
     $user_id = $_GET["user_id"];
 
 
-    // con questa query vedo solo LE MIE collezioni (quelle che ho creato io)
+    // con questa query vedo solo I MIEI EVENTI (quelli che ho creato io)
     $statement = $pdo->prepare("
-        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
-        FROM kms_collection A
+        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.closed_at
+        FROM kms_event A
           LEFT JOIN sf_guard_user B ON B.id = A.created_by
         WHERE A.created_by = $user_id
         ORDER BY created_at DESC
@@ -73,14 +73,14 @@ else if(isset($_GET["user_id"])){
 
 
     /*
-    // con questa query vedo le collezioni che ho creato io e anche quelle di cui sono collaboratore
+    // con questa query vedo gli eventi che ho creato io e anche quelle di cui sono collaboratore
     $statement = $pdo->prepare("
         SELECT *
         FROM(
             (
                 SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
         
-                FROM kms_collection A
+                FROM kms_event A
                   LEFT JOIN sf_guard_user B ON B.id = A.created_by	  
                   
                 WHERE A.created_by = $user_id
@@ -88,8 +88,8 @@ else if(isset($_GET["user_id"])){
             UNION
             (
                 SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
-                FROM kms_collection_user C
-                    LEFT JOIN kms_collection A ON C.collection_id = A.id
+                FROM kms_event_user C
+                    LEFT JOIN kms_event A ON C.event_id = A.id
                     LEFT JOIN sf_guard_user B ON B.id = A.created_by	
                 WHERE C.user_id = $user_id
         
@@ -104,8 +104,8 @@ else if(isset($_GET["user_id"])){
 //NORMAL LIST
 else{
     $statement = $pdo->prepare("
-        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at
-        FROM kms_collection A
+        SELECT A.id,A.title,A.description,A.created_by, CONCAT(B.last_name,' ',B.first_name) AS created_by_name,A.created_at,A.closed_at
+        FROM kms_event A
           LEFT JOIN sf_guard_user B ON B.id = A.created_by
         ORDER BY title,description
     ");

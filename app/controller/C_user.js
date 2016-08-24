@@ -56,6 +56,12 @@ Ext.define('CL.controller.C_user', {
                 user_id: user_id
             }
         });
+        Ext.ComponentQuery.query('user_profile grid[name=events]')[0].getStore().load({
+            params: {
+                user_id: user_id
+            }
+        });
+        
 
 
         Ext.StoreManager.lookup("S_user_activity").proxy.extraParams.user_id = user_id;

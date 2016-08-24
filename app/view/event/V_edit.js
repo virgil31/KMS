@@ -1,8 +1,8 @@
-Ext.define('CL.view.collection.V_edit', {
+Ext.define('CL.view.event.V_edit', {
     extend: 'Ext.window.Window',
-    xtype: 'collection_edit',
-    itemId: 'collection_edit_id',
-    alias: 'widget.collection_edit',
+    xtype: 'event_edit',
+    itemId: 'event_edit_id',
+    alias: 'widget.event_edit',
 
     bodyStyle: {
         background: "transparent"
@@ -13,7 +13,7 @@ Ext.define('CL.view.collection.V_edit', {
     constrain: true,
 
 
-    title: 'Modifica Informazioni Collezione',
+    title: 'Modifica Informazioni Evento',
 
     width: 700,
     padding: 15,
@@ -72,8 +72,17 @@ Ext.define('CL.view.collection.V_edit', {
             buttons:[
                 {
                     text: 'Salva Modifiche',
+                    icon: "images/icons/icon_flag_ok.png",
                     action: 'do_edit',
                     formBind: true
+                },
+                {
+                    text: 'Chiudi Evento',
+                    action: 'on_close',
+                    icon: 'images/icons/icon_lock.png',
+                    style:{
+                        background: "#ff8036"
+                    }
                 }
             ]
         }

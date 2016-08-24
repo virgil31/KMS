@@ -269,13 +269,14 @@ Ext.define('CL.view.user.V_profile', {
                     ]
                 },
                 {
-                    xtype: 'panel',
+                    xtype: 'grid',
+                    name: 'events',
                     flex: 1,
                     height: '100%',
                     bodyStyle: {
                         background: "#484848"
                     },
-                    margin: '0 0 0 5',
+                    margin: '0 5 0 0',
                     tbar: {
                         xtype: 'toolbar',
                         height: 44,
@@ -283,7 +284,7 @@ Ext.define('CL.view.user.V_profile', {
                         items: [
                             {
                                 xtype: 'label',
-                                text: 'Eventi',
+                                text: 'Collezioni',
                                 style: {
                                     color: 'white',
                                     fontSize: 'medium',
@@ -291,21 +292,38 @@ Ext.define('CL.view.user.V_profile', {
                                 }
                             },
                             '->',
+
                             {
                                 xtype: 'panel',
                                 items: [
                                     {
                                         xtype: 'button',
                                         name: 'on_create_event',
-                                        text: '+ Crea un nuovo Evento !',
+                                        text: '+ Crea un nuovo Evento',
                                         icon: 'images/icons/icon_calendar.png',
+                                        hidden: true,
                                         cls: 'mybutton',
-                                        hidden: true
+                                        listeners:{
+                                            click: function (btn) {
+                                                CL.app.getController("C_event").onCreate(btn.el);
+                                            }
+                                        }
                                     }
                                 ]
                             }
                         ]
-                    }
+                    },
+                    store: "S_event",//Ext.create('CL.store.S_collection'),
+                    listeners: {
+                        itemclick: function (grid, record) {
+                            var id = record.get("id");
+                            CL.app.getController("C_event").redirectTo("event/"+id);
+                        }
+                    },
+                    columns: [
+                        { text: 'Titolo', dataIndex: 'title', flex: 10 },
+                        { xtype: 'datecolumn', text: 'Creata Il', dataIndex: 'created_at', format:'d/m/Y', flex: 3.5 }
+                    ]
                 }
             ]
         }
