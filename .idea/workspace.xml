@@ -65,7 +65,7 @@
       <file leaf-file-name="C_collection_user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/C_collection_user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="1700">
               <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
               <folding>
                 <marker date="1471877856177" expanded="true" signature="1384:1402" ph="..." />
@@ -77,7 +77,7 @@
       <file leaf-file-name="V_list_by_collection.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/collection_user/V_list_by_collection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
+            <state relative-caret-position="2567">
               <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="157" selection-end-column="60" />
               <folding>
                 <marker date="1471877898748" expanded="true" signature="3094:3157" ph="..." />
@@ -90,19 +90,90 @@
       <file leaf-file-name="C_collection_external_resource.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/C_collection_external_resource.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="1700">
               <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="V_list_by_collection.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="V_list_by_collection.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/collection_external_resource/V_list_by_collection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="146" column="74" selection-start-line="146" selection-start-column="74" selection-end-line="146" selection-end-column="74" />
+            <state relative-caret-position="2499">
+              <caret line="147" column="63" selection-start-line="147" selection-start-column="63" selection-end-line="147" selection-end-column="63" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_collection_file.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/C_collection_file.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_collection_thread_message.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/C_collection_thread_message.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+              <folding>
+                <marker date="1471877166472" expanded="true" signature="3881:3911" ph="..." />
+                <marker date="1471877166472" expanded="true" signature="4048:4078" ph="..." />
+                <marker date="1471877166472" expanded="true" signature="4213:4241" ph="..." />
+                <marker date="1471877166472" expanded="true" signature="4390:4420" ph="..." />
+                <marker date="1471877166472" expanded="true" signature="4526:4556" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="V_profile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="258" column="42" selection-start-line="258" selection-start-column="42" selection-end-line="258" selection-end-column="42" />
+              <folding>
+                <marker date="1472027574806" expanded="true" signature="3926:3957" ph="..." />
+                <marker date="1472027574806" expanded="true" signature="5312:5343" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_collection.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/C_collection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_permessi.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controller/C_permessi.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-850">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_tag.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controller/C_tag.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="503">
+              <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+              <folding>
+                <marker date="1470839591363" expanded="true" signature="1082:1100" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data/collection/list.php" />
         <option value="$PROJECT_DIR$/app/view/tag/V_create_for_collection.js" />
         <option value="$PROJECT_DIR$/data/tag/create_for_collection.php" />
         <option value="$PROJECT_DIR$/lista_notifiche" />
@@ -151,7 +221,6 @@
         <option value="$PROJECT_DIR$/app/view/user_pool/V_edit.js" />
         <option value="$PROJECT_DIR$/app/view/search/V_search.js" />
         <option value="$PROJECT_DIR$/data/user/list.php" />
-        <option value="$PROJECT_DIR$/app/view/user/V_profile.js" />
         <option value="$PROJECT_DIR$/app/controller/C_user.js" />
         <option value="$PROJECT_DIR$/ext/classic/classic/src/ux/form/ItemSelector.js" />
         <option value="$PROJECT_DIR$/ext/classic/classic/src/ux/form/MultiSelect.js" />
@@ -173,6 +242,8 @@
         <option value="$PROJECT_DIR$/app/view/collection_user/V_list_by_collection.js" />
         <option value="$PROJECT_DIR$/app/controller/C_collection_external_resource.js" />
         <option value="$PROJECT_DIR$/app/view/collection_external_resource/V_list_by_collection.js" />
+        <option value="$PROJECT_DIR$/app/controller/C_collection_file.js" />
+        <option value="$PROJECT_DIR$/app/view/user/V_profile.js" />
       </list>
     </option>
   </component>
@@ -247,6 +318,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,56 +347,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KMS" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="collection_user" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KMS" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="collection_thread" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KMS" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -347,11 +369,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="collection_external_resource" />
+              <option name="myItemId" value="store" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -389,7 +407,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -515,15 +532,17 @@
       <workItem from="1471588500007" duration="892000" />
       <workItem from="1471590810659" duration="15018000" />
       <workItem from="1471848176549" duration="4342000" />
-      <workItem from="1471855333168" duration="11527000" />
+      <workItem from="1471855333168" duration="12125000" />
+      <workItem from="1471936655324" duration="1811000" />
+      <workItem from="1472027422653" duration="1236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="384575000" />
+    <option name="totallyTimeSpent" value="388220000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -531,8 +550,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29069766" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25792813" sideWeight="0.49583334" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18287526" sideWeight="0.49583334" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25792813" sideWeight="0.49583334" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18287526" sideWeight="0.49583334" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -568,27 +587,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TODO_LIST.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cambiamenti_db">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/search/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="36" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/collection_user/V_create_group.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -684,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4335">
           <caret line="255" column="85" selection-start-line="255" selection-start-column="85" selection-end-line="255" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -692,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -700,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="45" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -708,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="986">
           <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,12 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-          <folding>
-            <marker date="1471850471925" expanded="true" signature="390:877" ph="SELECT A.id,... sf_guard_user" />
-            <marker date="1471850471925" expanded="true" signature="390:889" ph="SELECT A.id,... sf_guard_user" />
-            <marker date="1471850471925" expanded="true" signature="968:1510" ph="SELECT A.id,... sf_guard_user" />
-            <marker date="1471850471925" expanded="true" signature="968:1522" ph="SELECT A.id,... sf_guard_user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -729,24 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-          <folding>
-            <marker date="1471856048295" expanded="true" signature="1529:1580" ph="..." />
-            <marker date="1471856048295" expanded="true" signature="1669:1695" ph="..." />
-            <marker date="1471856048295" expanded="true" signature="1917:1952" ph="..." />
-            <marker date="1471856048295" expanded="true" signature="2163:2198" ph="..." />
-            <marker date="1471856048295" expanded="true" signature="5997:6015" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding>
-            <marker date="1471854985653" expanded="true" signature="3926:3957" ph="..." />
-            <marker date="1471854985653" expanded="true" signature="5312:5343" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -754,7 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="100" column="37" selection-start-line="100" selection-start-column="37" selection-end-line="100" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,31 +731,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ext/classic/classic/src/ux/form/MultiSelect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="548" column="3" selection-start-line="548" selection-start-column="3" selection-end-line="548" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ext/classic/classic/src/ux/form/ItemSelector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="396" column="3" selection-start-line="396" selection-start-column="3" selection-end-line="396" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ext/classic/classic/src/ux/form/MultiSelect.js" />
+    <entry file="file://$PROJECT_DIR$/ext/classic/classic/src/ux/form/ItemSelector.js" />
     <entry file="file://$PROJECT_DIR$/app/view/user_pool/V_create.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="63" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="63" column="93" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="93" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,7 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -810,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="110" column="21" selection-start-line="90" selection-start-column="16" selection-end-line="110" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,12 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="95" column="91" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="91" />
-          <folding>
-            <element signature="e#462#1051#0" expanded="false" />
-            <element signature="e#480#1037#0" expanded="false" />
-            <element signature="e#660#1019#0" expanded="false" />
-            <element signature="e#708#995#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -939,28 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="31" column="176" selection-start-line="31" selection-start-column="176" selection-end-line="31" selection-end-column="176" />
-          <folding>
-            <marker date="1471869332849" expanded="true" signature="688:706" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="471" column="11" selection-start-line="467" selection-start-column="8" selection-end-line="471" selection-end-column="11" />
-          <folding>
-            <marker date="1471590982326" expanded="true" signature="7656:7674" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="10107:10125" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="14624:14642" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="16932:16950" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="16973:17008" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="17327:17345" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="17619:17717" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="24583:24601" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="27484:27502" ph="..." />
-            <marker date="1471590982326" expanded="true" signature="29738:29756" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -968,9 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <marker date="1470836218991" expanded="true" signature="331:452" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -978,9 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <marker date="1471870360897" expanded="true" signature="405:518" ph="INSERT INTO kms_collection_tag... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -988,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="24" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -996,7 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,11 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="29" column="86" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
-          <folding>
-            <marker date="1471877748209" expanded="true" signature="643:1848" ph="SELECT * FRO... id" />
-            <marker date="1471877748209" expanded="true" signature="697:1232" ph="SELECT A.id kms_collection" />
-            <marker date="1471877748209" expanded="true" signature="1309:1779" ph="SELECT A.col... kms_collection_user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1016,13 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-          <folding>
-            <marker date="1471877641576" expanded="true" signature="482:1082" ph="SELECT A.id,... kms_collection_thread" />
-            <marker date="1471877641576" expanded="true" signature="1438:2165" ph="SELECT A.id,... kms_collection_thread" />
-            <marker date="1471877641576" expanded="true" signature="2893:2994" ph="SELECT * FRO... sf_guard_user_group" />
-            <marker date="1471877641576" expanded="true" signature="3477:3596" ph="SELECT * FRO... kms_collection_user" />
-            <marker date="1471877641576" expanded="true" signature="3915:4021" ph="SELECT * FRO... kms_collection" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,11 +932,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="117" column="76" selection-start-line="111" selection-start-column="68" selection-end-line="117" selection-end-column="76" />
-          <folding>
-            <marker date="1471877585516" expanded="true" signature="2871:2894" ph="..." />
-            <marker date="1471877585516" expanded="true" signature="14331:14349" ph="..." />
-            <marker date="1471877585516" expanded="true" signature="15476:15508" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1042,31 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="228" column="44" selection-start-line="228" selection-start-column="44" selection-end-line="234" selection-end-column="52" />
-          <folding>
-            <marker date="1471877394015" expanded="true" signature="1768:1831" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="2403:2421" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="2844:2862" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="3662:3680" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="4783:4800" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="4813:4838" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="4976:5002" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="5229:5259" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="5326:5343" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="5356:5381" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="5511:5537" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="5762:5793" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="5860:5877" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="5890:5915" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6045:6071" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6310:6343" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6410:6427" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6440:6465" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6595:6621" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6825:6858" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6933:6950" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="6963:6988" ph="..." />
-            <marker date="1471877394015" expanded="true" signature="7126:7152" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1074,24 +946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1469528748126" expanded="true" signature="1560:1578" ph="..." />
-            <marker date="1469528748126" expanded="true" signature="5705:5723" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_thread_message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="181" column="20" selection-start-line="181" selection-start-column="20" selection-end-line="187" selection-end-column="28" />
-          <folding>
-            <marker date="1471877166472" expanded="true" signature="3881:3911" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4048:4078" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4213:4241" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4390:4420" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4526:4556" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1099,13 +953,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="68" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/C_collection_user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
+        <state relative-caret-position="1700">
           <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
           <folding>
             <marker date="1471877856177" expanded="true" signature="1384:1402" ph="..." />
@@ -1115,7 +968,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/collection_user/V_list_by_collection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
+        <state relative-caret-position="2567">
           <caret line="151" column="52" selection-start-line="151" selection-start-column="52" selection-end-line="157" selection-end-column="60" />
           <folding>
             <marker date="1471877898748" expanded="true" signature="3094:3157" ph="..." />
@@ -1128,15 +981,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1467122822736" expanded="true" signature="754:772" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/C_collection_external_resource.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="1700">
           <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
           <folding />
         </state>
@@ -1144,9 +994,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/collection_external_resource/V_list_by_collection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="146" column="74" selection-start-line="146" selection-start-column="74" selection-end-line="146" selection-end-column="74" />
+        <state relative-caret-position="2499">
+          <caret line="147" column="63" selection-start-line="147" selection-start-column="63" selection-end-line="147" selection-end-column="63" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_file.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_thread_message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding>
+            <marker date="1471877166472" expanded="true" signature="3881:3911" ph="..." />
+            <marker date="1471877166472" expanded="true" signature="4048:4078" ph="..." />
+            <marker date="1471877166472" expanded="true" signature="4213:4241" ph="..." />
+            <marker date="1471877166472" expanded="true" signature="4390:4420" ph="..." />
+            <marker date="1471877166472" expanded="true" signature="4526:4556" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="258" column="42" selection-start-line="258" selection-start-column="42" selection-end-line="258" selection-end-column="42" />
+          <folding>
+            <marker date="1472027574806" expanded="true" signature="3926:3957" ph="..." />
+            <marker date="1472027574806" expanded="true" signature="5312:5343" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_permessi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-850">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_tag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <marker date="1470839591363" expanded="true" signature="1082:1100" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

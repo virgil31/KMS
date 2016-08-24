@@ -256,7 +256,7 @@ Ext.define('CL.view.user.V_profile', {
                             }
                         ]
                     },
-                    store: Ext.create('CL.store.S_collection'),
+                    store: "S_collection",//Ext.create('CL.store.S_collection'),
                     listeners: {
                         itemclick: function (grid, record) {
                             var id = record.get("id");

@@ -10,7 +10,7 @@ Ext.define('CL.controller.C_collection_file', {
     ],
     models: [
         'M_collection_file'
-    ],
+    ], 
     views: [
         'collection_file.V_list_by_collection',
         'collection_file.V_edit',
