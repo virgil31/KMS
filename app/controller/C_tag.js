@@ -2,7 +2,8 @@ Ext.define('CL.controller.C_tag', {
     extend: 'Ext.app.Controller',
 
     views:[
-        'tag.V_create_for_collection'
+        'tag.V_create_for_collection',
+        'tag.V_create_for_event'
     ],
 
     //
@@ -59,8 +60,22 @@ Ext.define('CL.controller.C_tag', {
                     },
                     {
                         text: 'Aggiungi a Evento',
-                        handler: function(){
-                            alert("TODO");
+                        handler: function () {
+                            this.up("window").close();
+
+                            Ext.StoreManager.lookup("S_event").load({
+                                params: {
+                                    user_id: Ext.util.Cookies.get("user_id"),
+                                    flag_solo_aperte: true
+                                }
+                            });
+
+                            Ext.widget("tag_create_for_event",{
+                                animateTarget: targetEl,
+                                tag_type: tag_type,
+                                tag_target_id: tag_target_id
+                            });
+
                         }
                     }
 

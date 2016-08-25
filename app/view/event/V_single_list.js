@@ -184,13 +184,13 @@ Ext.define('CL.view.event.V_single_list', {
                         },
                         {
                             xtype: 'event_user_list_by_event'
-                        }/*,
+                        },
                         {
                             xtype: 'event_thread_list_by_event'
                         },
                         {
                             xtype: 'event_tag_list_by_event'
-                        }*/
+                        }
                     ]
                 }
             ]

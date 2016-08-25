@@ -102,6 +102,11 @@ Ext.define('CL.view.collection_user.V_list_by_collection', {
                     flex: 10
                 },
                 {
+                    text: 'Ente d\'Appartenenza',
+                    dataIndex: 'affiliation_name',
+                    flex: 10
+                },
+                {
                     xtype: 'actioncolumn',
                     width: 75,
                     items: [

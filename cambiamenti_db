@@ -17,6 +17,8 @@ TABELLE CREATE
 - kms_event_file
 - kms_event_external_resource
 - kms_event_user
+- kms_event_thread
+- kms_event_thread_message
 
 
 
