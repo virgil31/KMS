@@ -59,7 +59,8 @@ Ext.application({
 
         'C_event',
         'C_event_file',
-        'C_event_external_resource'
+        'C_event_external_resource',
+        'C_event_user'
     ],
 
     // vv ROUTING

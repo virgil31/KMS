@@ -79,11 +79,12 @@ Ext.define('CL.view.collection.V_single_list', {
                                     style: {
                                         background: "transparent"
                                     },
-                                    html: '<img src="images/icons/icon_collection_hd.png" alt=" " style="width:50px;height:50px;">'
+                                    html: '<img title="Collezione" src="images/icons/icon_collection_hd.png" alt=" " style="width:50px;height:50px;">'
                                 },
                                 {
                                     xtype: 'label',
                                     name: 'title',
+                                    margin: '0 0 0 10',
                                     style: {
                                         color: 'white',
                                         fontSize: 'xx-large',

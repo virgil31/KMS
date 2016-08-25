@@ -50,11 +50,12 @@ Ext.define('CL.view.user.V_profile', {
                             style: {
                                 background: "transparent"
                             },
-                            html: '<img src="images/icons/icon_user_color.png" alt=" " style="width:50px;height:50px;">'
+                            html: '<img title="Utente" src="images/icons/icon_user_color.png" alt=" " style="width:50px;height:50px;">'
                         },
                         {
                             xtype: 'label',
                             name: 'first_last_name',
+                            margin: '0 0 0 10',
                             style: {
                                 color: 'white',
                                 fontSize: 'xx-large',

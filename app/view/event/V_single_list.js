@@ -79,11 +79,12 @@ Ext.define('CL.view.event.V_single_list', {
                                     style: {
                                         background: "transparent"
                                     },
-                                    html: '<img src="images/icons/icon_calendar_hd.png" alt=" " style="width:50px;height:50px;">'
+                                    html: '<img tooltip="Evento" src="images/icons/icon_calendar_hd.png" alt=" " style="width:50px;height:50px;">'
                                 },
                                 {
                                     xtype: 'label',
                                     name: 'title',
+                                    margin: '0 0 0 10',
                                     style: {
                                         color: 'white',
                                         fontSize: 'xx-large',
@@ -180,10 +181,10 @@ Ext.define('CL.view.event.V_single_list', {
                         },
                         {
                             xtype: 'event_external_resource_list_by_event'
-                        }/*,
+                        },
                         {
                             xtype: 'event_user_list_by_event'
-                        },
+                        }/*,
                         {
                             xtype: 'event_thread_list_by_event'
                         },

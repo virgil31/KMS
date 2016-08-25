@@ -286,7 +286,7 @@ Ext.define('CL.view.collection_thread_message.V_list_by_thread', {
                             renderer: function(value, metaData, record) {
                                 metaData.style = "border-right: 1px solid grey;";
                                 var d = new Date(record.get("sent_at"));
-                                sent_at = d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
+                                sent_at = "inviato il " + d.getDate()  + "/" + (d.getMonth()+1) + "/" + d.getFullYear() + " - " +
                                     d.getHours() + ":" + ((d.getMinutes()<10?'0':'') + d.getMinutes());
 
                                 if(record.get("is_coworker_or_admin"))
