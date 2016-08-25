@@ -19,14 +19,18 @@ Ext.define('CL.view.event_file.V_single_list', {
             xtype: 'panel',
             width: '100%',
             margin: '10 0 0 0',
-            bodyCls: 'mypanel',
+            //bodyCls: 'mypanel',
+            bodyStyle:{
+                background: "url(images/profile_repeat.png)",
+                borderRadius: "10px",
+                border: "1px black solid !important"
+            },
             layout: {
                 type: 'vbox',
                 align: 'center',
                 pack: 'center'
             },
             items: [
-                {html:'<br>'},
                 {
                     xtype: 'toolbar',
                     width: '100%',
@@ -87,6 +91,37 @@ Ext.define('CL.view.event_file.V_single_list', {
                         },
                         '->',
                         {
+                            xtype: 'panel',
+                            bodyStyle: {
+                                background: "transparent"
+                            },
+                            layout: {
+                                type: 'hbox',
+                                align: 'center',
+                                pack: 'center'
+                            },
+                            items: [
+                                {
+                                    xtype: 'label',
+                                    style: {
+                                        background: "transparent"
+                                    },
+                                    html: '<img src="images/icons/icon_preview.png" alt=" " style="width:50px;height:50px;">'
+                                },
+                                {
+                                    xtype: 'label',
+                                    text:'title',
+                                    name: 'title',
+                                    style: {
+                                        color: 'white',
+                                        fontSize: 'xx-large',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            ]
+                        },
+                        /*
+                        {
                             style: {
                                 background: "transparent",
                                 borderColor: "transparent"
@@ -102,7 +137,7 @@ Ext.define('CL.view.event_file.V_single_list', {
                                 fontSize: 'xx-large',
                                 fontWeight: 'bold'
                             }
-                        },
+                        },*/
                         '->',
                         {
                             xtype: 'panel',

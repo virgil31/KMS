@@ -62,7 +62,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cambiamenti_db" pinned="false" current-in-tab="false">
+      <file leaf-file-name="V_profile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="306" column="45" selection-start-line="306" selection-start-column="45" selection-end-line="306" selection-end-column="45" />
+              <folding>
+                <marker date="1472112680229" expanded="true" signature="1477:1500" ph="..." />
+                <marker date="1472112680229" expanded="true" signature="4740:4771" ph="..." />
+                <marker date="1472112680229" expanded="true" signature="6126:6157" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cambiamenti_db" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cambiamenti_db">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -72,107 +86,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="C_event_external_resource.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controller/C_event_external_resource.js">
+      <file leaf-file-name="V_single_list.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/event/V_single_list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="23" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="V_create.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/event_external_resource/V_create.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="6" />
+            <state relative-caret-position="1581">
+              <caret line="93" column="26" selection-start-line="65" selection-start-column="24" selection-end-line="93" selection-end-column="26" />
               <folding>
-                <marker date="1472044319282" expanded="true" signature="734:752" ph="..." />
+                <marker date="1472052425936" expanded="true" signature="2954:2977" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="V_edit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/event_external_resource/V_edit.js">
+      <file leaf-file-name="V_single_list.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/view/collection/V_single_list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+            <state relative-caret-position="765">
+              <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
               <folding>
-                <marker date="1472044319252" expanded="true" signature="726:744" ph="..." />
+                <marker date="1472052513229" expanded="true" signature="2985:3008" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="destroy.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/event_external_resource/destroy.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="110" selection-start-line="25" selection-start-column="110" selection-end-line="25" selection-end-column="110" />
-              <folding>
-                <marker date="1472044858968" expanded="true" signature="331:347" ph="DELETE FROM " />
-                <marker date="1472044858968" expanded="true" signature="331:404" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/event_external_resource/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-              <folding>
-                <marker date="1472044843826" expanded="true" signature="334:582" ph="SELECT A.id,... kms_event_external_resource" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/event_external_resource/edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="113" selection-start-line="31" selection-start-column="113" selection-end-line="31" selection-end-column="113" />
-              <folding>
-                <marker date="1472044829633" expanded="true" signature="340:351" ph="UPDATE kms_c... " />
-                <marker date="1472044829633" expanded="true" signature="340:460" ph="UPDATE kms_e... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/event_external_resource/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="111" selection-start-line="26" selection-start-column="111" selection-end-line="26" selection-end-column="111" />
-              <folding>
-                <marker date="1472044829599" expanded="true" signature="340:356" ph="INSERT INTO kms_collection_external_resource... " />
-                <marker date="1472044829599" expanded="true" signature="340:453" ph="INSERT INTO kms_event_external_resource... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="V_list_by_event.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/view/event_external_resource/V_list_by_event.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2397">
-              <caret line="141" column="86" selection-start-line="141" selection-start-column="86" selection-end-line="141" selection-end-column="86" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -192,8 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data/collection_thread/list.php" />
-        <option value="$PROJECT_DIR$/data/collection_user/list.php" />
         <option value="$PROJECT_DIR$/app/controller/C_collection_user.js" />
         <option value="$PROJECT_DIR$/app/view/collection_user/V_list_by_collection.js" />
         <option value="$PROJECT_DIR$/app/controller/C_collection_external_resource.js" />
@@ -203,13 +134,10 @@
         <option value="$PROJECT_DIR$/app/store/S_event.js" />
         <option value="$PROJECT_DIR$/app/view/event/V_create.js" />
         <option value="$PROJECT_DIR$/data/event/create.php" />
-        <option value="$PROJECT_DIR$/app/view/user/V_profile.js" />
-        <option value="$PROJECT_DIR$/app/controller/C_user.js" />
         <option value="$PROJECT_DIR$/data/collection/list.php" />
         <option value="$PROJECT_DIR$/app/view/home/html/contribuisci.html" />
         <option value="$PROJECT_DIR$/app/view/event_file/V_edit.js" />
         <option value="$PROJECT_DIR$/app/view/event_file/V_list_by_collection.js" />
-        <option value="$PROJECT_DIR$/app/view/event_file/V_single_list.js" />
         <option value="$PROJECT_DIR$/app/model/M_event_file.js" />
         <option value="$PROJECT_DIR$/app/store/S_event_file.js" />
         <option value="$PROJECT_DIR$/data/permessi/canWriteEvent.php" />
@@ -230,7 +158,6 @@
         <option value="$PROJECT_DIR$/data/event/edit.php" />
         <option value="$PROJECT_DIR$/app/controller/C_event.js" />
         <option value="$PROJECT_DIR$/app/controller/C_event_file.js" />
-        <option value="$PROJECT_DIR$/app/view/event/V_single_list.js" />
         <option value="$PROJECT_DIR$/app/controller/C_event_external_resource.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app/model/M_event_external_resource.js" />
@@ -243,6 +170,12 @@
         <option value="$PROJECT_DIR$/data/event_external_resource/edit.php" />
         <option value="$PROJECT_DIR$/data/event_external_resource/list.php" />
         <option value="$PROJECT_DIR$/data/event_external_resource/destroy.php" />
+        <option value="$PROJECT_DIR$/app/view/collection_file/V_single_list.js" />
+        <option value="$PROJECT_DIR$/app/controller/C_user.js" />
+        <option value="$PROJECT_DIR$/app/view/event_file/V_single_list.js" />
+        <option value="$PROJECT_DIR$/app/view/event/V_single_list.js" />
+        <option value="$PROJECT_DIR$/app/view/collection/V_single_list.js" />
+        <option value="$PROJECT_DIR$/app/view/user/V_profile.js" />
       </list>
     </option>
   </component>
@@ -317,7 +250,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -404,6 +336,50 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="event_file" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="event_external_resource" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -422,7 +398,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="event" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -440,7 +420,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collection_file" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -455,11 +439,52 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collection" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KMS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -587,15 +612,16 @@
       <workItem from="1471848176549" duration="4342000" />
       <workItem from="1471855333168" duration="12125000" />
       <workItem from="1471936655324" duration="1811000" />
-      <workItem from="1472027422653" duration="13638000" />
+      <workItem from="1472027422653" duration="15816000" />
+      <workItem from="1472110244912" duration="1687000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="400622000" />
+    <option name="totallyTimeSpent" value="404487000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -604,7 +630,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29069766" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2653277" sideWeight="0.49583334" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18287526" sideWeight="0.49583334" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18287526" sideWeight="0.49583334" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -640,22 +666,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controller/C_collection_external_resource.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/collection_external_resource/V_list_by_collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="147" column="63" selection-start-line="147" selection-start-column="63" selection-end-line="147" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controller/C_collection_file.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -668,13 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <marker date="1471877166472" expanded="true" signature="3881:3911" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4048:4078" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4213:4241" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4390:4420" ph="..." />
-            <marker date="1471877166472" expanded="true" signature="4526:4556" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,9 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="503">
           <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-          <folding>
-            <marker date="1470839591363" expanded="true" signature="1082:1100" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -700,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -708,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,12 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="45" column="127" selection-start-line="45" selection-start-column="127" selection-end-line="45" selection-end-column="127" />
-          <folding>
-            <marker date="1472030145576" expanded="true" signature="332:348" ph="INSERT INTO kms_collection... " />
-            <marker date="1472030145576" expanded="true" signature="332:466" ph="INSERT INTO kms_event... " />
-            <marker date="1472030145576" expanded="true" signature="1546:1647" ph="INSERT INTO kms_event_tag... " />
-            <marker date="1472030145576" expanded="true" signature="1884:1929" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -737,14 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
-          <folding>
-            <marker date="1472031071964" expanded="true" signature="454:871" ph="SELECT A.id,... kms_collection" />
-            <marker date="1472031071964" expanded="true" signature="1102:2075" ph="SELECT * FRO... id" />
-            <marker date="1472031071964" expanded="true" signature="1155:1514" ph="SELECT A.id,... kms_collection" />
-            <marker date="1472031071964" expanded="true" signature="1577:1992" ph="SELECT A.id,... kms_collection_user" />
-            <marker date="1472031071964" expanded="true" signature="2294:2570" ph="SELECT A.id,... kms_collection" />
-            <marker date="1472031071964" expanded="true" signature="3654:3894" ph="SELECT A.id,... kms_collection" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,23 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#section#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/C_user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-          <folding>
-            <marker date="1472030794439" expanded="true" signature="1529:1580" ph="..." />
-            <marker date="1472030794439" expanded="true" signature="1669:1695" ph="..." />
-            <marker date="1472030794439" expanded="true" signature="1917:1952" ph="..." />
-            <marker date="1472030794439" expanded="true" signature="2163:2198" ph="..." />
-            <marker date="1472030794439" expanded="true" signature="6175:6193" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -791,32 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="272" column="33" selection-start-line="272" selection-start-column="33" selection-end-line="272" selection-end-column="33" />
-          <folding>
-            <marker date="1472030780775" expanded="true" signature="3926:3957" ph="..." />
-            <marker date="1472030780775" expanded="true" signature="5312:5343" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/view/event_file/V_edit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/event_file/V_single_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2975">
-          <caret line="175" column="96" selection-start-line="175" selection-start-column="96" selection-end-line="175" selection-end-column="96" />
-          <folding>
-            <marker date="1472031453527" expanded="true" signature="4053:4113" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -824,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,11 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="82" selection-end-column="27" />
-          <folding>
-            <marker date="1472033062473" expanded="true" signature="964:1030" ph="SELECT * FRO... sf_guard_user_group" />
-            <marker date="1472033062473" expanded="true" signature="1566:1655" ph="SELECT creat... kms_event" />
-            <marker date="1472033062473" expanded="true" signature="2201:2346" ph="SELECT B.use... kms_event" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -852,11 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="90" column="15" selection-start-line="90" selection-start-column="15" selection-end-line="90" selection-end-column="15" />
-          <folding>
-            <marker date="1472033994042" expanded="true" signature="909:975" ph="SELECT * FRO... sf_guard_user_group" />
-            <marker date="1472033994042" expanded="true" signature="1511:1572" ph="SELECT creat... kms_event" />
-            <marker date="1472033994042" expanded="true" signature="2118:2246" ph="SELECT B.use... kms_event" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -864,11 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="40" column="15" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
-          <folding>
-            <marker date="1472034006096" expanded="true" signature="1007:1073" ph="SELECT * FRO... sf_guard_user_group" />
-            <marker date="1472034006096" expanded="true" signature="1610:1699" ph="SELECT creat... kms_event" />
-            <marker date="1472034006096" expanded="true" signature="2285:2469" ph="SELECT B.use... kms_event" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -876,7 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -884,7 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-781">
           <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -892,9 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
           <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
-          <folding>
-            <marker date="1472031453498" expanded="true" signature="4147:4173" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,10 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="31" column="10" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <marker date="1472034320831" expanded="true" signature="373:482" ph="SELECT A.tit... kms_event_file" />
-            <marker date="1472034320831" expanded="true" signature="409:482" ph="SELECT A.tit... kms_collection_file" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -913,10 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-          <folding>
-            <marker date="1472034285957" expanded="true" signature="331:342" ph="UPDATE kms_c... " />
-            <marker date="1472034285957" expanded="true" signature="331:424" ph="UPDATE kms_e... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -924,17 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="773">
           <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-          <folding>
-            <marker date="1472034668234" expanded="true" signature="355:515" ph="INSERT INTO kms_user_activity... " />
-            <marker date="1472034668234" expanded="true" signature="895:1085" ph="INSERT INTO kms_user_activity... " />
-            <marker date="1472034668234" expanded="true" signature="1480:1661" ph="INSERT INTO kms_user_activity... " />
-            <marker date="1472034668234" expanded="true" signature="2056:2119" ph="SELECT title... kms_collection" />
-            <marker date="1472034668234" expanded="true" signature="2391:2493" ph="SELECT CONCA... sf_guard_user" />
-            <marker date="1472034668234" expanded="true" signature="2759:2815" ph="SELECT name kms_pool" />
-            <marker date="1472034668234" expanded="true" signature="3101:3224" ph="SELECT title... kms_collection_file" />
-            <marker date="1472034668234" expanded="true" signature="3608:3666" ph="SELECT title... kms_event" />
-            <marker date="1472034668234" expanded="true" signature="3949:3979" ph="SELECT title... kms_collection_file" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -942,9 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
-          <folding>
-            <marker date="1472034812463" expanded="true" signature="334:380" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -952,11 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding>
-            <marker date="1472034824699" expanded="true" signature="599:658" ph="select (last... st_file_id_seq" />
-            <marker date="1472034824699" expanded="true" signature="965:1012" ph="INSERT INTO st_file... " />
-            <marker date="1472034824699" expanded="true" signature="1264:1399" ph="INSERT INTO kms_event_file... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -964,10 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="31" column="110" selection-start-line="31" selection-start-column="110" selection-end-line="31" selection-end-column="110" />
-          <folding>
-            <marker date="1472034320861" expanded="true" signature="331:347" ph="DELETE FROM " />
-            <marker date="1472034320861" expanded="true" signature="331:409" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -975,11 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="29" column="233" selection-start-line="29" selection-start-column="233" selection-end-line="29" selection-end-column="233" />
-          <folding>
-            <marker date="1472035251978" expanded="true" signature="426:769" ph="SELECT A.eve... kms_event_file" />
-            <marker date="1472035251978" expanded="true" signature="991:1504" ph="SELECT A.eve... kms_event_file" />
-            <marker date="1472035251978" expanded="true" signature="1446:1504" ph="SELECT A.col... kms_collection_file" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -987,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
           <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -995,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
           <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,15 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="130" column="32" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
-          <folding>
-            <marker date="1472043692426" expanded="true" signature="434:853" ph="SELECT A.id,... kms_event" />
-            <marker date="1472043692426" expanded="true" signature="1084:2061" ph="SELECT * FRO... id" />
-            <marker date="1472043692426" expanded="true" signature="1137:1503" ph="SELECT A.id,... kms_event" />
-            <marker date="1472043692426" expanded="true" signature="1566:1978" ph="SELECT A.id,... kms_event_user" />
-            <marker date="1472043692426" expanded="true" signature="2276:2559" ph="SELECT A.id,... kms_event" />
-            <marker date="1472043692426" expanded="true" signature="3620:3867" ph="SELECT A.id,... kms_event" />
-            <marker date="1472043692426" expanded="true" signature="3771:3867" ph="SELECT A.id,... kms_collection" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,10 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-          <folding>
-            <marker date="1472043692470" expanded="true" signature="340:351" ph="UPDATE kms_c... " />
-            <marker date="1472043692470" expanded="true" signature="340:494" ph="UPDATE kms_e... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1053,17 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <marker date="1472043992198" expanded="true" signature="4032:4083" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/event/V_single_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="161" column="27" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,7 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1079,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,7 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,9 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="6" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="6" />
-          <folding>
-            <marker date="1472044319282" expanded="true" signature="734:752" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1105,7 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="23" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,7 +966,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2397">
           <caret line="141" column="86" selection-start-line="141" selection-start-column="86" selection-end-line="141" selection-end-column="86" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/event_external_resource/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="113" selection-start-line="31" selection-start-column="113" selection-end-line="31" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/event_external_resource/V_edit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/event_external_resource/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/event_external_resource/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="111" selection-start-line="26" selection-start-column="111" selection-end-line="26" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/event_external_resource/destroy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="110" selection-start-line="25" selection-start-column="110" selection-end-line="25" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/event_file/V_single_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="106" column="65" selection-start-line="106" selection-start-column="65" selection-end-line="106" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/collection_file/V_single_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding>
+            <marker date="1472051373387" expanded="true" signature="4332:4392" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/C_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="43" column="96" selection-start-line="43" selection-start-column="96" selection-end-line="43" selection-end-column="96" />
+          <folding>
+            <marker date="1472051854537" expanded="true" signature="1529:1580" ph="..." />
+            <marker date="1472051854537" expanded="true" signature="1669:1695" ph="..." />
+            <marker date="1472051854537" expanded="true" signature="1917:1952" ph="..." />
+            <marker date="1472051854537" expanded="true" signature="2163:2198" ph="..." />
+            <marker date="1472051854537" expanded="true" signature="6175:6193" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/event/V_single_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" column="26" selection-start-line="65" selection-start-column="24" selection-end-line="93" selection-end-column="26" />
+          <folding>
+            <marker date="1472052425936" expanded="true" signature="2954:2977" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/collection/V_single_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+          <folding>
+            <marker date="1472052513229" expanded="true" signature="2985:3008" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/view/user/V_profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="306" column="45" selection-start-line="306" selection-start-column="45" selection-end-line="306" selection-end-column="45" />
+          <folding>
+            <marker date="1472112680229" expanded="true" signature="1477:1500" ph="..." />
+            <marker date="1472112680229" expanded="true" signature="4740:4771" ph="..." />
+            <marker date="1472112680229" expanded="true" signature="6126:6157" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,59 +1072,6 @@
         <state relative-caret-position="289">
           <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/event_external_resource/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="113" selection-start-line="31" selection-start-column="113" selection-end-line="31" selection-end-column="113" />
-          <folding>
-            <marker date="1472044829633" expanded="true" signature="340:351" ph="UPDATE kms_c... " />
-            <marker date="1472044829633" expanded="true" signature="340:460" ph="UPDATE kms_e... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/view/event_external_resource/V_edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding>
-            <marker date="1472044319252" expanded="true" signature="726:744" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/event_external_resource/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-          <folding>
-            <marker date="1472044843826" expanded="true" signature="334:582" ph="SELECT A.id,... kms_event_external_resource" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/event_external_resource/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="111" selection-start-line="26" selection-start-column="111" selection-end-line="26" selection-end-column="111" />
-          <folding>
-            <marker date="1472044829599" expanded="true" signature="340:356" ph="INSERT INTO kms_collection_external_resource... " />
-            <marker date="1472044829599" expanded="true" signature="340:453" ph="INSERT INTO kms_event_external_resource... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/event_external_resource/destroy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="110" selection-start-line="25" selection-start-column="110" selection-end-line="25" selection-end-column="110" />
-          <folding>
-            <marker date="1472044858968" expanded="true" signature="331:347" ph="DELETE FROM " />
-            <marker date="1472044858968" expanded="true" signature="331:404" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>

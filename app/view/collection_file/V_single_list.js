@@ -19,7 +19,12 @@ Ext.define('CL.view.collection_file.V_single_list', {
             xtype: 'panel',
             width: '100%',
             margin: '10 0 0 0',
-            bodyCls: 'mypanel',
+            //bodyCls: 'mypanel',
+            bodyStyle:{
+                background: "url(images/profile_repeat.png)",
+                borderRadius: "10px",
+                border: "1px black solid !important"
+            },
             layout: {
                 type: 'vbox',
                 align: 'center',

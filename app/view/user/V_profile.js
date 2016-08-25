@@ -35,13 +35,33 @@ Ext.define('CL.view.user.V_profile', {
             },
             items: [
                 {
-                    xtype: 'label',
-                    name: 'first_last_name',
-                    style: {
-                        color: 'white',
-                        fontSize: 'xx-large',
-                        fontWeight: 'bold'
-                    }
+                    xtype: 'panel',
+                    bodyStyle: {
+                        background: "transparent"
+                    },
+                    layout: {
+                        type: 'hbox',
+                        align:'center',
+                        pack: 'center'
+                    },
+                    items:[
+                        {
+                            xtype: 'label',
+                            style: {
+                                background: "transparent"
+                            },
+                            html: '<img src="images/icons/icon_user_color.png" alt=" " style="width:50px;height:50px;">'
+                        },
+                        {
+                            xtype: 'label',
+                            name: 'first_last_name',
+                            style: {
+                                color: 'white',
+                                fontSize: 'xx-large',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    ]
                 },
                 {
                     xtype: 'label',
@@ -284,7 +304,7 @@ Ext.define('CL.view.user.V_profile', {
                         items: [
                             {
                                 xtype: 'label',
-                                text: 'Collezioni',
+                                text: 'Eventi',
                                 style: {
                                     color: 'white',
                                     fontSize: 'medium',

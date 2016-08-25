@@ -20,11 +20,11 @@ Ext.define('CL.view.event.V_single_list', {
             //height: 175,
             width: '100%',
             margin: '10 0 0 0',
-            bodyCls: 'mypanel',
-            bodyStyle: {
+            //bodyCls: 'mypanel',
+            bodyStyle:{
+                background: "url(images/profile_repeat.png)",
                 borderRadius: "10px",
-                //background: "url(http://allfreedesigns.com/wp-content/uploads/2015/06/black-patterns-8.jpg)",
-                //border: '1px black solid !important'
+                border: "1px black solid !important"
             },
             layout: {
                 type: 'vbox',
@@ -64,14 +64,35 @@ Ext.define('CL.view.event.V_single_list', {
                         },
                         '->',
                         {
-                            xtype: 'label',
-                            name: 'title',
-                            style: {
-                                color: 'white',
-                                fontSize: 'xx-large',
-                                fontWeight: 'bold'
-                            }
+                            xtype: 'panel',
+                            bodyStyle: {
+                                background: "transparent"
+                            },
+                            layout: {
+                                type: 'hbox',
+                                align:'center',
+                                pack: 'center'
+                            },
+                            items:[
+                                {
+                                    xtype: 'label',
+                                    style: {
+                                        background: "transparent"
+                                    },
+                                    html: '<img src="images/icons/icon_calendar_hd.png" alt=" " style="width:50px;height:50px;">'
+                                },
+                                {
+                                    xtype: 'label',
+                                    name: 'title',
+                                    style: {
+                                        color: 'white',
+                                        fontSize: 'xx-large',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            ]
                         },
+
                         '->',
                         {
                             xtype: 'panel',
