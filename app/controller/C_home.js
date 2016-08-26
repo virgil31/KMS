@@ -24,7 +24,7 @@ Ext.define('CL.controller.C_home', {
                 click: this.loadUser
             },
 
-
+ 
             // TEST WINDOW
             'home button[action=test_window]':{
                 click: this.testWindow

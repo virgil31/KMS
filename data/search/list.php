@@ -140,6 +140,36 @@ $query_collection = "
           to_tsvector('italian',license_name) @@ to_tsquery('italian','$ts_query_keywords')
 ";
 
+$query_event = "
+    SELECT *
+    FROM(
+          SELECT A.id, CONCAT('event.',CAST(A.id as TEXT)) as composed_id, CONCAT('Collezione-',CAST(A.id as TEXT)) as to_display,
+            'event' as type,
+            ts_headline(A.description,to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as description,
+            ts_headline(CAST(A.id as TEXT),to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as sitar_code,
+            '' as name, 0 as officer_id, '' as officer_name, '' as zone_name, '' as street_name, 0 as oi_id, 0 as oi_sitar_code,
+            ts_headline(A.title,to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as title,
+    
+                 A.created_by, 
+            ts_headline(CONCAT(B.last_name,' ',B.first_name),to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as created_by_name,
+    
+            A.created_at,A.license_id, 
+            ts_headline(C.name,to_tsquery('$ts_query_keywords'),'StartSel=<mark>,StopSel=</mark>,HighlightAll=TRUE') as license_name
+        
+    
+          FROM kms_event A
+            LEFT JOIN sf_guard_user B ON B.id = A.created_by
+            LEFT JOIN kms_license C ON C.id = A.license_id
+    ) tmp
+    
+    WHERE to_tsvector('italian',description) ||
+          to_tsvector('italian',sitar_code)||
+          to_tsvector('italian',title)||
+          to_tsvector('italian',created_by_name)||
+          to_tsvector('italian',license_name) @@ to_tsquery('italian','$ts_query_keywords')
+";
+
+
 
 $statement = $pdo->prepare("
 	SELECT *,count(*) OVER() AS total_count
@@ -152,6 +182,8 @@ $statement = $pdo->prepare("
     	($query_pa)
     	UNION 
     	($query_collection)
+    	UNION 
+    	($query_event)
 	)tmp
     ". ((isset($_GET["search_type"]) && $_GET["search_type"] != "all") ? " WHERE type like '".$_GET["search_type"]."'" : "") . "
     ORDER BY type DESC,sitar_code ASC LIMIT $limit OFFSET $start
@@ -213,7 +245,7 @@ function getTooltipInformation($pdo,$record){
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>
                                     <td align='center' style='color:#2c2c2c; text-align:left;'>".getCountOICollections($pdo,$record->id)." Collezioni</td>
-                                    <td align='center' style='color:#2c2c2c; text-align:left;'># Eventi</td>
+                                    <td align='center' style='color:#2c2c2c; text-align:left;'>".getCountOIEvents($pdo,$record->id)." Eventi</td>
                                     <td align='center' style='text-align:left;'><img src='images/icons/icon_file.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountOIDocs($pdo,$record->id)."</u></a> Documenti</td>      
                                     <td align='center' style='text-align:left;'><img src='images/icons/icon_lens.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Anteprima</u></a></td>
                                     <td align='center' style='text-align:left;'><img src='images/icons/icon_map.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Mappa</u></a></td>
@@ -237,7 +269,7 @@ function getTooltipInformation($pdo,$record){
                             <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
                                 <tr>                                
                                     <td align='center' style='color:#2c2c2c;'>".getCountPACollections($pdo,$record->id)." Collezioni</td>
-                                    <td align='center' style='color:#2c2c2c;'># Eventi</td>
+                                    <td align='center' style='color:#2c2c2c;'>".getCountPAEvents($pdo,$record->id)." Eventi</td>
                                     <td align='center'><img src='images/icons/icon_file.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>".getCountPADocs($pdo,$record->id)."</u></a> Documenti</td>
                                     <td align='center'><img src='images/icons/icon_lens.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Anteprima</u></a></td>
                                     <td align='center'><img src='images/icons/icon_map.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' style='color: #963232 !important; font-weight: bold;'><u>Mappa</u></a></td>
@@ -291,6 +323,35 @@ function getTooltipInformation($pdo,$record){
                         </div>";
     }
 
+
+    // EVENT
+    else if($record->type=="event"){
+        $info_tooltip = "<div style='background: white; border-radius: 3px; padding: 10px; width: 100%; border-bottom: 2px inset #afafaf;'>
+                            <table>
+                                <tr><th align='left' width='150'  style='color:#2c2c2c;'>Codice Evento</th><td style='padding: 2px;'><a href='#event/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".$record->sitar_code."</u></a></td></tr>
+                                <tr><th align='left' width='150'  style='color:#2c2c2c;'>Titolo</th><td style='padding: 2px;'><a href='#event/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".wordwrap(str_replace('"',"'",$record->title), 70, "<br>")."</u></a></td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Descrizione</th><td style='padding: 2px;color:#2c2c2c;'>".wordwrap(str_replace('"',"'",$record->description), 70, "<br>")."</td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Creato Da</th><td style='padding: 2px;'><a href='#user/".$record->created_by."' style='color: #963232 !important; font-weight: bold;'><u>".$record->created_by_name." (#".$record->created_by.")</u></td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Creato Il</th><td style='padding: 2px;color:#2c2c2c;'>".date_format(date_create($record->created_at), 'd/m/Y')."</td></tr>
+                                <tr><th align='left' style='color:#2c2c2c;'>Licenza</th><td style='padding: 2px;color:#2c2c2c;'>".$record->license_name."</td></tr>
+                            </table>
+                            <br/>
+                            <table style='background: #ececec; padding: 10px; width: 100%; border-radius: 2px; border: 1px inset #afafaf;'>
+                                <tr>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#event/".$record->id."/coworkers' style='color: #963232 !important; font-weight: bold;'><u>".getCountEventCoworkers($pdo,$record->id)."</u></a> Collaboratori</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#event/".$record->id."/threads' style='color: #963232 !important; font-weight: bold;'><u>".getCountEventThreads($pdo,$record->id)."</u></a> Discussioni</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#event/".$record->id."/threads' style='color: #963232 !important; font-weight: bold;'><u>".getCountEventMessages($pdo,$record->id)."</u></a> Messaggi</td>
+                                </tr>
+                               <tr>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#event/".$record->id."' style='color: #963232 !important; font-weight: bold;'><u>".getCountEventFiles($pdo,$record->id)."</u></a> Documenti</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#event/".$record->id."/external_resources' style='color: #963232 !important; font-weight: bold;'><u>".getCountEventExternalResources($pdo,$record->id)."</u></a> Risorse Esterne</td>
+                                    <td align='center' style='color:#2c2c2c;text-align:left;'><a href='#event/".$record->id."/tags' style='color: #963232 !important; font-weight: bold;'><u>".getCountEventTags($pdo,$record->id)."</u></a> TAGS</td>
+                                    <td align='center' style='text-align:left;'><img src='images/icons/icon_tag.png' alt=' ' style='width:16px;height:16px;margin-right: 3px;'><a href='#' onclick='CL.app.getController(\"C_tag\").onTag(this,\"$record->type\",$record->id);return false;' style='color: #963232 !important; font-weight: bold;'><u>Tag!</u></a> </td>
+                                </tr>
+                            </table>
+                        </div>";
+    }
+
     return $info_tooltip;
 }
 
@@ -300,38 +361,12 @@ function getTooltipInformation($pdo,$record){
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function getCountOIDocs($pdo,$oi_id){
-    $statement = $pdo->prepare("
-        SELECT count(*)
-        FROM st_information_source_document
-        WHERE information_source_id = :oi_id
-    ");
 
-    $statement->execute(array(
-        "oi_id" => $oi_id
-    ));
 
-    $result = $statement->fetchAll(PDO::FETCH_OBJ);
-
-    return $result[0]->count;
-}
-
-function getCountPADocs($pdo,$pa_id){
-    $statement = $pdo->prepare("
-        SELECT count(*)
-        FROM st_archaeo_part_document
-        WHERE archaeo_part_id = :pa_id
-    ");
-
-    $statement->execute(array(
-        "pa_id" => $pa_id
-    ));
-
-    $result = $statement->fetchAll(PDO::FETCH_OBJ);
-
-    return $result[0]->count;
-}
-
+/*
+ * COLLECTION
+ *
+ */
 
 
 function getCountCollectionCoworkers($pdo,$collection_id){
@@ -436,6 +471,27 @@ function getCountCollectionTags($pdo,$collection_id){
     return $result[0]->count;
 }
 
+/*
+ * OI
+ *
+ */
+
+function getCountOIDocs($pdo,$oi_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM st_information_source_document
+        WHERE information_source_id = :oi_id
+    ");
+
+    $statement->execute(array(
+        "oi_id" => $oi_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
 function getCountOICollections($pdo, $oi_id){
     $statement = $pdo->prepare("
         SELECT count(*)
@@ -453,6 +509,45 @@ function getCountOICollections($pdo, $oi_id){
     return $result[0]->count;
 }
 
+function getCountOIEvents($pdo, $oi_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_event_tag
+        WHERE target_id = :oi_id
+          AND type like 'information_source'
+    ");
+
+    $statement->execute(array(
+        "oi_id" => $oi_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+/*
+ * PA
+ *
+ */
+
+function getCountPADocs($pdo,$pa_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM st_archaeo_part_document
+        WHERE archaeo_part_id = :pa_id
+    ");
+
+    $statement->execute(array(
+        "pa_id" => $pa_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
 function getCountPACollections($pdo, $pa_id){
     $statement = $pdo->prepare("
         SELECT count(*)
@@ -463,6 +558,133 @@ function getCountPACollections($pdo, $pa_id){
 
     $statement->execute(array(
         "pa_id" => $pa_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+function getCountPAEvents($pdo, $pa_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_event_tag
+        WHERE target_id = :pa_id
+          AND type like 'archaeo_part'
+    ");
+
+    $statement->execute(array(
+        "pa_id" => $pa_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+
+/*
+ * EVENT
+ * 
+ */
+
+function getCountEventCoworkers($pdo,$event_id){
+    $statement = $pdo->prepare("
+        SELECT (count(*)+1) as count
+        FROM kms_event_user
+        WHERE event_id = :event_id
+    ");
+
+    $statement->execute(array(
+        "event_id" => $event_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountEventThreads($pdo,$event_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_event_thread
+        WHERE event_id = :event_id
+    ");
+
+    $statement->execute(array(
+        "event_id" => $event_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountEventMessages($pdo,$event_id){
+    $statement = $pdo->prepare("
+    SELECT count(*)
+        FROM kms_event_thread_message A
+		  LEFT JOIN kms_event_thread B ON B.id = A.thread_id 
+	WHERE event_id = :event_id
+    ");
+
+    $statement->execute(array(
+        "event_id" => $event_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+function getCountEventFiles($pdo,$event_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_event_file
+        WHERE event_id = :event_id
+    ");
+
+    $statement->execute(array(
+        "event_id" => $event_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+function getCountEventExternalResources($pdo,$event_id){
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_event_external_resource
+        WHERE event_id = :event_id
+    ");
+
+    $statement->execute(array(
+        "event_id" => $event_id
+    ));
+
+    $result = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    return $result[0]->count;
+}
+
+
+
+function getCountEventTags($pdo,$event_id)
+{
+    $statement = $pdo->prepare("
+        SELECT count(*)
+        FROM kms_event_tag
+        WHERE event_id = :event_id
+    ");
+
+    $statement->execute(array(
+        "event_id" => $event_id
     ));
 
     $result = $statement->fetchAll(PDO::FETCH_OBJ);

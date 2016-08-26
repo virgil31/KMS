@@ -7,7 +7,7 @@ Ext.define('CL.view.tag.V_create_for_event', {
     autoShow: true,
     modal: true,
 
-    title: 'Scegli l\'Evento la quale aggiungere il Tag',
+    title: 'Scegli l\'Evento al quale aggiungere il Tag',
 
     width: 400,
 
@@ -21,7 +21,7 @@ Ext.define('CL.view.tag.V_create_for_event', {
     items: [
         {
             xtype: 'image',
-            src: 'images/icons/icon_calendar.png',
+            src: 'images/icons/icon_calendar_black.png',
             alt: " ",
             width: 40,
             height: 40
